@@ -22,6 +22,18 @@ const routes : Routes = [
             }
         ]
     },
+
+     // Auth Routes
+     {
+        path: '',
+        component: GeneralLayoutComponent,
+        children: [
+            {
+                path: 'auth',
+                loadChildren: () => import('./components/auth/auth.module').then(m => m.AuthModule)
+            }
+        ]
+    },
     
 ];
 

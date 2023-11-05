@@ -1,0 +1,76 @@
+ <!-- register -->
+ <section class="register">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 m-auto">
+                <div class="card m-auto">
+                    <span class="title">Registration</span>
+                    <form>
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                placeholder="Enter your username"
+                                required
+                                appInputFieldStyling
+                                />
+                                <fa-icon [icon]="faUser"></fa-icon>
+                        </div>
+
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                placeholder="Enter your email"
+                                required
+                                appInputFieldStyling
+                                />
+                                <fa-icon [icon]="faEnvelope"></fa-icon>
+                        </div>
+                        
+                        <div class="input-field">
+                            <input
+                                class="password"
+                                placeholder="Create a password"
+                                required 
+                                id="password"
+                                [type]="showPassword ? 'password' : 'text'"
+                                appInputFieldStyling
+                                />
+                                <fa-icon [icon]="faLock"></fa-icon>
+                        </div>
+                        
+                        <div class="input-field">
+                            <input 
+                                class="password"
+                                placeholder="Confirm password"
+                                required 
+                                id="confirmPassword"
+                                [type]="showPassword ? 'password' : 'text'"
+                                appInputFieldStyling
+                                />
+                                <fa-icon [icon]="faLock"></fa-icon>
+                                <fa-icon [icon]="showPassword ? faEyeSlash : faEye" class="showHidePw" (click)="togglePasswordVisibility()"></fa-icon>
+                        </div>
+
+                        <div class="input-field text-center">
+                            <div class="radio-container">
+                                <input type="radio" name="userType" id="seller" [(ngModel)]="selectedOption" [value]="'Seller'">
+                                <label for="seller" [class.active]="selectedOption === 'Seller'">Seller</label>
+                            </div>
+                            
+                            <div class="radio-container">
+                                <input type="radio" name="userType" id="buyer" [(ngModel)]="selectedOption" [value]="'Buyer'">
+                                <label for="buyer" [class.active]="selectedOption === 'Buyer'">Buyer</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn_primary mt-3 mb-3" id="create">Sign Up</button>
+                    </form>
+
+                    <div class="sign-in">
+                        Already have an account?
+                        <a (click)="navigateToLogin()">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

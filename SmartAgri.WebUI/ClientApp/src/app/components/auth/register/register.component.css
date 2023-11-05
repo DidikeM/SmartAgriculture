@@ -1,0 +1,133 @@
+.register {
+    height: min-content;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.register .container .card {
+    padding: 20px;
+    width: 400px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.register .btn_primary {
+    width: 100%;
+    font-weight: 500;
+}
+
+.register .sign-in {
+    text-align: center;
+}
+
+.register .sign-in a {
+    cursor: pointer;
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+@media (max-width: 450px) {
+.register .container .card {
+    width: 300px;
+}
+
+.register .container .title {
+    font-size: 14px;
+}
+
+.register .container .card .sign-in {
+    font-size: 14px;
+}
+
+.register .btn_primary {
+    padding: 8px 15px;
+}
+}
+
+/*****************/
+.container .title {
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.title::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: var(--primary-dark);
+    border-radius: 25px;
+}
+
+.input-field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.input-field input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid var(--gray-1);
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.input-field .ng-fa-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-1);
+    font-size: 18px;
+}
+
+.input-field .ng-fa-icon.icon {
+    left: 0;
+}
+
+.input-field .ng-fa-icon.showHidePw {
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.radio-container {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    color: var(--primary-dark);
+}
+
+.radio-container input[type="radio"] {
+    display: none;
+}
+
+.radio-container label {
+    display: inline-block;
+    width: 100px;
+    padding: 5px 15px;
+    border: 2px solid var(--primary-dark);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    text-align: center;
+}
+
+.radio-container label.active {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    cursor: default;
+}
+
+.radio-container label:hover {
+    background-color: var(--primary-dark);
+    color: var(--white);
+}

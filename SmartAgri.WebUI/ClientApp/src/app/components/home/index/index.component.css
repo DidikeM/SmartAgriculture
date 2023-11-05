@@ -20,6 +20,10 @@ section.landing .text .text-secondary {
 
 section.landing .landing-button {
     padding-top: 30px;
+    color: var(--white);
+}
+section.landing .landing-button .btn_primary{
+    color: var(--white);
 }
 
 section.landing .landing-img{
@@ -53,7 +57,7 @@ section.landing .landing-img img{
         display: none;
     }
 
-    section.landing .landing-button .btn-primary {
+    section.landing .landing-button .btn_primary {
         text-align: center;
         display: block;
     }

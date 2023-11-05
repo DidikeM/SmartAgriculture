@@ -1,0 +1,49 @@
+  <!-- login -->
+  <section class="loginpage">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 m-auto">
+                <div class="card m-auto">
+                    <div class="card-body">
+                        <div class="form-login">
+                            <span class="title">Login</span>
+                            <form>
+                                <div class="input-field">
+                                    <input
+                                        type="email"
+                                        placeholder="Enter your email"
+                                        required
+                                        appInputFieldStyling
+                                        />
+                                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                                    </div>
+
+                                <div class="input-field">
+                                    <input
+                                        placeholder="Enter your password"
+                                        required
+                                        class="password"
+                                        [type]="showPassword ? 'password' : 'text'"
+                                        appInputFieldStyling
+                                         />
+                                    <fa-icon [icon]="faLock" class="icon"></fa-icon>
+                                    <fa-icon [icon]="showPassword ? faEyeSlash : faEye" class="showHidePw" (click)="togglePasswordVisibility()"></fa-icon>
+                                </div>
+
+                                <button type="submit" class="btn_primary mt-3 mb-3" id="create">Sign in</button>
+                            </form>
+                        </div>
+                        <div class="forgot-password mb-3">
+                            or
+                            <a (click)="navigateToForgotPassword()">Forgot Password</a>
+                        </div>
+                        <div class="create-acount">
+                            Don't have an account?
+                            <a (click)="navigateToRegister()">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
