@@ -1,0 +1,60 @@
+.reply-topic {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.reply-topic-info .reply-topic-info {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1.1px;
+}
+
+.reply-topic .reply-topic-info .ng-fa-icon {
+   font-size: 50px;
+   color: var(--gray-1);
+   display: block;
+   text-align: center;
+}
+
+.reply-topic .reply-topic-info #reply-topic-username {
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+}
+
+.reply-topic .reply-topic-answer p {
+    font-size: 14px;
+    min-height: 70%;
+}
+
+@media (max-width: 768px) {
+    .reply-topic {
+        font-size: 26px;
+    }
+
+    .reply-topic .reply-topic-info .ng-fa-icon {
+       font-size: 40px;
+    }
+
+    .reply-topic .topics-info #topics-info-username {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 597px) {
+    .reply-topic {
+        font-size: 22px;
+    }
+
+    .reply-topic .reply-topic-info .ng-fa-icon {
+       font-size: 30px;
+    }
+
+    .topics-info .topics-info-user #topics-info-username {
+        font-size: 11px;
+    }
+}

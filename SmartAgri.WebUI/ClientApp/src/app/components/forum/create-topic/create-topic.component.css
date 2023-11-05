@@ -1,0 +1,45 @@
+.create-topic {
+    height: min-content;
+    padding: 20px;
+}
+
+.create-topic .card-body {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 40px;
+}
+
+.create-topic .card-body .topic-create-title h2 {
+    font-size: 25px;
+    color: var(--primary-dark);
+}
+
+.create-topic .input-form {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+#submit-container {
+    text-align: right;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.create-topic #submit-container .btn_primary {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+@media (max-width: 575px) {
+    .create-topic .card-body .topic-create-title h2 {
+        font-size: 20px;
+    }
+}

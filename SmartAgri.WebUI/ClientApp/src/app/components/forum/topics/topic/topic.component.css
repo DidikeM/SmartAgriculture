@@ -1,0 +1,126 @@
+.topics-info {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.topics-info .topics-info-user {
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid var(--gray-1);
+    letter-spacing: 1.1px;
+    text-align: center;
+}
+
+.topics-info .topics-info-user .ng-fa-icon {
+   font-size: 50px;
+   margin: 5px!important;
+   color: var(--gray-1);
+   display: block;
+}
+
+.topics-info .topics-info-user p {
+    font-weight: 400;
+    color: var(--black);
+    margin: 0;
+    font-size: 14px;
+}
+
+.topics-info .topics-info-user #topics-info-username {
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.topics-info .topics-info-user #topics-info-date,
+.topics-info .topics-info-user #topics-info-answer {
+    color: var(--gray-1);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.topics-info-question .topics-info-question-title a {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+}
+
+.topics-info-question .topics-info-question-title a:hover {
+    color: var(--primary-dark);
+}
+
+.topics-info-question .topics-info-question-title hr {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.topics-info-question .topics-info-lite-question {
+    font-size: 16px;
+    min-height: 70%;
+}
+
+@media (max-width: 768px) {
+    .topics-title {
+        font-size: 26px;
+    }
+
+    .topics-info .topics-info-user .ng-fa-icon {
+       font-size: 40px;
+    }
+
+    .topics-info .topics-info-user p {
+        font-size: 13px;
+    }
+
+    .topics-info .topics-info-user #topics-info-username {
+        font-size: 14px;
+    }
+
+    .topics-info .topics-info-user #topics-info-date,
+    .topics-info .topics-info-user #topics-info-answer {
+        font-size: 15px;
+    }
+
+    .topics-info-question .topics-info-question-title a {
+        font-size: 14px;
+    }
+
+    .topics-info-question .topics-info-lite-question {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 597px) {
+    .topics-title {
+        font-size: 22px;
+    }
+
+    .topics-info .topics-info-user .ng-fa-icon {
+       font-size: 30px;
+    }
+
+    .topics-info .topics-info-user p {
+        font-size: 10px;
+    }
+
+    .topics-info .topics-info-user #topics-info-username {
+        font-size: 11px;
+    }
+
+    .topics-info .topics-info-user #topics-info-date,
+    .topics-info .topics-info-user #topics-info-answer {
+        font-size: 12px;
+    }
+
+    .topics-info-question .topics-info-question-title a {
+        font-size: 11px;
+    }
+
+    .topics-info-question .topics-info-lite-question {
+        font-size: 11px;
+    }
+}

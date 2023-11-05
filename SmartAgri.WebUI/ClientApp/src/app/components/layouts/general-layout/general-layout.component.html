@@ -4,7 +4,7 @@
         <div class="logo"><a routerLink="/"><img src="assets/images/agri-logo.png" alt="agri-logo"></a></div>
         <ul class="links">
             <li><a routerLink="/">Home</a></li>
-            <li><a>Forum</a></li>
+            <li><a routerLink="/forum/topics">Forum</a></li>
             <li><a routerLink="/contact">Contact Us</a></li>
         </ul>
             <a class="btn_primary" routerLink="/auth/login">Sign In</a>
@@ -16,7 +16,7 @@
     <div class="dropdown_menu" [class.open]="isDropdownOpen">
         <ul>
             <li><a routerLink="/">Home</a></li>
-            <li><a>Forum</a></li>
+            <li><a routerLink="/forum/topics">Forum</a></li>
             <li><a routerLink="/contact">Contact Us</a></li>
             <li><a class="btn_primary" routerLink="/auth/login">Sign in</a></li>
         </ul>

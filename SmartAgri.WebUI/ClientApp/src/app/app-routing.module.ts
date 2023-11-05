@@ -35,6 +35,17 @@ const routes : Routes = [
         ]
     },
     
+     // Forum Routes
+     {
+        path: '',
+        component: GeneralLayoutComponent,
+        children: [
+            {
+                path: 'forum',
+                loadChildren: () => import('./components/forum/forum.module').then(m => m.ForumModule)
+            }
+        ]
+    }
 ];
 
 @NgModule({

@@ -8,7 +8,6 @@ import { GeneralLayoutComponent } from './components/layouts/general-layout/gene
 import { DashboardLayoutComponent } from './components/layouts/dashboard-layout/dashboard-layout.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
 @NgModule({
   declarations: [
     AppComponent,
