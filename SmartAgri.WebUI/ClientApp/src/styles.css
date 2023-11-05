@@ -1,0 +1,85 @@
+/* Color setup*/
+:root {
+    --primary: #7db667;
+    --primary-dark: #57ac5a;
+    --black: #333333;
+    --gray-1: #788190;
+    --gray-2: #d3d4db;
+    --gray-3: #cccccc;
+    --white: #ffffff;
+    --body: #fefefe;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif!important;
+    background-color: var(--body);
+}
+
+li {
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+    font-size: 0.9rem;
+}
+
+/* buttons */
+.btn_primary {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight:600;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--primary-dark);
+    transition: border-radius 0.3s ease;
+}
+
+.btn_primary:hover {
+    border-radius: 30px;
+    background: var(--primary);
+}
+
+.btn_secondary {
+    position: relative;
+    top: 100px;
+    background: var(--white);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    width: 100%;
+    font-size: 16px;
+    color: var(--primary-dark);
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.btn_secondary:hover {
+    border-radius: 30px;
+    background: var(--white);
+    color: var(--primary-dark);
+}

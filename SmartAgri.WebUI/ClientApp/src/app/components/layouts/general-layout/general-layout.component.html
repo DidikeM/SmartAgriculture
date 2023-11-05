@@ -1,0 +1,37 @@
+<!-- Header section -->
+<header>
+    <div class="navbar">
+        <div class="logo"><a><img src="assets/images/agri-logo.png" alt="agri-logo"></a></div>
+        <ul class="links">
+            <li><a>Home</a></li>
+            <li><a>Forum</a></li>
+            <li><a>Contact Us</a></li>
+        </ul>
+            <a class="btn_primary" routerLink="/auth/login">Sign In</a>
+        <div class="toggle_btn" (click)="toggleDropdown()" [@rotateIcon]="isDropdownOpen ? 'open' : 'closed'">
+            <fa-icon [icon]="toggleIcon"></fa-icon>
+        </div>
+    </div>
+
+    <div class="dropdown_menu" [class.open]="isDropdownOpen">
+        <ul>
+            <li><a>Home</a></li>
+            <li><a>Forum</a></li>
+            <li><a>Contact Us</a></li>
+            <li><a class="btn_primary">Sign in</a></li>
+        </ul>
+    </div>
+</header>
+
+<router-outlet></router-outlet>
+
+<!-- Footer section -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="copy">
+                &copy; 2023 all right reserved - Agri Coin Team
+            </div>
+        </div>
+    </div>
+</footer>
