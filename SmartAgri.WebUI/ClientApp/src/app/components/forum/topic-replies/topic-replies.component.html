@@ -12,6 +12,7 @@
                         <app-topic-reply></app-topic-reply>
                     <form>
                         <div id="submit-container">
+                            <quill-editor class="content-editor" [placeholder]="''" [modules]="QuillConfiguration" [styles]="{'height': '160px'}" ></quill-editor>
                             <button type="submit" class="btn_primary">Submit</button>
                         </div>
                     </form>

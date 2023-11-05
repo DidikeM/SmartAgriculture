@@ -37,6 +37,11 @@
     margin-bottom: 10px;
 }
 
+#submit-container .content-editor {
+    width: 100%;
+    text-align: left;
+}  
+
 .topic-reply #submit-container .btn_primary {
     margin-top: 20px;
     font-weight: 500;

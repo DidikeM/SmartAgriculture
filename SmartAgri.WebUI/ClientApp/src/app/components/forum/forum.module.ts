@@ -8,6 +8,7 @@ import { TopicComponent } from './topics/topic/topic.component';
 import { CreateTopicComponent } from './create-topic/create-topic.component';
 import { TopicRepliesComponent } from './topic-replies/topic-replies.component';
 import { TopicReplyComponent } from './topic-replies/topic-reply/topic-reply.component';
+import { QuillModule } from 'ngx-quill'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TopicReplyComponent } from './topic-replies/topic-reply/topic-reply.com
     CommonModule,
     ForumRoutingModule,
     FontAwesomeModule,
+    QuillModule.forRoot()
   ]
 })
 export class ForumModule { }

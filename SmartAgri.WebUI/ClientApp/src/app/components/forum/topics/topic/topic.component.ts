@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-
 @Component({
   selector: 'app-topic',
   templateUrl: './topic.component.html',
