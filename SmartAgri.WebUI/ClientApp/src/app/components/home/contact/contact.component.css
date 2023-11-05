@@ -1,0 +1,139 @@
+.contactus {
+    position: relative;
+    width: 100%;
+    height: 82vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactus .contact-grid {
+    width: 100%;
+    height: 550px;
+    background: var(--white);
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    z-index: 1000;
+}
+
+.contactus .contact-body {
+    background-size: initial;
+    background-position: left top;
+    background-image: url(https://www.elegantthemes.com/layouts/wp-content/uploads/2019/04/farm-09-2-3.png) !important;
+    background-repeat: no-repeat;
+}
+
+.contactus .submit-form {
+    background: var(--primary);
+}
+
+.contactus .contact-text {
+    padding: 20px;
+    font-size: 20px;
+    color: var(--gray-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    text-align: center;
+}
+
+.contactus .contact-title {
+    font-size: 25px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    padding-top: 10px;
+    color: var(--white);
+}
+
+.contactus .contact-title.title {
+    font-size: 40px;
+    text-align: center;
+}
+
+.contactus form {
+    padding: 0 50px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.contactus .input-box {
+    height: 40px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.contactus .input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid var(--white);
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    color: var(--white);
+    font-size: 16px;
+}
+
+.contactus .input-box label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    transition: 0.3s;
+}
+
+.contactus .input-box .input:focus ~ label,
+.contactus .input-box .input:valid ~ label {
+    top: -1px;
+    left: 10px;
+    background: var(--primary);
+    font-weight: 500;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.contactus textarea.input {
+    resize: none;
+    min-height: 150px;
+    overflow: auto;
+    padding-top: 10px;
+}
+
+@media (max-width: 850px) {
+    .contactus .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contactus .contact-body {
+        display: none;
+    }
+
+    .contactus .btn {
+        height: 40px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contactus .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contactus .contact-body {
+        display: none;
+    }
+
+    .contactus .btn {
+        height: 40px;
+        font-size: 12px;
+    }
+}
