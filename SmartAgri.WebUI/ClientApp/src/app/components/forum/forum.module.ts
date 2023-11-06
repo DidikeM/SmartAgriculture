@@ -21,8 +21,8 @@ import { QuillModule } from 'ngx-quill'
   imports: [
     CommonModule,
     ForumRoutingModule,
-    FontAwesomeModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    FontAwesomeModule
   ]
 })
 export class ForumModule { }
