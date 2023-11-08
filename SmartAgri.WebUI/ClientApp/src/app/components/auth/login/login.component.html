@@ -17,12 +17,12 @@
                                             formControlName="email"
                                         />
                                         <fa-icon [icon]="faEnvelope"></fa-icon>
-                                </div>
-                                <div *ngIf="getControl('email')?.errors && getControl('email')?.touched">
-                                    <small class="text-danger" *ngIf="getControl('email')?.errors?.['required']">Email is required</small>
-                                    <small class="text-danger" *ngIf="getControl('email')?.errors?.['pattern']">Please enter a valid email.</small><br>
-                                    <small class="text-danger" *ngIf="getControl('email')?.errors?.['maxlength']">Only 32 characters are allowed</small>
-                                </div>
+                                    </div>
+                                    <div *ngIf="getControl('email')?.errors && getControl('email')?.touched">
+                                        <small class="text-danger" *ngIf="getControl('email')?.errors?.['required']">{{ validationService.getErrorMessageForControl('Email', getControl('email')!) }}</small>
+                                        <small class="text-danger" *ngIf="getControl('email')?.errors?.['maxlength']">{{ validationService.getErrorMessageForControl('Email', getControl('email')!) }}</small>
+                                        <small class="text-danger" *ngIf="getControl('email')?.errors?.['pattern']">{{ validationService.getErrorMessageForControl('Email', getControl('email')!) }}</small>
+                                    </div>
                                 <div class="input-field">
                                     <input
                                             placeholder="Enter your password"
@@ -36,9 +36,8 @@
                                     <fa-icon [icon]="showPassword ? faEyeSlash : faEye" class="showHidePw" (click)="togglePasswordVisibility()"></fa-icon>
                                 </div>
                                 <div *ngIf="getControl('password')?.errors && getControl('password')?.touched">
-                                    <small class="text-danger" *ngIf="getControl('password')?.errors?.['required']">Password is required</small>
-                                    <small class="text-danger" *ngIf="getControl('password')?.errors?.['maxlength'] || getControl('password')?.errors?.['minlength']">Password should be minimum 8 maximum 32 characters</small>
-                                </div>
+                                    <small class="text-danger" *ngIf="getControl('password')?.errors?.['required']">{{ validationService.getErrorMessageForControl('Password', getControl('password')!) }}</small>
+                                    <small class="text-danger" *ngIf="getControl('password')?.errors?.['maxlength'] || getControl('password')?.errors?.['minlength']">{{ validationService.getErrorMessageForControl('Password', getControl('password')!) }}</small>                                </div>
                                 <button type="submit" class="btn_primary mt-3 mb-3" id="create" [disabled]="!loginForm.valid">Sign in</button>
                             </form>
                         </div>

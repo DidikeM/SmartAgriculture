@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { faEnvelope, faLock, faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 
+import { ValidationService } from '../../../services/validation.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,15 +20,14 @@ export class LoginComponent implements OnInit{
 
   showPassword = true;
 
+  constructor(private router: Router, public validationService: ValidationService) {}
+
   loginForm!: FormGroup;
-  emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/;;
-  
-  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.maxLength(32),Validators.pattern(this.emailRegex)]),
-      'password': new FormControl(null, [Validators.required, Validators.maxLength(32), Validators.minLength(8)]),
+        email: new FormControl(null, this.validationService.emailValidation),
+        password: new FormControl(null, this.validationService.passwordValidation) 
     })
   }
 
@@ -35,9 +36,8 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit(){
-    console.log(this.loginForm);
+    console.log(this.loginForm.value);
   }
-
 
   navigateToRegister() {
     this.router.navigate(['/auth/register']); 

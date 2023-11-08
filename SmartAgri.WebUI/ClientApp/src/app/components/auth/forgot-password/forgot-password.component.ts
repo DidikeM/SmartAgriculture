@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { ValidationService } from '../../../services/validation.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,11 +13,12 @@ export class ForgotPasswordComponent implements OnInit{
   faEnvelope = faEnvelope;
 
   forgotPasswordForm!: FormGroup;
-  emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/;
+
+  constructor(public validationService: ValidationService) {}
 
   ngOnInit() {
     this.forgotPasswordForm = new FormGroup({
-      'email': new FormControl(null, [Validators.required, Validators.maxLength(32),Validators.pattern(this.emailRegex)]),
+      'email': new FormControl(null, [this.validationService.emailValidation]),
     });
   }
 

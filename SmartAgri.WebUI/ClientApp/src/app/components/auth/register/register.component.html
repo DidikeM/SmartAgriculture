@@ -17,8 +17,8 @@
                             <fa-icon [icon]="faUser"></fa-icon>
                         </div>
                         <div *ngIf="getControl('username')?.errors && getControl('username')?.touched">
-                            <small class="text-danger" *ngIf="getControl('username')?.errors?.['required']">Username is required</small>
-                            <small class="text-danger" *ngIf="getControl('username')?.errors?.['minlength']">Minimum 3 characters required</small>
+                            <small class="text-danger" *ngIf="getControl('username')?.errors?.['required']">{{ validationService.getErrorMessageForControl('Username', getControl('username')!) }}</small>
+                            <small class="text-danger" *ngIf="getControl('username')?.errors?.['minlength']">{{ validationService.getErrorMessageForControl('Username', getControl('username')!) }}</small>
                         </div>
                         <div class="input-field">
                             <input
@@ -31,9 +31,9 @@
                             <fa-icon [icon]="faEnvelope"></fa-icon>
                         </div>
                         <div *ngIf="getControl('email')?.errors && getControl('email')?.touched">
-                            <small class="text-danger" *ngIf="getControl('email')?.errors?.['required']">Email is required</small>
-                            <small class="text-danger" *ngIf="getControl('email')?.errors?.['pattern']">Please enter a valid email.</small>
-                            <small class="text-danger" *ngIf="getControl('email')?.errors?.['maxlength']">Only 32 characters are allowed</small><br>
+                            <small class="text-danger" *ngIf="getControl('email')?.errors?.['required']">{{ validationService.getErrorMessageForControl('Email', getControl('email')!) }}</small>
+                            <small class="text-danger" *ngIf="getControl('email')?.errors?.['maxlength']">{{ validationService.getErrorMessageForControl('Email', getControl('email')!) }}</small>
+                            <small class="text-danger" *ngIf="getControl('email')?.errors?.['pattern']">{{ validationService.getErrorMessageForControl('Email', getControl('email')!) }}</small>
                         </div>
                         <div class="input-field">
                             <input
@@ -49,8 +49,8 @@
                             
                         </div>
                         <div *ngIf="getControl('password')?.errors && getControl('password')?.touched">
-                            <small class="text-danger" *ngIf="getControl('password')?.errors?.['required']">Password is required</small>
-                            <small class="text-danger" *ngIf="getControl('password')?.errors?.['maxlength'] || getControl('password')?.errors?.['minlength']">Password should be minimum 8 maximum 32 characters</small>
+                            <small class="text-danger" *ngIf="getControl('password')?.errors?.['required']">{{ validationService.getErrorMessageForControl('Password', getControl('password')!) }}</small>
+                            <small class="text-danger" *ngIf="getControl('password')?.errors?.['maxlength'] || getControl('password')?.errors?.['minlength']">{{ validationService.getErrorMessageForControl('Password', getControl('password')!) }}</small>
                         </div>
                         <div class="input-field">
                             <input 

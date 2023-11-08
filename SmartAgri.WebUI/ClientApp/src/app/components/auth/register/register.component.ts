@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 
 import { faEnvelope, faUser, faLock, faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
-import { passwordMatch } from '../validators/passwordMatch';
+import { ValidationService } from '../../../services/validation.service';
 
 @Component({
   selector: 'app-register',
@@ -21,19 +21,18 @@ export class RegisterComponent implements OnInit {
 
   selectedOption: string = '';
 
+  constructor(private router: Router, public validationService: ValidationService) {}
+ 
   registerForm!: FormGroup;
-  emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/;
-
-  constructor(private router: Router) {}
 
   ngOnInit() {
     this.registerForm = new FormGroup({
-      'username': new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      'email': new FormControl(null, [Validators.required, Validators.maxLength(32),Validators.pattern(this.emailRegex)]),
-      'password': new FormControl(null, [Validators.required, Validators.maxLength(32), Validators.minLength(8)]),
+      'username': new FormControl(null, [this.validationService.usernameValidation]),
+      'email': new FormControl(null, [this.validationService.emailValidation]),
+      'password': new FormControl(null, [this.validationService.passwordValidation]),
       'confirmPassword': new FormControl(null, Validators.required),
       'userType': new FormControl(null, Validators.required),
-    }, [passwordMatch("password", "confirmPassword")]);
+    }, this.validationService.passwordMatch('password', 'confirmPassword'));
   }
 
   getControl(name:any) : AbstractControl | null{
@@ -51,5 +50,4 @@ export class RegisterComponent implements OnInit {
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
-
 }
