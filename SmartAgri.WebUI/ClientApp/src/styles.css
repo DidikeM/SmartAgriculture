@@ -86,3 +86,7 @@ a {
     background: var(--white);
     color: var(--primary-dark);
 }
+
+.text-danger{
+    color: rgb(183, 32, 32)!important;
+}

@@ -5,27 +5,36 @@
             <div class="col-lg-5 m-auto">
                 <div class="card m-auto">
                     <span class="title">Registration</span>
-                    <form>
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                         <div class="input-field">
                             <input
                                 type="text"
                                 placeholder="Enter your username"
                                 required
                                 appInputFieldStyling
-                                />
-                                <fa-icon [icon]="faUser"></fa-icon>
+                                formControlName="username"
+                            />
+                            <fa-icon [icon]="faUser"></fa-icon>
                         </div>
-
+                        <div *ngIf="getControl('username')?.errors && getControl('username')?.touched">
+                            <small class="text-danger" *ngIf="getControl('username')?.errors?.['required']">Username is required</small>
+                            <small class="text-danger" *ngIf="getControl('username')?.errors?.['minlength']">Minimum 3 characters required</small>
+                        </div>
                         <div class="input-field">
                             <input
                                 type="text"
                                 placeholder="Enter your email"
                                 required
                                 appInputFieldStyling
-                                />
-                                <fa-icon [icon]="faEnvelope"></fa-icon>
+                                formControlName="email"
+                            />
+                            <fa-icon [icon]="faEnvelope"></fa-icon>
                         </div>
-                        
+                        <div *ngIf="getControl('email')?.errors && getControl('email')?.touched">
+                            <small class="text-danger" *ngIf="getControl('email')?.errors?.['required']">Email is required</small>
+                            <small class="text-danger" *ngIf="getControl('email')?.errors?.['pattern']">Please enter a valid email.</small>
+                            <small class="text-danger" *ngIf="getControl('email')?.errors?.['maxlength']">Only 32 characters are allowed</small><br>
+                        </div>
                         <div class="input-field">
                             <input
                                 class="password"
@@ -34,10 +43,15 @@
                                 id="password"
                                 [type]="showPassword ? 'password' : 'text'"
                                 appInputFieldStyling
-                                />
-                                <fa-icon [icon]="faLock"></fa-icon>
+                                formControlName="password"
+                            />
+                            <fa-icon [icon]="faLock"></fa-icon>
+                            
                         </div>
-                        
+                        <div *ngIf="getControl('password')?.errors && getControl('password')?.touched">
+                            <small class="text-danger" *ngIf="getControl('password')?.errors?.['required']">Password is required</small>
+                            <small class="text-danger" *ngIf="getControl('password')?.errors?.['maxlength'] || getControl('password')?.errors?.['minlength']">Password should be minimum 8 maximum 32 characters</small>
+                        </div>
                         <div class="input-field">
                             <input 
                                 class="password"
@@ -46,23 +60,43 @@
                                 id="confirmPassword"
                                 [type]="showPassword ? 'password' : 'text'"
                                 appInputFieldStyling
-                                />
-                                <fa-icon [icon]="faLock"></fa-icon>
-                                <fa-icon [icon]="showPassword ? faEyeSlash : faEye" class="showHidePw" (click)="togglePasswordVisibility()"></fa-icon>
+                                formControlName="confirmPassword"
+                            />
+                            <fa-icon [icon]="faLock"></fa-icon>
+                            <fa-icon [icon]="showPassword ? faEyeSlash : faEye" class="showHidePw" (click)="togglePasswordVisibility()"></fa-icon>
                         </div>
-
-                        <div class="input-field text-center">
+                        <div *ngIf="getControl('confirmPassword')?.errors && getControl('confirmPassword')?.touched">
+                            <small class="text-danger" *ngIf="getControl('confirmPassword')?.errors?.['required']">Confirm Password is required</small>
+                        </div>
+                        <div *ngIf="registerForm.errors?.['passswordMismatchError'] && getControl('confirmPassword')?.touched">
+                            <small class="text-danger">Password mismatch</small>  
+                        </div>
+                         <div class="input-field text-center">
                             <div class="radio-container">
-                                <input type="radio" name="userType" id="seller" [(ngModel)]="selectedOption" [value]="'Seller'">
-                                <label for="seller" [class.active]="selectedOption === 'Seller'">Seller</label>
+                                <input
+                                    type="radio"
+                                    name="userType"
+                                    id="seller"
+                                    formControlName="userType"
+                                    [value]="'Seller'"
+                                    [ngClass]="{error : getControl('userType')?.errors && getControl('userType')?.touched}"
+                                >
+                                <label for="seller" [class.active]="registerForm.get('userType')?.value === 'Seller'">Seller</label>
                             </div>
                             
                             <div class="radio-container">
-                                <input type="radio" name="userType" id="buyer" [(ngModel)]="selectedOption" [value]="'Buyer'">
-                                <label for="buyer" [class.active]="selectedOption === 'Buyer'">Buyer</label>
+                                <input
+                                    type="radio"
+                                    name="userType"
+                                    id="buyer"
+                                    formControlName="userType"
+                                    [value]="'Buyer'"
+                                >
+                                <label for="buyer" [class.active]="registerForm.get('userType')?.value === 'Buyer'">Buyer</label>
                             </div>
-                        </div>
-                        <button type="submit" class="btn_primary mt-3 mb-3" id="create">Sign Up</button>
+                            
+                        </div> 
+                        <button type="submit" class="btn_primary mt-3 mb-3" id="create" [disabled]="!registerForm.valid">Sign Up</button>
                     </form>
 
                     <div class="sign-in">
