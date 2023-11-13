@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartAgri.WebUI", "SmartAgri.WebUI\SmartAgri.WebUI.csproj", "{8FF2EC1B-E764-4464-B8CB-4646A646AFC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartAgri.WebUI", "SmartAgri.WebUI\SmartAgri.WebUI.csproj", "{8FF2EC1B-E764-4464-B8CB-4646A646AFC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartAgri.Entities", "SmartAgri.Entities\SmartAgri.Entities.csproj", "{203E29E5-9AD3-49FB-B022-AA626658156D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartAgri.DataAccess", "SmartAgri.DataAccess\SmartAgri.DataAccess.csproj", "{9E1C1848-5ECD-4F32-BB5C-EEA1DC17269C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartAgri.Business", "SmartAgri.Business\SmartAgri.Business.csproj", "{46BBEF23-00CA-49CE-A4FB-AC01FF8A3816}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{8FF2EC1B-E764-4464-B8CB-4646A646AFC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FF2EC1B-E764-4464-B8CB-4646A646AFC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FF2EC1B-E764-4464-B8CB-4646A646AFC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{203E29E5-9AD3-49FB-B022-AA626658156D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{203E29E5-9AD3-49FB-B022-AA626658156D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{203E29E5-9AD3-49FB-B022-AA626658156D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{203E29E5-9AD3-49FB-B022-AA626658156D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E1C1848-5ECD-4F32-BB5C-EEA1DC17269C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E1C1848-5ECD-4F32-BB5C-EEA1DC17269C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E1C1848-5ECD-4F32-BB5C-EEA1DC17269C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E1C1848-5ECD-4F32-BB5C-EEA1DC17269C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46BBEF23-00CA-49CE-A4FB-AC01FF8A3816}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46BBEF23-00CA-49CE-A4FB-AC01FF8A3816}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46BBEF23-00CA-49CE-A4FB-AC01FF8A3816}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46BBEF23-00CA-49CE-A4FB-AC01FF8A3816}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
