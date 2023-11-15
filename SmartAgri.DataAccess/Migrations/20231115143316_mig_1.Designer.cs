@@ -11,7 +11,7 @@ using SmartAgri.DataAccess.Concrete.EntityFramework;
 namespace SmartAgri.DataAccess.Migrations
 {
     [DbContext(typeof(SmartAgriContext))]
-    [Migration("20231113205132_mig_1")]
+    [Migration("20231115143316_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
