@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace SmartAgri.Entities.Concrete
 {
-    public class Reply : IEntity
+    public class Topic : IEntity
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int TopicId { get; set; }
-        public DateTime Date { get; set; }
+        public string Title { get; set; } = null!;
         public string Text { get; set; } = null!;
-        public User User { get; set; } = null!;
-        public Topic Topic { get; set; } = null!;
+        public DateTime Date { get; set; }
+        public virtual ICollection<Reply> Replies { get; set; } = new List<Reply>();
+        public virtual User User { get; set; } = null!;
     }
 }
