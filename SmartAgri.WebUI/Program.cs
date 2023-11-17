@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using SmartAgri.Business.Abstract;
+using SmartAgri.Business.Concrete;
+using SmartAgri.DataAccess.Abstract;
 using SmartAgri.DataAccess.Concrete.EntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,10 +15,13 @@ var constr = builder.Configuration.GetConnectionString("default");
 builder.Services.AddDbContextFactory<SmartAgriContext>(option =>
 {
     option.UseNpgsql(constr);
-    //AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+    AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 });
 
+builder.Services.AddSingleton<ITopicDal, EfTopicDal>();
+builder.Services.AddSingleton<IReplyDal, EfReplyDal>();
 
+builder.Services.AddSingleton<IFormService, FormService>();
 
 var app = builder.Build();
 

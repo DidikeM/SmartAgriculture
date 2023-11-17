@@ -10,6 +10,9 @@ namespace SmartAgri.DataAccess.Concrete.EntityFramework;
 
 public class SmartAgriContext : DbContext
 {
+    public SmartAgriContext()
+    {
+    }
     public SmartAgriContext(DbContextOptions<SmartAgriContext> options) : base(options)
     {
     }   

@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SmartAgri.DataAccess\SmartAgri.DataAccess.csproj" />
     <ProjectReference Include="..\SmartAgri.Entities\SmartAgri.Entities.csproj" />
   </ItemGroup>
