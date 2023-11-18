@@ -11,5 +11,13 @@ namespace SmartAgri.DataAccess.Concrete.EntityFramework
         {
             _contextFactory = contextFactory;
         }
+
+        public List<Reply> GetRepliesWithUserByTopicId(int topicId)
+        {
+            using (var context = _contextFactory.CreateDbContext())
+            {
+                return context.Replies.Include(r => r.User).Where(r => r.TopicId == topicId).ToList();
+            }
+        }
     }
 }

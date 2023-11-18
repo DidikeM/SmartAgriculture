@@ -16,23 +16,19 @@ namespace SmartAgri.WebUI.Controllers
         [HttpGet]
         public IActionResult GetTopics()
         {
-            List<Topic> topics = _formService.GetTopics();
+            List<Topic> topics = _formService.GetTopicsWithUsers();
             return Json(topics);
         }
 
         [HttpGet]
         public IActionResult GetTopic(int id)
         {
-            Topic topic = _formService.GetTopic(id);
+            Topic topic = _formService.GetTopicWithUserById(id);
             if (topic == null)
             {
                 return NotFound();
             }
-            foreach (var reply in topic.Replies)
-            {
-                reply.Topic = null!;
-                reply.User = null!;
-            }
+            topic.User.Topics.Clear();
             return Json(topic);
         }
 
@@ -42,6 +38,13 @@ namespace SmartAgri.WebUI.Controllers
             topic.Date = DateTime.Now;
             _formService.AddTopic(topic);
             return Ok();
+        }
+
+        [HttpGet]
+        public IActionResult GetReplies(int topicId)
+        {
+            List<Reply> replies = _formService.GetRepliesWithUserByTopicId(topicId);
+            return Json(replies);
         }
 
         [HttpPost]

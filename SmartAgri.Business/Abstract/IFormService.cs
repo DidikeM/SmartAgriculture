@@ -11,7 +11,9 @@ namespace SmartAgri.Business.Abstract
     {
         void AddReply(Reply reply);
         void AddTopic(Topic topic);
-        Topic GetTopic(int id);
+        Topic GetTopicWithUserById(int id);
         List<Topic> GetTopics();
+        List<Reply> GetRepliesWithUserByTopicId(int topicId);
+        List<Topic> GetTopicsWithUsers();
     }
 }

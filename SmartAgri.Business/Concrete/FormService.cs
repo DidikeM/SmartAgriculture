@@ -29,14 +29,24 @@ namespace SmartAgri.Business.Concrete
             _topicDal.Add(topic);
         }
 
-        public Topic GetTopic(int id)
+        public Topic GetTopicWithUserById(int id)
         {
-            return _topicDal.GetTopicWithRepliesById(id);
+            return _topicDal.GetTopicWithUserById(id);
         }
 
         public List<Topic> GetTopics()
         {
             return _topicDal.GetAll();
+        }
+
+        public List<Topic> GetTopicsWithUsers()
+        {
+            return _topicDal.GetTopicsWithUsers();
+        }
+
+        public List<Reply> GetRepliesWithUserByTopicId(int topicId)
+        {
+            return _replyDal.GetRepliesWithUserByTopicId(topicId);
         }
     }
 }

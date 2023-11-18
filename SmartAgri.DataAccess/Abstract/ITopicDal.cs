@@ -9,6 +9,7 @@ namespace SmartAgri.DataAccess.Abstract
 {
     public interface ITopicDal : IEntityRepository<Topic>
     {
-        Topic GetTopicWithRepliesById(int id);
+        List<Topic> GetTopicsWithUsers();
+        Topic GetTopicWithUserById(int id);
     }
 }
