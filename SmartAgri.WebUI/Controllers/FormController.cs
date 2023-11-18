@@ -17,6 +17,11 @@ namespace SmartAgri.WebUI.Controllers
         public IActionResult GetTopics()
         {
             List<Topic> topics = _formService.GetTopicsWithUsers();
+
+            foreach (var item in topics)
+            {
+                item.User.Topics = null!;
+            }
             return Json(topics);
         }
 
@@ -28,7 +33,7 @@ namespace SmartAgri.WebUI.Controllers
             {
                 return NotFound();
             }
-            topic.User.Topics.Clear();
+            topic.User.Topics = null!;
             return Json(topic);
         }
 
@@ -44,6 +49,12 @@ namespace SmartAgri.WebUI.Controllers
         public IActionResult GetReplies(int topicId)
         {
             List<Reply> replies = _formService.GetRepliesWithUserByTopicId(topicId);
+
+            foreach (var item in replies)
+            {
+                item.User.Replies = null!;
+            }
+
             return Json(replies);
         }
 
