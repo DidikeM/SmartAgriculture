@@ -14,6 +14,6 @@ export class TopicComponent {
   constructor(private router: Router) {}
 
   navigateToReplyTopic(){
-    this.router.navigate(['/forum/topic-replies']); 
+    this.router.navigate(['/forum/topicreplies']); 
   }
 }

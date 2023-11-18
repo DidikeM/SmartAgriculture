@@ -37,7 +37,7 @@ namespace SmartAgri.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateTopic(Topic topic)
+        public IActionResult CreateTopic([FromBody] Topic topic)
         {
             topic.Date = DateTime.Now;
             _formService.AddTopic(topic);

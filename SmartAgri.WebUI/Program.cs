@@ -18,6 +18,12 @@ builder.Services.AddDbContextFactory<SmartAgriContext>(option =>
     AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 });
 
+builder.Services.AddCors(c =>
+{
+    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().
+     AllowAnyHeader());
+});
+
 builder.Services.AddSingleton<ITopicDal, EfTopicDal>();
 builder.Services.AddSingleton<IReplyDal, EfReplyDal>();
 
@@ -31,6 +37,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseCors("AllowOrigin");
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

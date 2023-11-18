@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ForumRoutingModule } from './forum-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -21,6 +22,7 @@ import { QuillModule } from 'ngx-quill'
   imports: [
     CommonModule,
     ForumRoutingModule,
+    ReactiveFormsModule,
     QuillModule.forRoot(),
     FontAwesomeModule
   ]

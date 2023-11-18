@@ -38,6 +38,10 @@
   text-align: left;
 }
 
+.create-topic #submit-container .ng-star-inserted  {
+   text-align: left;
+}
+
 .create-topic #submit-container .btn_primary {
     margin-top: 20px;
     font-weight: 500;

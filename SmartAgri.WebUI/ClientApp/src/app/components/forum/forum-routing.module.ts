@@ -10,8 +10,8 @@ const routes: Routes = [
     path:'',
     children:[
       { path: 'topics', component: TopicsComponent },
-      { path: 'create-topics', component: CreateTopicComponent },
-      { path: 'topic-replies', component:  TopicRepliesComponent},
+      { path: 'createtopic', component: CreateTopicComponent },
+      { path: 'topicreplies', component:  TopicRepliesComponent},
     ]
   }
 ];

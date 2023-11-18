@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+
+import { TopicService } from 'src/app/services/topic.service';
 
 @Component({
   selector: 'app-create-topic',
@@ -6,6 +9,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-topic.component.css']
 })
 export class CreateTopicComponent {
+
+  createTopicForm!: FormGroup;
+
+  constructor(private topicService: TopicService) { }
+
+  ngOnInit() {
+    this.createTopicForm = new FormGroup({
+      'topictitle': new FormControl(null,[Validators.required]),
+      'topiccontent': new FormControl(null, [Validators.required])  
+    });
+  }
+
+  getControl(name:any) : AbstractControl | null{
+    return this.createTopicForm.get(name);
+  }
+
+  onSubmit() {
+    const topictitle = this.createTopicForm.get('topictitle')?.value;
+    const topiccontent = this.createTopicForm.get('topiccontent')?.value;
+    
+    // console.log(topictitle,topiccontent);
+
+    this.topicService.createTopic(topictitle, topiccontent)
+  }
+
   QuillConfiguration = {
     toolbar: [
       ['bold', 'italic', 'underline', 'strike'],

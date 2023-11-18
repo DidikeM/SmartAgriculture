@@ -8,19 +8,30 @@
                         <div class="topic-create-title">
                             <h2>Create a topic</h2>
                             <hr />
-                            <form>
+                            <form  [formGroup]="createTopicForm" (ngSubmit)="onSubmit()">
                                 <input
                                     type="text"
                                     class="input-form"
                                     name="title"
                                     id="topic-title"
                                     placeholder="Write a topic title"
-                                    required
-                                 />
-                                 
+                                    formControlName="topictitle"
+                                />
+                                <div *ngIf="getControl('topictitle')?.errors && getControl('topictitle')?.touched">
+                                    <small class="text-danger" *ngIf="getControl('topictitle')?.errors?.['required']">Topic Title is required</small>
+                                </div>
                                 <div id="submit-container">
-                                    <quill-editor class="content-editor" [placeholder]="''" [modules]="QuillConfiguration" [styles]="{'height': '160px'}" ></quill-editor>
-                                    <button type="submit" class="btn_primary">Submit</button>
+                                    <quill-editor
+                                        class="content-editor"
+                                        [placeholder]="''"
+                                        [modules]="QuillConfiguration"
+                                        [styles]="{'height': '160px'}"
+                                        formControlName="topiccontent"
+                                    ></quill-editor>
+                                    <div *ngIf="getControl('topiccontent')?.errors && getControl('topiccontent')?.touched">
+                                        <small class="text-danger" *ngIf="getControl('topiccontent')?.errors?.['required']">Topic Content is required</small>
+                                    </div>
+                                    <button type="submit" class="btn_primary" [disabled]="!createTopicForm.valid">Submit</button>
                                 </div>
                             </form>
                         </div>

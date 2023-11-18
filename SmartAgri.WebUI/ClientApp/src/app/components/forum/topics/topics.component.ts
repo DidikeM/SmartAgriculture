@@ -11,6 +11,6 @@ export class TopicsComponent {
   constructor(private router: Router) {}
 
   navigateToCreateTopic(){
-    this.router.navigate(['/forum/create-topics']); 
+    this.router.navigate(['/forum/createtopic']); 
   }
 }
