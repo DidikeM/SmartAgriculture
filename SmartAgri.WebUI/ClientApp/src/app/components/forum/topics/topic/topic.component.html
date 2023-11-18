@@ -1,25 +1,23 @@
-<div class="topics-info">
+<div *ngFor="let topic of topics" class="topics-info">
     <div class="row">
         <div class="col-3 topics-info-user">
             <fa-icon [icon]="faUser"></fa-icon>
-            <span id="topics-info-username">burakduygun</span>
+            <span id="topics-info-username"></span>
             <p>
                 Created on<br />
-                <span id="topics-info-date">05/11/2023</span>
+                <span id="topics-info-date">{{ topic.date | date:'longDate'}}</span>
             </p>
             <p>
                 Answering:
-                <span id="topics-info-answer">3</span>
+                <span id="topics-info-answer"></span>
             </p>
         </div>
         <div class="col-9 topics-info-question">
             <div class="topics-info-question-title">
-                <a (click)="navigateToReplyTopic()">Topic Title</a>
+                <a (click)="navigateToReplyTopic()">{{ topic.title }}</a>
                 <hr />
             </div>
-            <div class="topics-info-lite-question">           
-               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti ducimus eligendi illum possimus earum magni optio fuga quidem, ea voluptatibus officia est soluta quam libero dolore aut maiores. Quod, quo.
-            </div>
+            <div class="topics-info-lite-question" [innerHTML]="sanitizeHTML(topic.content)"></div>
         </div>
     </div>
 </div>

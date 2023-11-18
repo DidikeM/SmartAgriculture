@@ -31,7 +31,7 @@ export class CreateTopicComponent {
     
     // console.log(topictitle,topiccontent);
 
-    this.topicService.createTopic(topictitle, topiccontent)
+    this.topicService.createTopic(topictitle, topiccontent);
   }
 
   QuillConfiguration = {

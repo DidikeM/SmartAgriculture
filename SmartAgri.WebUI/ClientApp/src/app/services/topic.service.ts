@@ -13,7 +13,7 @@ export class TopicService {
     constructor(private http: HttpClient){}
 
     getTopics(){
-        return this.http.get<Topic[]>(`${this.apiUrl}/topics`);
+        return this.http.get<Topic[]>(`${this.apiUrl}/gettopics`);
     }
 
     createTopic(title: string, content: string){

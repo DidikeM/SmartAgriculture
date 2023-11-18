@@ -10,10 +10,19 @@
                     <h3>Answers</h3>
                     <hr />
                         <app-topic-reply></app-topic-reply> 
-                    <form>
+                    <form [formGroup]="replyTopicForm" (ngSubmit)="onSubmit()">
                         <div id="submit-container">
-                            <quill-editor class="content-editor" [placeholder]="''" [modules]="QuillConfiguration" [styles]="{'height': '160px'}" ></quill-editor>
-                            <button type="submit" class="btn_primary">Submit</button>
+                            <quill-editor
+                                class="content-editor"
+                                [placeholder]="''"
+                                [modules]="QuillConfiguration"
+                                [styles]="{'height': '160px'}"
+                                formControlName="replyText"
+                            ></quill-editor>
+                            <div *ngIf="getControl('replyText')?.errors && getControl('replyText')?.touched">
+                                <small class="text-danger" *ngIf="getControl('replyText')?.errors?.['required']">Reply Content is required</small>
+                            </div>
+                            <button type="submit" class="btn_primary" [disabled]="!replyTopicForm.valid">Submit</button>
                         </div>
                     </form>
                 </div>

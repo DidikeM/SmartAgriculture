@@ -42,6 +42,10 @@
     text-align: left;
 }  
 
+.topic-reply #submit-container .ng-star-inserted  {
+   text-align: left;
+}
+
 .topic-reply #submit-container .btn_primary {
     margin-top: 20px;
     font-weight: 500;
