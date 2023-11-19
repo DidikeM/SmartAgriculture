@@ -11,7 +11,7 @@ const routes: Routes = [
     children:[
       { path: 'topics', component: TopicsComponent },
       { path: 'createtopic', component: CreateTopicComponent },
-      { path: 'topicreplies', component:  TopicRepliesComponent},
+      { path: 'topicreplies/:id', component:  TopicRepliesComponent},
     ]
   }
 ];

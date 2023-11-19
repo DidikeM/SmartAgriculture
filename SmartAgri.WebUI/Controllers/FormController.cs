@@ -59,7 +59,7 @@ namespace SmartAgri.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateReply(Reply reply)
+        public IActionResult CreateReply([FromBody] Reply reply)
         {
             reply.Date = DateTime.Now;
             _formService.AddReply(reply);
