@@ -2,19 +2,19 @@
     <div class="row">
         <div class="col-3 topics-info-user">
             <fa-icon [icon]="faUser"></fa-icon>
-            <span id="topics-info-username"></span>
+            <span id="topics-info-username">{{ topic.user?.username }}</span>
             <p>
                 Created on<br />
-                <span id="topics-info-date">{{ topic.date | date:'longDate'}}</span>
+                <span id="topics-info-date">{{ topic.date | date:'shortDate'}}</span>
             </p>
             <p>
                 Answering:
-                <span id="topics-info-answer"></span>
+                <span id="topics-info-answer">{{ topic.replyCount }}</span>
             </p>
         </div>
         <div class="col-9 topics-info-question">
             <div class="topics-info-question-title">
-                <a (click)="navigateToReplyTopic()">{{ topic.title }}</a>
+                <a [routerLink]="['/forum/topicreplies', topic.id]">{{ topic.title }}</a>
                 <hr />
             </div>
             <div class="topics-info-lite-question" [innerHTML]="sanitizeHTML(topic.content)"></div>

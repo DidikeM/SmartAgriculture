@@ -29,7 +29,7 @@
                                         formControlName="topiccontent"
                                     ></quill-editor>
                                     <div *ngIf="getControl('topiccontent')?.errors && getControl('topiccontent')?.touched">
-                                        <small class="text-danger" *ngIf="getControl('topiccontent')?.errors?.['required']">Topic Content is required</small>
+                                        <small class="text-danger" *ngIf="getControl('topiccontent')?.errors?.['required']">Topic content is required</small>
                                     </div>
                                     <button type="submit" class="btn_primary" [disabled]="!createTopicForm.valid">Submit</button>
                                 </div>

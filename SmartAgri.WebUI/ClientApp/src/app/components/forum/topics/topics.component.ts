@@ -12,15 +12,25 @@ import { Topic } from 'src/app/models/topic';
 export class TopicsComponent {
   topics: Topic[] = []; 
   isfetching = false;
+
   constructor(private router: Router, private topicService: TopicService) {}
   
   ngOnInit() {
     this.isfetching = true;
     this.topicService.getTopics().subscribe((responseData)=>{
       this.isfetching = false;
-      console.log(responseData);
+      // console.log(responseData)
+
       this.topics = responseData;
-    })
+
+      this.topics.forEach(topic => {
+        if (topic.id !== undefined) {
+          this.topicService.getReplies(topic.id).subscribe(replies => {
+            topic.replyCount = replies.length; 
+          });
+        }
+      });
+    });
   }
 
   navigateToCreateTopic(){

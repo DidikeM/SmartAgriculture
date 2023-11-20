@@ -48,11 +48,17 @@ namespace SmartAgri.WebUI.Controllers
         public IActionResult GetReplies(int topicId)
         {
             List<Reply> replies = _formService.GetRepliesWithUserByTopicId(topicId);
+
+            foreach (var item in replies)
+            {
+                item.User.Replies = null!;
+            }
+
             return Json(replies);
         }
 
         [HttpPost]
-        public IActionResult CreateReply(Reply reply)
+        public IActionResult CreateReply([FromBody] Reply reply)
         {
             reply.Date = DateTime.Now;
             _formService.AddReply(reply);

@@ -6,5 +6,6 @@ export class Topic {
     content!: string;
     date?: Date;
     userId!: number;
-    // user!: User;
+    user?: User;
+    replyCount?: number;
 }
