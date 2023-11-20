@@ -1,9 +1,13 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using SmartAgri.Business.Abstract;
 using SmartAgri.Business.Concrete;
 using SmartAgri.DataAccess.Abstract;
 using SmartAgri.DataAccess.Concrete.EntityFramework;
+using SmartAgri.WebUI.JwtFeatures;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,10 +28,36 @@ builder.Services.AddCors(c =>
      AllowAnyHeader());
 });
 
+
 builder.Services.AddSingleton<ITopicDal, EfTopicDal>();
 builder.Services.AddSingleton<IReplyDal, EfReplyDal>();
+builder.Services.AddSingleton<IUserDal, EfUserDal>();
 
 builder.Services.AddSingleton<IFormService, FormService>();
+builder.Services.AddSingleton<IUserService, UserService>();
+
+builder.Services.AddScoped<JwtHandler>();
+
+
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+builder.Services.AddAuthentication(opt =>
+{
+    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["validIssuer"],
+        ValidAudience = jwtSettings["validAudience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
+            .GetBytes(jwtSettings.GetSection("securityKey").Value))
+    };
+});
 
 var app = builder.Build();
 
@@ -43,6 +73,10 @@ app.UseCors("AllowOrigin");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 
 app.MapControllerRoute(

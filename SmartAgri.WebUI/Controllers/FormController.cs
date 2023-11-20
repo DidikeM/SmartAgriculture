@@ -17,6 +17,10 @@ namespace SmartAgri.WebUI.Controllers
         public IActionResult GetTopics()
         {
             List<Topic> topics = _formService.GetTopicsWithUsers();
+            foreach (var topic in topics)
+            {
+                topic.User.Topics = null!;
+            }
             return Json(topics);
         }
 
@@ -28,7 +32,7 @@ namespace SmartAgri.WebUI.Controllers
             {
                 return NotFound();
             }
-            topic.User.Topics.Clear();
+            topic.User.Topics = null!;
             return Json(topic);
         }
 
