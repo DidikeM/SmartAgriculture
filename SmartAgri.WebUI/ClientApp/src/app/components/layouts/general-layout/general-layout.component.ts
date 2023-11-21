@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-general-layout',
@@ -15,15 +17,38 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
     ]),
   ],
 })
-export class GeneralLayoutComponent {
+
+export class GeneralLayoutComponent implements OnInit {
   faBars = faBars;
   faXmark = faXmark;
 
   toggleIcon: any = faBars;
   isDropdownOpen: boolean = false;
 
+  public isUserAuthenticated!: boolean;
+
+  constructor(private authService: AuthenticationService, private router: Router) { }
+  
+  ngOnInit(): void {
+    this.authService.authChanged
+    .subscribe(res => {
+      // console.log(res);
+      this.isUserAuthenticated = res;
+      console.log(this.isUserAuthenticated);
+
+      this.isUserAuthenticated = this.authService.checkAuth();
+    })
+  }
+
+  public logout = () => {
+    this.authService.logout();
+    this.router.navigate(["/"]);
+  }
+
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
     console.log(this.isDropdownOpen);
     this.toggleIcon = this.isDropdownOpen ? faXmark : faBars;
-  }}
+  }
+
+}
