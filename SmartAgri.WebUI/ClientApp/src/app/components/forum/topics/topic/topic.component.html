@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-3 topics-info-user">
             <fa-icon [icon]="faUser"></fa-icon>
-            <span id="topics-info-username">{{ topic.user?.username }}</span>
+            <span id="topics-info-username">{{ topic.user!.name | concatenate: topic.user!.surname }}</span>
             <p>
                 Created on<br />
                 <span id="topics-info-date">{{ topic.date | date:'shortDate'}}</span>

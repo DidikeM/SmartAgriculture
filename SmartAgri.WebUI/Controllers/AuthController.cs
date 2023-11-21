@@ -60,7 +60,7 @@ namespace SmartAgri.WebUI.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-		public IActionResult ForgotPassword(ForgotPasswordDto forgotPasswordDto)
+		public IActionResult ForgotPassword([FromBody] ForgotPasswordDto forgotPasswordDto)
 		{
             if(!ModelState.IsValid)
                 return BadRequest();
@@ -85,7 +85,8 @@ namespace SmartAgri.WebUI.Controllers
 			return Ok();
 		}
 
-        public IActionResult ResetPassword(ResetPasswordDto resetPasswordDto)
+        [HttpPost]
+        public IActionResult ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
         {
             if (!ModelState.IsValid)
 				return BadRequest();

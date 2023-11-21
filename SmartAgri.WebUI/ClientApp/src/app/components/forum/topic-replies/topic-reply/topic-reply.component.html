@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-2 reply-topic-info">
             <fa-icon [icon]="faUser"></fa-icon>
-            <span id="reply-topic-username">{{ reply.user?.username }}</span>
+            <span id="reply-topic-username">{{ reply.user!.name | concatenate: reply.user!.surname }}</span>
         </div>
         <div class="col-10 reply-topic-answer">
             <p [innerHTML]="sanitizeHTML(reply.text)">

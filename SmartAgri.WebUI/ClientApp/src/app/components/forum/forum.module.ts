@@ -10,6 +10,7 @@ import { CreateTopicComponent } from './create-topic/create-topic.component';
 import { TopicRepliesComponent } from './topic-replies/topic-replies.component';
 import { TopicReplyComponent } from './topic-replies/topic-reply/topic-reply.component';
 import { QuillModule } from 'ngx-quill'
+import { ConcatenatePipe } from './concatenate.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { QuillModule } from 'ngx-quill'
     CreateTopicComponent,
     TopicComponent,
     TopicRepliesComponent,
-    TopicReplyComponent
+    TopicReplyComponent,
+    ConcatenatePipe
   ],
   imports: [
     CommonModule,
@@ -28,3 +30,4 @@ import { QuillModule } from 'ngx-quill'
   ]
 })
 export class ForumModule { }
+
