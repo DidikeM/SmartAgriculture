@@ -38,9 +38,10 @@ namespace SmartAgri.WebUI.Mailing
 					client.Authenticate(_emailConfig.UserName, _emailConfig.Password);
 					client.Send(mailMessage);
 				}
-				catch
+				catch(Exception ex)
 				{
 					Console.WriteLine("Error sending email");
+					Console.WriteLine(ex.Message);
 				}
 				finally
 				{
