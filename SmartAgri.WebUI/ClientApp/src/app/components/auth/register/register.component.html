@@ -9,16 +9,30 @@
                         <div class="input-field">
                             <input
                                 type="text"
-                                placeholder="Enter your username"
+                                placeholder="Enter your name"
                                 required
                                 appInputFieldStyling
-                                formControlName="username"
+                                formControlName="name"
                             />
                             <fa-icon [icon]="faUser"></fa-icon>
                         </div>
-                        <div *ngIf="getControl('username')?.errors && getControl('username')?.touched">
-                            <small class="text-danger" *ngIf="getControl('username')?.errors?.['required']">{{ validationService.getErrorMessageForControl('Username', getControl('username')!) }}</small>
-                            <small class="text-danger" *ngIf="getControl('username')?.errors?.['minlength']">{{ validationService.getErrorMessageForControl('Username', getControl('username')!) }}</small>
+                        <div *ngIf="getControl('name')?.errors && getControl('name')?.touched">
+                            <small class="text-danger" *ngIf="getControl('name')?.errors?.['required']">{{ validationService.getErrorMessageForControl('Name', getControl('name')!) }}</small>
+                            <small class="text-danger" *ngIf="getControl('name')?.errors?.['minlength']">{{ validationService.getErrorMessageForControl('Name', getControl('name')!) }}</small>
+                        </div>
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                placeholder="Enter your surname"
+                                required
+                                appInputFieldStyling
+                                formControlName="surname"
+                            />
+                            <fa-icon [icon]="faUser"></fa-icon>
+                        </div>
+                        <div *ngIf="getControl('surname')?.errors && getControl('surname')?.touched">
+                            <small class="text-danger" *ngIf="getControl('surname')?.errors?.['required']">{{ validationService.getErrorMessageForControl('Surname', getControl('surname')!) }}</small>
+                            <small class="text-danger" *ngIf="getControl('surname')?.errors?.['minlength']">{{ validationService.getErrorMessageForControl('Surname', getControl('surname')!) }}</small>
                         </div>
                         <div class="input-field">
                             <input
@@ -71,32 +85,7 @@
                         <div *ngIf="registerForm.errors?.['passswordMismatchError'] && getControl('confirmPassword')?.touched">
                             <small class="text-danger">Password mismatch</small>  
                         </div>
-                         <div class="input-field text-center">
-                            <div class="radio-container">
-                                <input
-                                    type="radio"
-                                    name="userType"
-                                    id="seller"
-                                    formControlName="userType"
-                                    [value]="'Seller'"
-                                    [ngClass]="{error : getControl('userType')?.errors && getControl('userType')?.touched}"
-                                >
-                                <label for="seller" [class.active]="registerForm.get('userType')?.value === 'Seller'">Seller</label>
-                            </div>
-                            
-                            <div class="radio-container">
-                                <input
-                                    type="radio"
-                                    name="userType"
-                                    id="buyer"
-                                    formControlName="userType"
-                                    [value]="'Buyer'"
-                                >
-                                <label for="buyer" [class.active]="registerForm.get('userType')?.value === 'Buyer'">Buyer</label>
-                            </div>
-                            
-                        </div> 
-                        <button type="submit" class="btn_primary mt-3 mb-3" id="create" [disabled]="!registerForm.valid">Sign Up</button>
+                        <button type="submit" class="btn_primary mt-4 mb-3" id="create" [disabled]="!registerForm.valid">Sign Up</button>
                     </form>
 
                     <div class="sign-in">

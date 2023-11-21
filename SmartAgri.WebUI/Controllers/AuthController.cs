@@ -38,9 +38,9 @@ namespace SmartAgri.WebUI.Controllers
         {
             var user = new User
             {
-                Email = userForRegistration.Email,
                 Name = userForRegistration.Name,
                 Surname = userForRegistration.Surname,
+                Email = userForRegistration.Email,
                 Password = userForRegistration.Password,
             };
 

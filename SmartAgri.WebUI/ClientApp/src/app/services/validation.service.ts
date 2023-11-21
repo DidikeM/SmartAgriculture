@@ -23,7 +23,14 @@ export class ValidationService {
       ])!(control)
   }
 
-  usernameValidation(control: AbstractControl){
+  nameValidation(control: AbstractControl){
+    return Validators.compose([
+      Validators.required,
+      Validators.minLength(3),
+    ])!(control)
+  }
+
+  surnameValidation(control: AbstractControl){
     return Validators.compose([
       Validators.required,
       Validators.minLength(3),
@@ -51,7 +58,11 @@ export class ValidationService {
       return `Please enter a valid ${controlName}`;
     }
 
-    if (controlName == "Username" && control.hasError('minlength')) {
+    if (controlName == "Name" && control.hasError('minlength')) {
+      return `${controlName} minimum 3 characters required`;
+    }
+
+    if (controlName == "Surname" && control.hasError('minlength')) {
       return `${controlName} minimum 3 characters required`;
     }
 
