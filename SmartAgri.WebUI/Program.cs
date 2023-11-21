@@ -7,6 +7,7 @@ using SmartAgri.Business.Concrete;
 using SmartAgri.DataAccess.Abstract;
 using SmartAgri.DataAccess.Concrete.EntityFramework;
 using SmartAgri.WebUI.JwtFeatures;
+using SmartAgri.WebUI.Mailing;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,6 +39,11 @@ builder.Services.AddSingleton<IUserService, UserService>();
 
 builder.Services.AddScoped<JwtHandler>();
 
+var emailConfig = builder.Configuration
+	.GetSection("EmailConfiguration")
+	.Get<EmailConfiguration>();
+builder.Services.AddSingleton(emailConfig);
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 builder.Services.AddAuthentication(opt =>

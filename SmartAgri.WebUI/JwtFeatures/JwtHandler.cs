@@ -43,5 +43,14 @@ namespace SmartAgri.WebUI.JwtFeatures
                 signingCredentials: signingCredentials);
             return tokenOptions;
         }
-    }
+		public JwtSecurityToken GenerateTokenOptions(List<Claim> claims)
+		{
+			var tokenOptions = new JwtSecurityToken(
+				issuer: _jwtSettings["validIssuer"],
+				audience: _jwtSettings["validAudience"],
+				claims: claims,
+				expires: DateTime.Now.AddMinutes(Convert.ToDouble(_jwtSettings["expiryInMinutes"])));
+			return tokenOptions;
+		}
+	}
 }

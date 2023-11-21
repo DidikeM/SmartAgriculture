@@ -25,12 +25,25 @@ namespace SmartAgri.Business.Concrete
         {
             if (_userDal.Any(u => u.Email == user.Email))
                 return false;
+            _userDal.Add(user);
             return true;
         }
 
-        public User GetUserByEmail(string email)
+        public bool CheckUser(string email)
+        {
+			return _userDal.Any(u => u.Email == email);
+		}
+
+		public User GetUserByEmail(string email)
         {
             return _userDal.Get(u => u.Email == email);
         }
-    }
+		public bool ChangePassword(string email, string password)
+		{
+			var user = _userDal.Get(u => u.Email == email);
+			user.Password = password;
+			_userDal.Update(user);
+			return true;
+		}
+	}
 }

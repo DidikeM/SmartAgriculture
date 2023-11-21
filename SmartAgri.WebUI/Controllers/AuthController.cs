@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
+using MimeKit;
 using SmartAgri.Business.Abstract;
 using SmartAgri.Entities.Concrete;
 using SmartAgri.WebUI.DTOs;
 using SmartAgri.WebUI.JwtFeatures;
+using SmartAgri.WebUI.Mailing;
+using SmartAgri.WebUI.Mailing.Messages;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace SmartAgri.WebUI.Controllers
@@ -13,10 +17,12 @@ namespace SmartAgri.WebUI.Controllers
     {
         private readonly JwtHandler _jwtHandler;
         private readonly IUserService _userService;
-        public AuthController(JwtHandler jwtHandler, IUserService userService)
+        private readonly IEmailSender _emailSender;
+        public AuthController(JwtHandler jwtHandler, IUserService userService, IEmailSender emailSender)
         {
             _jwtHandler = jwtHandler;
             _userService = userService;
+            _emailSender = emailSender;
         }
 
         [HttpPost]
@@ -51,5 +57,46 @@ namespace SmartAgri.WebUI.Controllers
 
             return BadRequest(new RegistrationResponseDto { IsSuccessfulRegistration = false });
         }
-    }
+
+        [AllowAnonymous]
+        [HttpPost]
+		public IActionResult ForgotPassword(ForgotPasswordDto forgotPasswordDto)
+		{
+            if(!ModelState.IsValid)
+                return BadRequest();
+
+            var user = _userService.GetUserByEmail(forgotPasswordDto.Email!);
+            if (user == null)
+                return BadRequest();
+
+			var claims = _jwtHandler.GetClaims(user);
+			var tokenOptions =  _jwtHandler.GenerateTokenOptions(claims);
+			var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+			var param = new Dictionary<string, string?>
+	        {
+		        {"token", token },
+		        {"email", forgotPasswordDto.Email }
+	        };
+
+			var callback = QueryHelpers.AddQueryString(forgotPasswordDto.ClientURI!, param);
+
+			var message = new ForgotPasswordMessage(user.Name, new List<string> { user.Email }, callback);
+			_emailSender.SendEmail(message);
+			return Ok();
+		}
+
+        public IActionResult ResetPassword(ResetPasswordDto resetPasswordDto)
+        {
+            if (!ModelState.IsValid)
+				return BadRequest();
+            
+            var user = _userService.CheckUser(resetPasswordDto.Email!);
+            if (!user)
+				return BadRequest();
+            if (!_userService.ChangePassword(resetPasswordDto.Email, resetPasswordDto.Password))
+                return BadRequest();
+
+            return Ok();
+		}
+	}
 }
