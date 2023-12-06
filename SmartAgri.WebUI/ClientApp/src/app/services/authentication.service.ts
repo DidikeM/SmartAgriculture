@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/internal/Subject';
+import { BehaviorSubject } from 'rxjs';
 
 import { AuthResponseDto } from '../dtos/authResponsedto';
 import { UserForAuthenticationDto } from '../dtos/userforauthenticationdto';
-import { BehaviorSubject } from 'rxjs';
 import { UserForRegistrationDto } from '../dtos/userforregistrationdto ';
 import { RegistrationResponseDto } from '../dtos/registrationresponsedto';
+import { ForgotPasswordDto } from '../dtos/forgotpassworddto';
+import { ResetPasswordDto } from '../dtos/resetpassworddto';
 
 @Injectable({
     providedIn: 'root',
@@ -29,9 +30,8 @@ export class AuthenticationService {
     }
 
     checkAuth(): boolean {
-        // Token kontrolü veya başka bir yöntemle oturum durumunu kontrol et
         const token = localStorage.getItem("token");
-        return !!token; // Token varsa true, yoksa false döndürür
+        return !!token; 
     }
 
     public sendAuthStateChangeNotification = () => {
@@ -42,4 +42,21 @@ export class AuthenticationService {
         localStorage.removeItem("token");
         this.sendAuthStateChangeNotification();
     }
+
+    public forgotPassword = (body: ForgotPasswordDto) => {
+        console.log(body);
+        return this.http.post(`${this.apiUrl}/forgotpassword`, body);
+    }
+
+    public resetPassword(body: ResetPasswordDto) {
+        console.log("service");
+        console.log(body);
+        return this.http.post(`${this.apiUrl}/resetpassword`, body);
+    }
+
+    // public resetPassword(body: ResetPasswordDto) {
+    //     console.log("service");
+    //     console.log(body);
+    //     return this.http.post(`${this.apiUrl}/resetpassword`, body);
+    // }
 }

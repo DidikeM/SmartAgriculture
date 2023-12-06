@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit {
       'email': new FormControl(null, [this.validationService.emailValidation]),
       'password': new FormControl(null, [this.validationService.passwordValidation]),
       'confirmPassword': new FormControl(null, Validators.required),
-      // 'userType': new FormControl(null, Validators.required),
     }, this.validationService.passwordMatch('password', 'confirmPassword'));
   }
 
@@ -43,8 +42,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    // console.log(this.registerForm.value);
-
     const name = this.registerForm.get('name')?.value;
     const surname = this.registerForm.get('surname')?.value;
     const email = this.registerForm.get('email')?.value;
@@ -66,10 +63,6 @@ export class RegisterComponent implements OnInit {
         console.log("Successful registration")
       },
     })
-  }
-
-  navigateToLogin(){
-    this.router.navigate(["/auth/login"]);
   }
 
   togglePasswordVisibility() {

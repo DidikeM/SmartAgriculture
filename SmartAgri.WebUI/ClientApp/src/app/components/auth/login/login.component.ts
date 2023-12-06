@@ -56,16 +56,11 @@ export class LoginComponent implements OnInit{
     this.authService.loginUser(userForAuth)
     .subscribe({
       next: (res: AuthResponseDto) => {
-        console.log(res.token);
+        // console.log(res.token);
         localStorage.setItem("token", res.token);
         this.authService.sendAuthStateChangeNotification();
         this.router.navigate([this.returnUrl]);
       }
     })
-    // .subscribe({
-    //   next: (res:AuthResponseDto) => {
-    //    localStorage.setItem("token", res.token);
-    //    this.router.navigate([this.returnUrl]);
-    // },})
   }  
 }
