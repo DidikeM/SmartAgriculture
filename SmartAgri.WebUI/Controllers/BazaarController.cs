@@ -14,7 +14,7 @@ namespace SmartAgri.WebUI.Controllers
         }
         public IActionResult GetProducts()
         {
-            GetProductsResponseDto response = new GetProductsResponseDto();
+            GetProductsResponseDto response = new();
             List<Product> products = _bazaarService.GetAllProducts();
 
             response.Products = products.Select(p => new ProductDto(p)).ToList();
@@ -29,11 +29,12 @@ namespace SmartAgri.WebUI.Controllers
 
         public IActionResult GetProduct(int id)
         {
-            GetProductResponseDto response = new GetProductResponseDto();
-
-            response.Product = new ProductDto(_bazaarService.GetProductById(id))
+            GetProductResponseDto response = new()
             {
-                CurrentPrice = _bazaarService.GetProductCurrentPrice(id)
+                Product = new ProductDto(_bazaarService.GetProductById(id))
+                {
+                    CurrentPrice = _bazaarService.GetProductCurrentPrice(id)
+                }
             };
 
             return Json(response);
@@ -41,15 +42,19 @@ namespace SmartAgri.WebUI.Controllers
 
         public IActionResult GetBuyAdvertsByProduct(int id)
         {
-            GetBuyAdvertsResponseDto response = new GetBuyAdvertsResponseDto();
-            response.BuyAdverts = _bazaarService.GetBuyAdvertsByProductId(id).Select(b => new AdvertDto(b)).ToList();
+            GetBuyAdvertsResponseDto response = new()
+            {
+                BuyAdverts = _bazaarService.GetBuyAdvertsByProductId(id).Select(b => new AdvertDto(b)).ToList()
+            };
             return Json(response);
         }
 
         public IActionResult GetSellAdvertsByProduct(int id)
         {
-            GetSellAdvertsResponseDto response = new GetSellAdvertsResponseDto();
-            response.SellAdverts = _bazaarService.GetSellAdvertsByProductId(id).Select(s => new AdvertDto(s)).ToList();
+            GetSellAdvertsResponseDto response = new()
+            {
+                SellAdverts = _bazaarService.GetSellAdvertsByProductId(id).Select(s => new AdvertDto(s)).ToList()
+            };
             return Json(response);
         }
 
