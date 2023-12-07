@@ -12,8 +12,8 @@ namespace SmartAgri.Business.Abstract
     {
         bool CheckPassword(User user, string? password);
         bool CreateUser(User user);
-        User GetUserByEmail(string email);
-        bool CheckUser(string email);
-        bool ChangePassword(string email, string password);
+        User GetUserByEmail(string? email);
+        bool CheckUser(string? email);
+        bool ChangePassword(string? email, string? password);
 	}
 }

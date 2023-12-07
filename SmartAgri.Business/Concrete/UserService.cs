@@ -34,7 +34,7 @@ namespace SmartAgri.Business.Concrete
 			return _userDal.Any(u => u.Email == email);
 		}
 
-		public User GetUserByEmail(string email)
+		public User GetUserByEmail(string? email)
         {
             return _userDal.Get(u => u.Email == email);
         }

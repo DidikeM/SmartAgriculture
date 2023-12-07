@@ -42,6 +42,12 @@ namespace SmartAgri.WebUI.Controllers
         [HttpPost]
         public IActionResult Register([FromBody] UserForRegistrationDto userForRegistration)
         {
+            //geçici olarak eklendi
+            if (userForRegistration.Email == null || userForRegistration.Name == null || userForRegistration.Surname == null || userForRegistration.Password == null)
+            {
+                return BadRequest(new RegistrationResponseDto { IsSuccessfulRegistration = false });
+            }
+
             var user = new User
             {
                 Name = userForRegistration.Name,

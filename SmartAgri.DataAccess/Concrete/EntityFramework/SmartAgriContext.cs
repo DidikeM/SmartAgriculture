@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartAgri.Entities.Concrete;
+using SmartAgri.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -104,13 +105,18 @@ public class SmartAgriContext : DbContext
         modelBuilder.Entity<AdvertStatus>().HasData(
             new AdvertStatus
             {
-                Id = 1,
-                Name = "Aktif"
+                Id = (int)AdvertStatusEnum.Active,
+                Name = AdvertStatusEnum.Active.ToString()
             },
             new AdvertStatus
             {
-                Id = 2,
-                Name = "Pasif"
+                Id = (int)AdvertStatusEnum.notProccess,
+                Name = AdvertStatusEnum.notProccess.ToString()
+            },
+            new AdvertStatus
+            {
+                Id = (int)AdvertStatusEnum.complated,
+                Name = AdvertStatusEnum.complated.ToString()
             });
 
         modelBuilder.Entity<AdvertBuy>().HasData(
