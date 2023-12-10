@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { ValidationService } from '../../../services/validation.service';
+import { ValidationService } from 'src/app/services/validation.service';
 import { ForgotPasswordDto } from 'src/app/dtos/forgotpassworddto';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 

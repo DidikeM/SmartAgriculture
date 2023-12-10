@@ -28,8 +28,6 @@ export class CreateTopicComponent {
   onSubmit() {
     const topictitle = this.createTopicForm.get('topictitle')?.value;
     const topiccontent = this.createTopicForm.get('topiccontent')?.value;
-    
-    // console.log(topictitle,topiccontent);
 
     this.topicService.createTopic(topictitle, topiccontent);
   }

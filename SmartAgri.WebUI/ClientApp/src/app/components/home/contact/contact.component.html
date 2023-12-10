@@ -15,13 +15,23 @@
             </div>
             <div class="submit-form">
                 <h4 class="contact-title title">Contact Us</h4>
-                <form>
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                     <div class="input-box">
-                        <input type="text" class="input" required />
+                        <input 
+                            type="text"
+                            class="input"
+                            required
+                            formControlName="name"
+                        />
                         <label for="">Name</label>
                     </div>
                     <div class="input-box">
-                        <input type="text" class="input" required />
+                        <input
+                            type="text"
+                            class="input"
+                            required
+                            formControlName="email"
+                            />
                         <label for="">Email</label>
                     </div>
                     <div class="input-box">
@@ -30,10 +40,12 @@
                                 required
                                 id="message"
                                 cols="30"
-                                rows="10"></textarea>
+                                rows="10"
+                                formControlName="message"
+                        ></textarea>
                         <label for="">Message</label>
                     </div>
-                    <button type="submit" class="btn_secondary">Submit</button>
+                    <button type="submit" class="btn_secondary" [disabled]="!contactForm.valid">Submit</button>
                 </form>
             </div>
         </div>
