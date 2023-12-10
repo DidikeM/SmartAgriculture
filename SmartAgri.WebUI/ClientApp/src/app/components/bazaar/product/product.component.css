@@ -1,0 +1,91 @@
+.bazaar-detail .col-3 {
+    position: relative;
+}
+
+.bazaar-detail .product-info {
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.06);
+    max-height: auto;
+}
+
+.bazaar-detail .product-info, .bazaar-detail .product-order {
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.06);
+    max-height: auto;
+}
+
+.bazaar-detail .product-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: 16px;
+    height: 16px; 
+    background-color: var(--primary);
+    border-radius: 50% 0 50% 0;
+    opacity: 0.5;
+    z-index: 99;
+}
+
+.bazaar-detail .product-info::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12px;
+    width: 26px;
+    height: 26px;
+    background-color: var(--primary);
+    border-radius: 50% 0 50% 0;
+    opacity: .08;
+    z-index: 2;
+}
+  
+.bazaar-detail .product-info .product-head {
+    display: flex;
+    justify-content: space-around;
+} 
+
+.bazaar-detail .product-info .product-head h3{
+   font-size: 18px;
+} 
+
+.bazaar-detail .product-info .product-head  .product-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.bazaar-detail .product-info .price-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.bazaar-detail .product-info .price-info span {
+    padding: 10px;
+    position: relative;
+}
+
+.bazaar-detail .product-info .price-info span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 50%;
+    bottom: -5px;
+    margin: 0 auto;
+    height: 1px;
+    background-color: #ccc;
+}
+  
+.bazaar-detail .product-info .price-info span:last-child:after {
+    display: none; 
+}
+
+.bazaar-detail .product-order{
+    padding: 0;
+}
+
+.bazaar-detail .product-order .order-table {
+    padding: 20px;
+}

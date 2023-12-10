@@ -1,0 +1,12 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item" 
+        *ngFor="let tab of tabsArray; let sr = index"
+        (click)="setTab(sr)"
+    >
+        <a 
+            class="nav-link"
+            [ngClass]="{ 'active': activatedTab === sr, 'buy-active': activatedTab === sr && tab === 'Buy', 'sell-active': activatedTab === sr && tab === 'Sell' }"
+            [ngStyle]="{ color: activatedTab === sr ? (tab === 'Buy' ? '#57ac5a' : '#db4f58') : '' }"
+        >{{ tab }}</a>
+    </li>
+</ul>

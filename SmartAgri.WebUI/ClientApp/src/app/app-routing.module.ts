@@ -45,6 +45,18 @@ const routes : Routes = [
                 loadChildren: () => import('./components/forum/forum.module').then(m => m.ForumModule)
             }
         ]
+    },
+    
+    // Bazaar Routes
+    {
+        path: '',
+        component: GeneralLayoutComponent,
+        children: [
+            {
+                path: 'bazaar',
+                loadChildren: () => import('./components/bazaar/bazaar.module').then(m => m.BazaarModule)
+            }
+        ]
     }
 ];
 

@@ -4,11 +4,11 @@
         <div class="logo"><a routerLink="/"><img src="assets/images/agri-logo.png" alt="agri-logo"></a></div>
         <ul class="links">
             <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/bazaar">Bazaar</a></li>
             <li><a routerLink="/forum/topics">Forum</a></li>
             <li><a routerLink="/contact">Contact Us</a></li>
         </ul>
-            <a *ngIf='!isUserAuthenticated' class="btn_primary" routerLink="/auth/login">Sign In</a>
-            <a *ngIf='isUserAuthenticated' class="btn_primary" (click)="logout()">Logout</a>
+            <a class="btn_primary" routerLink="/auth/login">Sign In</a>
         <div class="toggle_btn" (click)="toggleDropdown()" [@rotateIcon]="isDropdownOpen ? 'open' : 'closed'">
             <fa-icon [icon]="toggleIcon"></fa-icon>
         </div>
@@ -17,10 +17,10 @@
     <div class="dropdown_menu" [class.open]="isDropdownOpen">
         <ul>
             <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/bazaar">Bazaar</a></li>
             <li><a routerLink="/forum/topics">Forum</a></li>
             <li><a routerLink="/contact">Contact Us</a></li>
-            <li><a *ngIf='!isUserAuthenticated' class="btn_primary">Sign in</a></li>
-            <li><a *ngIf='isUserAuthenticated' class="btn_primary" (click)="logout()">Logout</a></li>
+            <li><a class="btn_primary">Sign in</a></li>
         </ul>
     </div>
 </header>

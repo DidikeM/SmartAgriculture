@@ -1,0 +1,75 @@
+<section class="bazaar-detail" style="margin-top: 30px;">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-3">
+                <div class="product-info">
+                    <div class="product-head">
+                        <img src="" alt="product-image" class="product-image">
+                        <h3>Ürün Adı</h3>
+                    </div>
+                    <div class="price-info">
+                        <span>Unit Price: <strong>$55.98347</strong></span>
+                        <span>Old Price: <strong>$129.9997</strong></span>
+                        <span>Expected Price:  <strong>$87.98687</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-9 gx-2 product-order">
+                <app-tabs [tabsArray]="tabs" (onTabChange)="tabChange($event)"></app-tabs>
+                <div class="col-12 order-table">
+                    <div class="row" *ngIf="activatedTabIndex == 0">
+                        <table class="table" aria-describedby="buy">
+                            <thead style="text-align: center;">
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Unit Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total Price</th>
+                                <th scope="col">CreatedAt</th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>$55.489</td>
+                                <td>3</td>
+                                <td>166,467</td>
+                                <td>09/12/2023</td>
+                                <td><button class="btn_primary">Buy</button></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" *ngIf="activatedTabIndex == 1">
+                        <table class="table" aria-describedby="sell">
+                            <thead style="text-align: center;">
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Unit Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total Price</th>
+                                <th scope="col">CreatedAt</th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>$55.489</td>
+                                <td>3</td>
+                                <td>166,467</td>
+                                <td>09/12/2023</td>
+                                <td><button class="btn_primary" style="background-color: var(--red);">Sell</button></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
