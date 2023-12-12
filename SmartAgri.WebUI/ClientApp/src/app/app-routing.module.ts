@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { DashboardLayoutComponent } from './components/layouts/dashboard-layout/dashboard-layout.component';
 import { GeneralLayoutComponent } from './components/layouts/general-layout/general-layout.component';
+import { NotFoundComponent } from './components/notfound/notfound.component';
 
 const routes : Routes = [
   
@@ -57,7 +58,23 @@ const routes : Routes = [
                 loadChildren: () => import('./components/bazaar/bazaar.module').then(m => m.BazaarModule)
             }
         ]
-    }
+    },
+
+    //NotFound
+    {
+        path: 'not-found',
+        component: GeneralLayoutComponent,
+        children: [
+          {
+            path: '',
+            component: NotFoundComponent,
+          },
+        ],
+      },
+      {
+        path: '**',
+        redirectTo: '/not-found',
+      },
 ];
 
 @NgModule({

@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { GeneralLayoutComponent } from './components/layouts/general-layout/general-layout.component';
 import { DashboardLayoutComponent } from './components/layouts/dashboard-layout/dashboard-layout.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NotFoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GeneralLayoutComponent,
-    DashboardLayoutComponent
+    DashboardLayoutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
