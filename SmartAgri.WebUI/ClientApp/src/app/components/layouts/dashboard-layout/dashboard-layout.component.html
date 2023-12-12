@@ -1,1 +1,67 @@
-<p>dashboard-layout works!</p>
+<div class="dashboardcontainer">
+    <div class="navigation" [ngClass]="{'active': isNavigationActive}">
+        <ul>
+            <li>
+                <a>
+                    <img *ngIf="!isNavigationActive" src="/assets/images/agri-logo-dashboard.png" alt="agricoin">
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon"><fa-icon [icon]="faGauge"></fa-icon></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon"><fa-icon [icon]="faUsers"></fa-icon></span>
+                    <span class="title">Customers</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon"><fa-icon [icon]="faChartSimple"></fa-icon></span>
+                    <span class="title">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon"><fa-icon [icon]="faReceipt"></fa-icon></span>
+                    <span class="title">Orders</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon"><fa-icon [icon]="faGear"></fa-icon></span>
+                    <span class="title">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon"><fa-icon [icon]="faPlus"></fa-icon></span>
+                    <span class="title">Add Product</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon"><fa-icon [icon]="faMessage"></fa-icon></span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon"><span class="icon"><fa-icon [icon]="faRightFromBracket"></fa-icon></span></span>
+                    <span class="title">Log Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+      
+    <div class="main" [ngClass]="{'active': isNavigationActive}">
+        <div class="topbar">
+            <div class="toggle" (click)="toggleNavigation()">
+                <fa-icon [icon]="faBars"></fa-icon>
+            </div>
+        </div>
+    </div>
+</div>
