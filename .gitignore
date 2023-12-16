@@ -364,5 +364,6 @@ FodyWeavers.xsd
 
 # Python
 __pycache__
+venv
 .venv
 .ipynb_checkpoints
