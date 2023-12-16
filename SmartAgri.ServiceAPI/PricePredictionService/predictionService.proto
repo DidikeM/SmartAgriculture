@@ -1,0 +1,14 @@
+syntax = "proto3";
+package predictionService;
+
+service PricePredictor {
+    rpc predictPrices (PriceRequest) returns (PriceResponse);
+}
+
+message PriceRequest{
+    string objectName = 1;
+}
+
+message PriceResponse{
+    float price = 1;
+}
