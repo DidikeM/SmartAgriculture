@@ -12,7 +12,7 @@
     <Name>SmartAgri.PricePredictionService</Name>
     <RootNamespace>SmartAgri.PricePredictionService</RootNamespace>
     <IsWindowsApplication>False</IsWindowsApplication>
-    <InterpreterId>MSBuild|.venv|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|venv|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,10 +29,10 @@
     <Compile Include="predictionService_pb2_grpc.py" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include=".venv\">
-      <Id>.venv</Id>
+    <Interpreter Include="venv\">
+      <Id>venv</Id>
       <Version>3.9</Version>
-      <Description>.venv (Anaconda 2021.11)</Description>
+      <Description>venv (Python 3.9 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
