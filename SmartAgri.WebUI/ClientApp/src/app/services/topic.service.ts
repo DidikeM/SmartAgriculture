@@ -9,7 +9,7 @@ import { Reply } from '../models/reply';
 })
 
 export class TopicService {
-    private apiUrl = 'http://localhost:61098/form'; 
+    private apiUrl = 'http://localhost:5172/form'; 
 
     constructor(private http: HttpClient){}
 
@@ -23,30 +23,24 @@ export class TopicService {
             title: title,
             content: content
         }
- 
-        // console.log(topicData);
-
-        this.http.post<Topic>(`${this.apiUrl}/createtopic`, topicData)
-        .subscribe((responseData) => {
-            console.log(responseData);
-        });
+        this.http.post<Topic>(`${this.apiUrl}/createtopic`, topicData).subscribe();
     }
     
     getReplies(topicId: number){
         return this.http.get<Reply[]>(`${this.apiUrl}/getreplies?topicId=${topicId}`);
     }
 
-   createReply(text: string, tId: number)
+    createReply(text: string, tId: number)
     {
         const replyData: Reply = {
             userId: 1,
             text: text,
             topicId: tId
         }
-
+        
         this.http.post<Reply>(`${this.apiUrl}/createreply`, replyData)
-        .subscribe((responseData) => {
-            console.log(responseData);
-        });
+            .subscribe((response) => {
+                window.location.reload();
+            },);
     }
 }

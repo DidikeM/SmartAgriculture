@@ -24,8 +24,6 @@ export class TopicRepliesComponent {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.topicId = +params['id'];
-      // console.log(this.topicId);
-
       if (this.topicId) {
         this.loadReplies();
       }
@@ -40,7 +38,6 @@ export class TopicRepliesComponent {
     this.isFetching = true; 
 
     this.topicService.getReplies(this.topicId!).subscribe(replies => {
-      // console.log(replies);
       this.replies = replies;
       this.isFetching = false; 
     });
@@ -52,10 +49,8 @@ export class TopicRepliesComponent {
 
   onSubmit() {
     const replyText = this.replyTopicForm.get('replyText')?.value;
+    this.topicService.createReply(replyText, this.topicId!);
     
-    // console.log(replyText);
-
-    this.topicService.createReply(replyText,this.topicId!);
   }
 
   QuillConfiguration = {

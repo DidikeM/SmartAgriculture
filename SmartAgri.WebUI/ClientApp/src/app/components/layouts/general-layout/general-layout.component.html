@@ -8,7 +8,8 @@
             <li><a routerLink="/forum/topics">Forum</a></li>
             <li><a routerLink="/contact">Contact Us</a></li>
         </ul>
-            <a class="btn_primary" routerLink="/auth/login">Sign In</a>
+        <a *ngIf='!isUserAuthenticated' class="btn_primary" routerLink="/auth/login">Sign In</a>
+        <a *ngIf='isUserAuthenticated' class="btn_primary" (click)="logout()">Logout</a>
         <div class="toggle_btn" (click)="toggleDropdown()" [@rotateIcon]="isDropdownOpen ? 'open' : 'closed'">
             <fa-icon [icon]="toggleIcon"></fa-icon>
         </div>
@@ -20,7 +21,8 @@
             <li><a routerLink="/bazaar">Bazaar</a></li>
             <li><a routerLink="/forum/topics">Forum</a></li>
             <li><a routerLink="/contact">Contact Us</a></li>
-            <li><a class="btn_primary">Sign in</a></li>
+            <li><a *ngIf='!isUserAuthenticated' class="btn_primary">Sign in</a></li>
+            <li><a *ngIf='isUserAuthenticated' class="btn_primary" (click)="logout()">Logout</a></li>
         </ul>
     </div>
 </header>

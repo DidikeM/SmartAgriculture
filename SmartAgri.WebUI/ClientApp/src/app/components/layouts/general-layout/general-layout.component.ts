@@ -34,7 +34,7 @@ export class GeneralLayoutComponent implements OnInit {
     .subscribe(res => {
       // console.log(res);
       this.isUserAuthenticated = res;
-      console.log(this.isUserAuthenticated);
+      //console.log(this.isUserAuthenticated);
 
       this.isUserAuthenticated = this.authService.checkAuth();
     })
@@ -47,7 +47,7 @@ export class GeneralLayoutComponent implements OnInit {
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
-    console.log(this.isDropdownOpen);
+    //console.log(this.isDropdownOpen);
     this.toggleIcon = this.isDropdownOpen ? faXmark : faBars;
   }
 

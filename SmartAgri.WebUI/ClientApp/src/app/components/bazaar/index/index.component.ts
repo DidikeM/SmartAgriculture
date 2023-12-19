@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
 import Chart from 'chart.js/auto';
+import { BazaarService } from 'src/app/services/bazaar.service';
+import { ProductDto } from 'src/app/dtos/productdto';
 
 @Component({
   selector: 'app-index',
@@ -9,12 +11,16 @@ import Chart from 'chart.js/auto';
 })
 
 export class IndexComponent {
+  // products: ProductDto[] = []; 
+  
   public productChart: any;
   public gaugeChart: any;
 
   currentValue!: number;
   minValue!: number ;
   maxValue!: number ;
+  
+  // constructor(private bazaarService: BazaarService) {}
 
   ngOnInit(): void {
     this.createLineChart();
@@ -24,7 +30,15 @@ export class IndexComponent {
     this.minValue = 50;
     this.maxValue = 100;
   }
-
+  ngOnDestroy(): void {
+    if (this.productChart) {
+      this.productChart.destroy();
+    }
+  
+    if (this.gaugeChart) {
+      this.gaugeChart.destroy();
+    }
+  }
   createLineChart() {
     this.productChart = new Chart("ProductChart", {
       type: 'line',
@@ -157,7 +171,7 @@ export class IndexComponent {
             enabled: false, 
           },
         },
-        cutout: '85%', 
+        cutout: '88%', 
         elements: {
           arc: {
             borderWidth: 0,

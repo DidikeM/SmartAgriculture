@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { TopicService } from 'src/app/services/topic.service';
 
@@ -9,10 +10,10 @@ import { TopicService } from 'src/app/services/topic.service';
   styleUrls: ['./create-topic.component.css']
 })
 export class CreateTopicComponent {
-
+  
   createTopicForm!: FormGroup;
 
-  constructor(private topicService: TopicService) { }
+  constructor(private router:Router, private topicService: TopicService) { }
 
   ngOnInit() {
     this.createTopicForm = new FormGroup({
@@ -26,10 +27,10 @@ export class CreateTopicComponent {
   }
 
   onSubmit() {
-    const topictitle = this.createTopicForm.get('topictitle')?.value;
-    const topiccontent = this.createTopicForm.get('topiccontent')?.value;
+    const topicTitle = this.createTopicForm.get('topictitle')?.value;
+    const topicContent = this.createTopicForm.get('topiccontent')?.value;
 
-    this.topicService.createTopic(topictitle, topiccontent);
+    this.topicService.createTopic(topicTitle, topicContent);
   }
 
   QuillConfiguration = {
