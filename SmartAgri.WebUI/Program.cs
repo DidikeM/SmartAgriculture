@@ -6,6 +6,7 @@ using SmartAgri.Business.Abstract;
 using SmartAgri.Business.Concrete;
 using SmartAgri.DataAccess.Abstract;
 using SmartAgri.DataAccess.Concrete.EntityFramework;
+using SmartAgri.Entities.Enums;
 using SmartAgri.ServiceAPI.Abstract;
 using SmartAgri.ServiceAPI.Concrete.PricePredictionService;
 using SmartAgri.WebUI.JwtFeatures;
@@ -27,8 +28,10 @@ builder.Services.AddDbContextFactory<SmartAgriContext>(option =>
 
 builder.Services.AddCors(c =>
 {
-    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().
-     AllowAnyHeader());
+    c.AddPolicy("AllowOrigin", options => 
+    options.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 });
 
 
@@ -50,6 +53,7 @@ builder.Services.AddScoped<JwtHandler>();
 var emailConfig = builder.Configuration
 	.GetSection("EmailConfiguration")
 	.Get<EmailConfiguration>();
+
 builder.Services.AddSingleton(emailConfig);
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 
@@ -72,6 +76,12 @@ builder.Services.AddAuthentication(opt =>
             .GetBytes(jwtSettings.GetSection("securityKey").Value!))
     };
 });
+
+builder.Services.AddAuthorization(x => x.AddPolicy("AdminClaimPolicy", policy =>
+{
+    //policy.RequireClaim(UserClaimEnum.role_id.ToString(), ((int)RoleEnum.Admin).ToString());
+    policy.RequireClaim(UserClaimEnum.role_id.ToString(), "1");
+}));
 
 var app = builder.Build();
 

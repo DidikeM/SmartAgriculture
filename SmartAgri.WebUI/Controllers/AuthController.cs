@@ -28,7 +28,7 @@ namespace SmartAgri.WebUI.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] UserForAuthenticationDto userForAuthentication)
         {
-            var user =  _userService.GetUserByEmail(userForAuthentication.Email);
+            var user = _userService.GetUserByEmail(userForAuthentication.Email);
             if (user == null || !_userService.CheckPassword(user, userForAuthentication.Password))
                 return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
             var signingCredentials = _jwtHandler.GetSigningCredentials();
@@ -66,44 +66,44 @@ namespace SmartAgri.WebUI.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-		public IActionResult ForgotPassword([FromBody] ForgotPasswordDto forgotPasswordDto)
-		{
-            if(!ModelState.IsValid)
+        public IActionResult ForgotPassword([FromBody] ForgotPasswordDto forgotPasswordDto)
+        {
+            if (!ModelState.IsValid)
                 return BadRequest();
 
             var user = _userService.GetUserByEmail(forgotPasswordDto.Email!);
             if (user == null)
                 return BadRequest();
 
-			var claims = _jwtHandler.GetClaims(user);
-			var tokenOptions =  _jwtHandler.GenerateTokenOptions(claims);
-			var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-			var param = new Dictionary<string, string?>
-	        {
-		        {"token", token },
-		        {"email", forgotPasswordDto.Email }
-	        };
+            var claims = _jwtHandler.GetClaims(user);
+            var tokenOptions = _jwtHandler.GenerateTokenOptions(claims);
+            var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+            var param = new Dictionary<string, string?>
+            {
+                {"token", token },
+                {"email", forgotPasswordDto.Email }
+            };
 
-			var callback = QueryHelpers.AddQueryString(forgotPasswordDto.ClientURI!, param);
+            var callback = QueryHelpers.AddQueryString(forgotPasswordDto.ClientURI!, param);
 
-			var message = new ForgotPasswordMessage(user.Name, new List<string> { user.Email }, callback);
-			_emailSender.SendEmail(message);
-			return Ok();
-		}
+            var message = new ForgotPasswordMessage(user.Name, new List<string> { user.Email }, callback);
+            _emailSender.SendEmail(message);
+            return Ok();
+        }
 
         [HttpPost]
         public IActionResult ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
         {
             if (!ModelState.IsValid)
-				return BadRequest();
-            
+                return BadRequest();
+
             var user = _userService.CheckUser(resetPasswordDto.Email!);
             if (!user)
-				return BadRequest();
+                return BadRequest();
             if (!_userService.ChangePassword(resetPasswordDto.Email, resetPasswordDto.Password))
                 return BadRequest();
 
             return Ok();
-		}
-	}
+        }
+    }
 }
