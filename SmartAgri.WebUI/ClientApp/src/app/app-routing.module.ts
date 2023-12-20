@@ -4,6 +4,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { DashboardLayoutComponent } from './components/layouts/dashboard-layout/dashboard-layout.component';
 import { GeneralLayoutComponent } from './components/layouts/general-layout/general-layout.component';
 import { NotFoundComponent } from './components/notfound/notfound.component';
+import { IsAuthGuard } from './services/auth.guard';
 
 const routes : Routes = [
   
@@ -52,6 +53,7 @@ const routes : Routes = [
     {
         path: '',
         component: GeneralLayoutComponent,
+        canActivate: [IsAuthGuard],
         children: [
             {
                 path: 'bazaar',
