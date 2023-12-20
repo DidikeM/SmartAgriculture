@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using SmartAgri.Entities.Concrete;
+using SmartAgri.Entities.Enums;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -26,7 +27,11 @@ namespace SmartAgri.WebUI.JwtFeatures
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.Email)
+                new Claim(UserClaimEnum.id.ToString(), user.Id.ToString()),
+                new Claim(UserClaimEnum.email.ToString(), user.Email),
+                new Claim(UserClaimEnum.role_id.ToString(), user.RoleId.ToString()),
+                new Claim(UserClaimEnum.name.ToString(), user.Name),
+                new Claim(UserClaimEnum.surname.ToString(), user.Surname)
             };
             return claims;
         }
