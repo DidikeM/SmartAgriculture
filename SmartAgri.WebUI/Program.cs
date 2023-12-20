@@ -6,6 +6,8 @@ using SmartAgri.Business.Abstract;
 using SmartAgri.Business.Concrete;
 using SmartAgri.DataAccess.Abstract;
 using SmartAgri.DataAccess.Concrete.EntityFramework;
+using SmartAgri.ServiceAPI.Abstract;
+using SmartAgri.ServiceAPI.Concrete.PricePredictionService;
 using SmartAgri.WebUI.JwtFeatures;
 using SmartAgri.WebUI.Mailing;
 using System.Text;
@@ -33,9 +35,15 @@ builder.Services.AddCors(c =>
 builder.Services.AddSingleton<ITopicDal, EfTopicDal>();
 builder.Services.AddSingleton<IReplyDal, EfReplyDal>();
 builder.Services.AddSingleton<IUserDal, EfUserDal>();
+builder.Services.AddSingleton<IProductDal, EfProductDal>();
+builder.Services.AddSingleton<IAdvertBuyDal, EfAdvertBuyDal>();
+builder.Services.AddSingleton<IAdvertSellDal, EfAdvertSellDal>();
 
 builder.Services.AddSingleton<IFormService, FormService>();
 builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<IBazaarService, BazaarSevice>();
+
+builder.Services.AddSingleton<IPredictPrice, PredictPrice>();
 
 builder.Services.AddScoped<JwtHandler>();
 

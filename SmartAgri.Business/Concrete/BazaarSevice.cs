@@ -2,6 +2,7 @@
 using SmartAgri.DataAccess.Abstract;
 using SmartAgri.Entities.Concrete;
 using SmartAgri.Entities.Enums;
+using SmartAgri.ServiceAPI.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,15 @@ namespace SmartAgri.Business.Concrete
         private readonly IProductDal _productdal;
         private readonly IAdvertBuyDal _advertBuyDal;
         private readonly IAdvertSellDal _advertSellDal;
+        private readonly IPredictPrice _predictPrice;
 
 
-        public BazaarSevice(IProductDal productdal, IAdvertBuyDal advertBuyDal, IAdvertSellDal advertSellDal)
+        public BazaarSevice(IProductDal productdal, IAdvertBuyDal advertBuyDal, IAdvertSellDal advertSellDal, IPredictPrice predictPrice)
         {
             _productdal = productdal;
             _advertBuyDal = advertBuyDal;
             _advertSellDal = advertSellDal;
+            _predictPrice = predictPrice;
         }
 
         public List<Product> GetAllProducts()
@@ -42,6 +45,11 @@ namespace SmartAgri.Business.Concrete
         public decimal GetProductCurrentPrice(int id)
         {
             return _productdal.GetProductCurrentPrice(id);
+        }
+
+        public decimal GetProductExpectedPrice(int id)
+        {
+            return _predictPrice.Predict((ProductEnum)id).Result;
         }
 
         public List<AdvertSell> GetSellAdvertsByProductId(int id)

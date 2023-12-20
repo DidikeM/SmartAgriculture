@@ -13,6 +13,7 @@ namespace SmartAgri.Business.Abstract
         List<AdvertBuy> GetBuyAdvertsByProductId(int id);
         Product GetProductById(int id);
         decimal GetProductCurrentPrice(int id);
+        decimal GetProductExpectedPrice(int id);
         List<AdvertSell> GetSellAdvertsByProductId(int id);
     }
 }

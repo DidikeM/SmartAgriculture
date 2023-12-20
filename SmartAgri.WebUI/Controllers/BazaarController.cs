@@ -22,6 +22,7 @@ namespace SmartAgri.WebUI.Controllers
             foreach(var productDto in response.Products)
             {
                 productDto.CurrentPrice = _bazaarService.GetProductCurrentPrice(productDto.Id);
+                productDto.ExpectedPrice = _bazaarService.GetProductExpectedPrice(productDto.Id);
             }
 
             return Json(response);

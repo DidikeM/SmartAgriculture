@@ -37,6 +37,7 @@
     <ProjectReference Include="..\SmartAgri.Business\SmartAgri.Business.csproj" />
     <ProjectReference Include="..\SmartAgri.DataAccess\SmartAgri.DataAccess.csproj" />
     <ProjectReference Include="..\SmartAgri.Entities\SmartAgri.Entities.csproj" />
+    <ProjectReference Include="..\SmartAgri.ServiceAPI\SmartAgri.ServiceAPI.csproj" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -13,9 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartAgri.Business", "Smart
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SmartAgri.PricePredictionService", "SmartAgri.PricePredictionService\SmartAgri.PricePredictionService.pyproj", "{620E14FD-308D-4B0A-AFC5-DDAAB9A1D6CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartAgri.ServiceAPI", "SmartAgri.ServiceAPI\SmartAgri.ServiceAPI.csproj", "{B3B36EDF-4034-4495-8630-648713920DC9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectTest", "ProjectTest\ProjectTest.csproj", "{943614DF-0F1B-4FF1-B803-80120DB4F3EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartAgri.ServiceAPI", "SmartAgri.ServiceAPI\SmartAgri.ServiceAPI.csproj", "{B3B36EDF-4034-4495-8630-648713920DC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +43,6 @@ Global
 		{B3B36EDF-4034-4495-8630-648713920DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B36EDF-4034-4495-8630-648713920DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B36EDF-4034-4495-8630-648713920DC9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{943614DF-0F1B-4FF1-B803-80120DB4F3EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{943614DF-0F1B-4FF1-B803-80120DB4F3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{943614DF-0F1B-4FF1-B803-80120DB4F3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{943614DF-0F1B-4FF1-B803-80120DB4F3EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
