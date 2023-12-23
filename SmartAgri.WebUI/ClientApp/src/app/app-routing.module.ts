@@ -53,7 +53,7 @@ const routes : Routes = [
     {
         path: '',
         component: GeneralLayoutComponent,
-        canActivate: [IsAuthGuard],
+        // canActivate: [IsAuthGuard],
         children: [
             {
                 path: 'bazaar',

@@ -11,14 +11,14 @@ import { Topic } from 'src/app/models/topic';
 })
 export class TopicsComponent {
   topics: Topic[] = []; 
-  isfetching = false;
+  isFetching = false;
 
   constructor(private router: Router, private topicService: TopicService) {}
   
   ngOnInit() {
-    this.isfetching = true;
+    this.isFetching = true;
     this.topicService.getTopics().subscribe((responseData)=>{
-      this.isfetching = false;
+      this.isFetching = false;
       // console.log(responseData)
 
       this.topics = responseData;

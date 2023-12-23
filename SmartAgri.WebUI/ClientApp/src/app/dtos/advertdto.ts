@@ -1,9 +1,9 @@
 export class AdvertDto {
-    Id?: number;
-    ProductId?: number;
-    UnitPrice?: number;
-    Quantity?: number;
-    UserId?: number; 
-    StatusId?: number;
-    CreatedAt?: Date;
+    id?: number;
+    productId?: number;
+    unitPrice?: number;
+    quantity?: number;
+    userId?: number; 
+    statusId?: number;
+    createdAt?: Date;
 }

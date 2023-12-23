@@ -42,17 +42,18 @@
     z-index: 2;
 }
   
-.bazaar-detail .product-info .product-head {
-    display: flex;
-    justify-content: space-around;
-} 
+.bazaar-detail .product-info .product-head {   
+    text-align: center;
+}
 
 .bazaar-detail .product-info .product-head h3{
-   font-size: 18px;
+   font-size: 20px;
+   font-weight: 500;
 } 
 
-.bazaar-detail .product-info .product-head  .product-image {
-    max-width: 100%;
+.bazaar-detail .product-info .product-head .product-image {
+    width: 160px;
+    height: 160px;
     height: auto;
 }
 
@@ -88,4 +89,13 @@
 
 .bazaar-detail .product-order .order-table {
     padding: 20px;
+}
+
+.bazaar-detail .product-order .btn_primary{
+    border: none;
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
 }

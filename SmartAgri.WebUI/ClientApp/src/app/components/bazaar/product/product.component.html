@@ -4,15 +4,21 @@
             
             <div class="col-3">
                 <div class="product-info">
+                  <div class="d-flex justify-content-center" *ngIf="isFetching">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                  <div *ngIf="!isFetching">
                     <div class="product-head">
-                        <img src="" alt="product-image" class="product-image">
-                        <h3>Ürün Adı</h3>
+                      <img [src]="imagesPath" alt="{{product.name}}" class="product-image">
+                      <h3>{{ product!.name }}</h3>
                     </div>
                     <div class="price-info">
-                        <span>Unit Price: <strong>$55.98347</strong></span>
-                        <span>Old Price: <strong>$129.9997</strong></span>
-                        <span>Expected Price:  <strong>$87.98687</strong></span>
+                      <span>Unit Price: <strong>{{ product!.currentPrice }}</strong></span>
+                      <span>Expected Price:  <strong>{{ product!.expectedPrice }}</strong></span>
                     </div>
+                  </div>
                 </div>
             </div>
 
@@ -32,12 +38,12 @@
                               </tr>
                             </thead>
                             <tbody style="text-align: center;">
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>$55.489</td>
-                                <td>3</td>
-                                <td>166,467</td>
-                                <td>09/12/2023</td>
+                              <tr *ngFor="let buyAdvert of buyAdverts; let i = index;">
+                                <th scope="row">{{ i + 1 }}</th>
+                                <td>{{ buyAdvert.unitPrice }}</td>
+                                <td>{{ buyAdvert.quantity }}</td>
+                                <td>{{ (buyAdvert.unitPrice && buyAdvert.quantity) ? (buyAdvert.unitPrice * buyAdvert.quantity) : 'N/A' }}</td>
+                                <td>{{ buyAdvert.createdAt | date:'MM/dd/yyyy' }}</td>
                                 <td><button class="btn_primary">Buy</button></td>
                               </tr>
                             </tbody>
@@ -56,13 +62,13 @@
                               </tr>
                             </thead>
                             <tbody style="text-align: center;">
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>$55.489</td>
-                                <td>3</td>
-                                <td>166,467</td>
-                                <td>09/12/2023</td>
-                                <td><button class="btn_primary" style="background-color: var(--red);">Sell</button></td>
+                              <tr *ngFor="let sellAdvert of sellAdverts; let i = index">
+                                <th scope="row">{{ i + 1 }}</th>
+                                <td>{{ sellAdvert.unitPrice }}</td>
+                                <td>{{ sellAdvert.quantity }}</td>
+                                <td>{{ (sellAdvert.unitPrice && sellAdvert.quantity) ? (sellAdvert.unitPrice * sellAdvert.quantity) : 'N/A' }}</td>
+                                <td>{{ sellAdvert.createdAt | date:'MM/dd/yyyy' }}</td>
+                                <td><button class="btn_primary" style="color: var(--red);">Sell</button></td>
                               </tr>
                             </tbody>
                         </table>

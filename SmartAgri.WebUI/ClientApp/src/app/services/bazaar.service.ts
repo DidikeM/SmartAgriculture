@@ -22,10 +22,10 @@ export class BazaarService {
     }
 
     getBuyAdvertsByProduct(productId: number){
-        return this.http.get<AdvertDto>(`${this.apiUrl}/getselladvertsbyproduct/${productId}`);
+        return this.http.get<AdvertDto[]>(`${this.apiUrl}/getbuyadvertsbyproduct/${productId}`);
     }
     
     getSellAdvertsByProduct(productId: number){
-        return this.http.get<AdvertDto>(`${this.apiUrl}/getselladvertsbyproduct/${productId}`);
+        return this.http.get<AdvertDto[]>(`${this.apiUrl}/getselladvertsbyproduct/${productId}`);
     }
 }
