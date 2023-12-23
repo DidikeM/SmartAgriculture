@@ -1,8 +1,8 @@
 export class ProductDto {
- Id?: number
- Name?: string;
- ImagePath?: string;
- OldPrice?: string;
- CurrentPrice?: string;
- ExpectedPrice?: string;
+ id?: number
+ name?: string;
+ imagePath?: string;
+ oldPrices?: number[];
+ currentPrice?: number;
+ expectedPrice?: number;
 }
