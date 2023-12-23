@@ -29,5 +29,20 @@ namespace SmartAgri.DataAccess.Concrete.EntityFramework
                 return result == null ? -1 : result.UnitPrice;
             }
         }
+
+        public List<decimal> GetProductOldPrices(int id)
+        {
+            using (var context = _contextFactory.CreateDbContext())
+            {
+                var result = context.AdvertSells
+                    .Where(x => x.ProductId == id && x.StatusId == (int)AdvertStatusEnum.Active)
+                    .OrderByDescending(x => x.CreatedAt)
+                    .Take(5) 
+                    .Select(x => x.UnitPrice);
+
+                return result.ToList();
+            }
+        }
+
     }
 }

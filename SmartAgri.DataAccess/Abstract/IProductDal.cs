@@ -10,5 +10,8 @@ namespace SmartAgri.DataAccess.Abstract
     public interface IProductDal : IEntityRepository<Product>
     {
         decimal GetProductCurrentPrice(int id);
+
+        List<decimal> GetProductOldPrices(int id);
+
     }
 }

@@ -45,6 +45,19 @@ namespace SmartAgri.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Roles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Roles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -53,11 +66,18 @@ namespace SmartAgri.DataAccess.Migrations
                     Name = table.Column<string>(type: "text", nullable: false),
                     Surname = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false)
+                    Password = table.Column<string>(type: "text", nullable: false),
+                    RoleId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Users_Roles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "Roles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -212,8 +232,9 @@ namespace SmartAgri.DataAccess.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Aktif" },
-                    { 2, "Pasif" }
+                    { 1, "Active" },
+                    { 2, "notProccess" },
+                    { 3, "complated" }
                 });
 
             migrationBuilder.InsertData(
@@ -222,17 +243,26 @@ namespace SmartAgri.DataAccess.Migrations
                 values: new object[] { 1, "wheat.png", "Buğday" });
 
             migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Admin" },
+                    { 2, "User" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Email", "Name", "Password", "Surname" },
-                values: new object[] { 1, "admin", "admin", "admin", "admin" });
+                columns: new[] { "Id", "Email", "Name", "Password", "RoleId", "Surname" },
+                values: new object[] { 1, "admin", "admin", "admin", 1, "admin" });
 
             migrationBuilder.InsertData(
                 table: "AdvertBuys",
                 columns: new[] { "Id", "CreatedAt", "ProductId", "Quantity", "StatusId", "UnitPrice", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 12, 6, 14, 40, 54, 90, DateTimeKind.Local).AddTicks(4487), 1, 100, 1, 10m, 1 },
-                    { 2, new DateTime(2023, 12, 6, 14, 40, 54, 90, DateTimeKind.Local).AddTicks(4495), 1, 200, 1, 20m, 1 }
+                    { 1, new DateTime(2023, 12, 20, 23, 12, 29, 538, DateTimeKind.Local).AddTicks(2826), 1, 100, 1, 10m, 1 },
+                    { 2, new DateTime(2023, 12, 20, 23, 12, 29, 538, DateTimeKind.Local).AddTicks(2837), 1, 200, 1, 20m, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -240,8 +270,8 @@ namespace SmartAgri.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedAt", "ProductId", "Quantity", "StatusId", "UnitPrice", "UserId" },
                 values: new object[,]
                 {
-                    { 3, new DateTime(2023, 12, 6, 14, 40, 54, 90, DateTimeKind.Local).AddTicks(4504), 1, 300, 1, 30m, 1 },
-                    { 4, new DateTime(2023, 12, 6, 14, 40, 54, 90, DateTimeKind.Local).AddTicks(4505), 1, 400, 1, 40m, 1 }
+                    { 3, new DateTime(2023, 12, 20, 23, 12, 29, 538, DateTimeKind.Local).AddTicks(2843), 1, 300, 1, 30m, 1 },
+                    { 4, new DateTime(2023, 12, 20, 23, 12, 29, 538, DateTimeKind.Local).AddTicks(2844), 1, 400, 1, 40m, 1 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -299,6 +329,11 @@ namespace SmartAgri.DataAccess.Migrations
                 table: "Transactions",
                 column: "SellAdvertId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_RoleId",
+                table: "Users",
+                column: "RoleId");
         }
 
         /// <inheritdoc />
@@ -327,6 +362,9 @@ namespace SmartAgri.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
 
             migrationBuilder.DropSequence(
                 name: "AdvertSequence");

@@ -52,6 +52,11 @@ namespace SmartAgri.Business.Concrete
             return _predictPrice.Predict((ProductEnum)id).Result;
         }
 
+        public List<decimal> GetProductOldPrices(int id)
+        {
+            return _productdal.GetProductOldPrices(id);
+        }
+
         public List<AdvertSell> GetSellAdvertsByProductId(int id)
         {
             return _advertSellDal.GetAll(a => a.ProductId == id && a.StatusId == (int)AdvertStatusEnum.Active);

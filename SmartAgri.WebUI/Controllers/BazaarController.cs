@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartAgri.Business.Abstract;
+using SmartAgri.Business.Concrete;
 using SmartAgri.Entities.Concrete;
 using SmartAgri.WebUI.DTOs;
 
@@ -19,13 +20,14 @@ namespace SmartAgri.WebUI.Controllers
 
             response.Products = products.Select(p => new ProductDto(p)).ToList();
 
-            foreach(var productDto in response.Products)
+            foreach (var productDto in response.Products)
             {
                 productDto.CurrentPrice = _bazaarService.GetProductCurrentPrice(productDto.Id);
                 productDto.ExpectedPrice = _bazaarService.GetProductExpectedPrice(productDto.Id);
+                productDto.OldPrices = _bazaarService.GetProductOldPrices(productDto.Id);
             }
 
-            return Json(response);
+            return Json(response.Products);
         }
 
         public IActionResult GetProduct(int id)
@@ -34,11 +36,12 @@ namespace SmartAgri.WebUI.Controllers
             {
                 Product = new ProductDto(_bazaarService.GetProductById(id))
                 {
-                    CurrentPrice = _bazaarService.GetProductCurrentPrice(id)
-                }
+                    CurrentPrice = _bazaarService.GetProductCurrentPrice(id),
+                    ExpectedPrice = _bazaarService.GetProductExpectedPrice(id),
+                 }
             };
 
-            return Json(response);
+            return Json(response.Product);
         }
 
         public IActionResult GetBuyAdvertsByProduct(int id)
@@ -47,7 +50,7 @@ namespace SmartAgri.WebUI.Controllers
             {
                 BuyAdverts = _bazaarService.GetBuyAdvertsByProductId(id).Select(b => new AdvertDto(b)).ToList()
             };
-            return Json(response);
+            return Json(response.BuyAdverts);
         }
 
         public IActionResult GetSellAdvertsByProduct(int id)
@@ -56,7 +59,7 @@ namespace SmartAgri.WebUI.Controllers
             {
                 SellAdverts = _bazaarService.GetSellAdvertsByProductId(id).Select(s => new AdvertDto(s)).ToList()
             };
-            return Json(response);
+            return Json(response.SellAdverts);
         }
 
         public IActionResult AddBuyAdvert()

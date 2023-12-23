@@ -110,6 +110,7 @@ public class SmartAgriContext : DbContext
                 Name = "admin",
                 Surname = "admin",
                 Email = "admin",
+                RoleId = 1,
                 Password = "admin",
             });
 

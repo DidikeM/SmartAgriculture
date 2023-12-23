@@ -18,7 +18,7 @@ namespace SmartAgri.WebUI.DTOs
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string ImagePath { get; set; } = null!;
-        public decimal OldPrice { get; set; }
+        public List<decimal> OldPrices { get; set; }
         public decimal CurrentPrice { get; set; }
         public decimal ExpectedPrice { get; set; }
     }
