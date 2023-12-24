@@ -1,9 +1,12 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AdvertDto } from 'src/app/dtos/advertdto';
 import { ProductDto } from 'src/app/dtos/productdto';
 import { BazaarService } from 'src/app/services/bazaar.service';
+import { faLock,faLockOpen } from '@fortawesome/free-solid-svg-icons';
+import { ValidationService } from 'src/app/services/validation.service';
 
 @Component({
   selector: 'app-product',
@@ -12,20 +15,55 @@ import { BazaarService } from 'src/app/services/bazaar.service';
 })
 
 export class ProductComponent {
+  faLock = faLock;
+  faLockOpen= faLockOpen;
+  
+  @ViewChild('myModal') modalElement!: ElementRef;
+
   imagesPath = "assets/images/bazaar/";
   tabs: string [] = ['Buy', 'Sell'];
   activatedTabIndex: number = 0;
   isFetching = false;
+  isCalculating = false;
+  advertForm!: FormGroup;
+  calculationLock: Map<string, boolean>;
+  product: ProductDto = {};
+  buyAdverts: AdvertDto[] = [];
+  sellAdverts: AdvertDto[] = [];
 
   tabChange(tabIndex: number){
     this.activatedTabIndex = tabIndex;
   }
 
-  product: ProductDto = {};
-  buyAdverts: AdvertDto[] = [];
-  sellAdverts: AdvertDto[] = [];
+  constructor(private bazaarService: BazaarService, private route: ActivatedRoute, validationService:ValidationService) {
+    this.calculationLock = new Map<string, boolean>();
+    this.initializeLocks()
 
-  constructor(private bazaarService: BazaarService, private route: ActivatedRoute) {}
+    this.advertForm = new FormGroup({
+      'unitPrice': new FormControl(null, Validators.required),
+      'quantity': new FormControl(null, Validators.required),
+      'totalPrice': new FormControl(null, Validators.required)
+    });
+  }
+
+  fnCalculateOther = () => {
+    if(this.calculationLock.get("quantity"))
+      this.calculateOther("unitPrice","quantity");
+    else if(this.calculationLock.get("unitPrice"))
+      this.calculateOther("quantity","unitPrice");
+      
+  }
+
+  onFocused(valueToChange: string, func: () => void): void {
+    this.advertForm.get(valueToChange)?.valueChanges.subscribe(() => {
+      console.log("Called to change ", valueToChange," with function ", func.name)
+      if (!this.isCalculating) {
+        this.isCalculating = true;
+        func.call(this);
+        this.isCalculating = false;
+      }
+    });
+  }
   
   ngOnInit() {
     this.isFetching = true;
@@ -41,7 +79,7 @@ export class ProductComponent {
           if (!this.product.imagePath || this.product.imagePath.length === 0 || this.product.imagePath === "")
             this.imagesPath = this.imagesPath.concat("default-image.png");
           else
-            this.imagesPath = this.imagesPath.concat("wheat.png");
+            this.imagesPath = this.imagesPath.concat(this.product.imagePath);
         }
       );
 
@@ -58,9 +96,69 @@ export class ProductComponent {
       );
     });
   }
+  
+  initializeLocks(): void
+  {
+    this.calculationLock.set("quantity", true);
+    this.calculationLock.set("unitPrice", false);
+  }
 
-  // ngAfterViewInit(): void {
-  //   this.isFetching = false;
-  //   console.log("after")
-  // }
+  checkLocks(clickedItem: string)
+  {
+    if (clickedItem === "quantity")
+    {
+      this.calculationLock.set("quantity", true);
+      this.calculationLock.set("unitPrice", false);
+    }
+    else if (clickedItem === "unitPrice")
+    {
+      this.calculationLock.set("quantity", false);
+      this.calculationLock.set("unitPrice", true);
+    }
+  }
+
+
+  calculateTotalPrice(): void {
+    const unitPrice = this.advertForm.get('unitPrice')?.value;
+    const quantity = this.advertForm.get('quantity')?.value;
+    const totalPrice = this.advertForm.get('totalPrice')?.value;
+  
+    if (unitPrice !== null && quantity !== null)
+    {
+      this.advertForm.get('totalPrice')?.setValue(quantity * unitPrice);
+    }
+  }
+  
+  calculateOther(valueBase: string, valueChange: string): void
+  {
+    const other = this.advertForm.get(valueBase)?.value;
+    const totalPrice = this.advertForm.get('totalPrice')?.value;
+  
+    if (other !== null && totalPrice !== null && other !== 0)
+    {
+      this.advertForm.get(valueChange)?.setValue(totalPrice / other);
+    } else if (other === 0)
+    {
+      this.advertForm.get(valueChange)?.setValue(0);
+    }
+  }
+  openModal()
+  {
+    if (this.modalElement)
+    {
+      this.modalElement.nativeElement.style.display = 'block';
+    }
+  }
+
+  closeModal()
+  {
+    if (this.modalElement)
+    {
+      this.modalElement.nativeElement.style.display = 'none';
+    }
+  }
+
+  getColorForTab(): string {
+    return this.activatedTabIndex === 0 ? 'Buy' : 'Sell';
+  }
 }

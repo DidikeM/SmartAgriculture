@@ -7,6 +7,7 @@
     border-radius: 10px;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.06);
     max-height: auto;
+    text-align: center;
 }
 
 .bazaar-detail .product-info, .bazaar-detail .product-order {
@@ -98,4 +99,110 @@
     font-weight: 600;
     letter-spacing: 2px;
     background: transparent;
+}
+
+.btn_modal {
+    text-align: right;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    font-size: 0.85rem;
+    font-weight:600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: fit-content;
+    border-radius: 10px;
+    margin-left: auto; 
+    background:transparent;
+}
+
+.buy-color {
+    color: var(--primary); 
+    border:1px solid var(--primary);
+}
+  
+.sell-color {
+    color: var(--red);
+    border: 1px solid var(--red);
+}
+
+.input-field {
+    position: relative;
+    height: 50px;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.input-field input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 15px;
+    outline: none;
+    font-size: 16px;
+    color: var(--black)!important;
+    border: 1px solid var(--gray-1);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.input-field .ng-fa-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-1);
+    font-size: 18px;
+    right: 10px;
+}
+
+.input-field select {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 15px;
+    color: var(--black)!important;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border: 1px solid var(--gray-1);
+    border-radius: 10px;
+    background-color: transparent; 
+    appearance: none; 
+    cursor: pointer;
+}
+
+
+.input-field select option:hover{
+    background-color: var(--primary);
+    color: var(--white)!important;
+}
+
+.modal {
+    backdrop-filter: blur(5px);
+}
+
+
+.modal .modal-header{
+    border-bottom:none;
+}
+
+.modal .modal-header .modal-title{
+    position: relative;
+}
+
+.modal .modal-header .modal-title::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 50px;
+    background-color: var(--primary-dark);
+    border-radius: 25px;
+}
+
+.modal-body .btn_primary{
+    width: 100%;
+    margin-top: 25px;
+    border-radius: 15px;
 }

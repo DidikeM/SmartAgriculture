@@ -1,15 +1,14 @@
 <section class="bazaar-detail" style="margin-top: 30px;">
     <div class="container">
-        <div class="row">
-            
+      <div class="d-flex justify-content-center" *ngIf="isFetching">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+        <div class="row" *ngIf="!isFetching">
             <div class="col-3">
                 <div class="product-info">
-                  <div class="d-flex justify-content-center" *ngIf="isFetching">
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                  </div>
-                  <div *ngIf="!isFetching">
+                
                     <div class="product-head">
                       <img [src]="imagesPath" alt="{{product.name}}" class="product-image">
                       <h3>{{ product!.name }}</h3>
@@ -19,13 +18,13 @@
                       <span>Expected Price:  <strong>{{ product!.expectedPrice }}</strong></span>
                     </div>
                   </div>
-                </div>
             </div>
 
             <div class="col-9 gx-2 product-order">
                 <app-tabs [tabsArray]="tabs" (onTabChange)="tabChange($event)"></app-tabs>
                 <div class="col-12 order-table">
                     <div class="row" *ngIf="activatedTabIndex == 0">
+                      <button class="btn_modal" [ngClass]="{'buy-color': getColorForTab() === 'Buy', 'sell-color': getColorForTab() === 'Sell'}" (click)="openModal()">Create an Advert</button>
                         <table class="table" aria-describedby="buy">
                             <thead style="text-align: center;">
                               <tr>
@@ -50,6 +49,7 @@
                         </table>
                     </div>
                     <div class="row" *ngIf="activatedTabIndex == 1">
+                      <button class="btn_modal" [ngClass]="{'buy-color': getColorForTab() === 'Buy', 'sell-color': getColorForTab() === 'Sell'}" (click)="openModal()">Create an Advert</button>
                         <table class="table" aria-describedby="sell">
                             <thead style="text-align: center;">
                               <tr>
@@ -71,11 +71,61 @@
                                 <td><button class="btn_primary" style="color: var(--red);">Sell</button></td>
                               </tr>
                             </tbody>
-                        </table>
+                        </table>              
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="modal" data-backdrop="static" data-keyboard="false" #myModal >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Create an Advert</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="advertForm">
+                  <div class="input-field">
+                    <select required>
+                        <option value="" disabled selected>Select an product</option>
+                        <option value="" >Select</option>
+                    </select> 
+                  </div>
+                  <div class="input-field">
+                    <input
+                        type="text"
+                        placeholder="Enter your Unit Price"
+                        required
+                        formControlName="unitPrice"
+                        (focus)="onFocused('unitPrice', this.calculateTotalPrice)"
+                    />
+                    <fa-icon [icon]="this.calculationLock.get('unitPrice') ? faLockOpen : faLock" (click)="checkLocks('unitPrice')"></fa-icon>
+                  </div> 
+                  <div class="input-field">
+                    <input
+                        type="text"
+                        placeholder="Enter your Quantity"
+                        required
+                        formControlName="quantity"
+                        (focus)="onFocused('quantity', this.calculateTotalPrice)"
+                    />
+                    <fa-icon [icon]="this.calculationLock.get('quantity') ? faLockOpen : faLock" (click)="checkLocks('quantity')" ></fa-icon>
+                  </div>
+                  <div class="input-field">
+                    <input
+                        type="number"
+                        placeholder="Enter your Total Price"
+                        required
+                        formControlName="totalPrice"
+                        (focus)="onFocused('totalPrice', this.fnCalculateOther)"
+                    />
+                  </div>
+                  <button class="btn_primary" type="submit" [disabled]="!advertForm.valid" >Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
 </section>

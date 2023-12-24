@@ -6,7 +6,6 @@ import { Validators, AbstractControl } from '@angular/forms';
 })
 
 export class ValidationService {
-  
   emailValidation(control: AbstractControl) {
     return Validators.compose([
       Validators.required,
