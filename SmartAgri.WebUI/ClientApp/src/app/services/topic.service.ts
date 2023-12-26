@@ -9,7 +9,7 @@ import { Reply } from '../models/reply';
 })
 
 export class TopicService {
-    private apiUrl = 'http://localhost:5172/form'; 
+    private apiUrl = 'https://localhost:7119/form'; 
 
     constructor(private http: HttpClient){}
 

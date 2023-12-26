@@ -17,6 +17,7 @@ namespace SmartAgri.WebUI.Controllers
         [HttpGet, Authorize]
         public IActionResult GetTopics()
         {
+            var asd = User.Claims;
             List<Topic> topics = _formService.GetTopicsWithUsers();
             foreach (var topic in topics)
             {
