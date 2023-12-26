@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SmartAgri.Business.Abstract;
 using SmartAgri.Entities.Concrete;
 
@@ -13,7 +14,7 @@ namespace SmartAgri.WebUI.Controllers
             _formService = formService;
         }
 
-        [HttpGet]
+        [HttpGet, Authorize]
         public IActionResult GetTopics()
         {
             List<Topic> topics = _formService.GetTopicsWithUsers();

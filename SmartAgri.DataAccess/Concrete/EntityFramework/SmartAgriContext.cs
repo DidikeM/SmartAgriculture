@@ -109,9 +109,9 @@ public class SmartAgriContext : DbContext
                 Id = 1,
                 Name = "admin",
                 Surname = "admin",
-                Email = "admin",
+                Email = "admin@admin.com",
                 RoleId = 1,
-                Password = "admin",
+                Password = "admin123",
             });
 
         modelBuilder.Entity<Product>().HasData(
