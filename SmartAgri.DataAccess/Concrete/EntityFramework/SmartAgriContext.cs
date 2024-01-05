@@ -117,7 +117,7 @@ public class SmartAgriContext : DbContext
         modelBuilder.Entity<Product>().HasData(
             new Product
             {
-                Id = 1,
+                Id = 9,
                 Name = "Buğday",
                 ImagePath = "wheat.png"
             });
@@ -142,19 +142,49 @@ public class SmartAgriContext : DbContext
         modelBuilder.Entity<AdvertBuy>().HasData(
             new AdvertBuy
             {
-                Id = 1,
-                ProductId = 1,
-                UnitPrice = 10,
-                Quantity = 100,
+                Id = 6,
+                ProductId = 9,
+                UnitPrice = 220,
+                Quantity = 300,
                 UserId = 1,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             },
             new AdvertBuy
             {
-                Id = 2,
-                ProductId = 1,
-                UnitPrice = 20,
+                Id = 7,
+                ProductId = 9,
+                UnitPrice = 210,
+                Quantity = 200,
+                UserId = 1,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            },
+            new AdvertBuy
+            {
+                Id = 8,
+                ProductId = 9,
+                UnitPrice = 200,
+                Quantity = 180,
+                UserId = 1,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            },
+            new AdvertBuy
+            {
+                Id = 9,
+                ProductId = 9,
+                UnitPrice = 190,
+                Quantity = 150,
+                UserId = 1,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            },
+            new AdvertBuy
+            {
+                Id = 10,
+                ProductId = 9,
+                UnitPrice = 180,
                 Quantity = 200,
                 UserId = 1,
                 StatusId = 1,
@@ -164,10 +194,30 @@ public class SmartAgriContext : DbContext
         modelBuilder.Entity<AdvertSell>().HasData(
             new AdvertSell
             {
+                Id = 1,
+                ProductId = 9,
+                UnitPrice = 295,
+                Quantity = 100,
+                UserId = 1,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            },
+            new AdvertSell
+            {
+                Id = 2,
+                ProductId = 9,
+                UnitPrice = 285,
+                Quantity = 200,
+                UserId = 1,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            },
+            new AdvertSell
+            {
                 Id = 3,
-                ProductId = 1,
-                UnitPrice = 30,
-                Quantity = 300,
+                ProductId = 9,
+                UnitPrice = 280,
+                Quantity = 250,
                 UserId = 1,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
@@ -175,9 +225,19 @@ public class SmartAgriContext : DbContext
             new AdvertSell
             {
                 Id = 4,
-                ProductId = 1,
-                UnitPrice = 40,
-                Quantity = 400,
+                ProductId = 9,
+                UnitPrice = 240,
+                Quantity = 125,
+                UserId = 1,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            },
+            new AdvertSell
+            {
+                Id = 5,
+                ProductId = 9,
+                UnitPrice = 230,
+                Quantity = 175,
                 UserId = 1,
                 StatusId = 1,
                 CreatedAt = DateTime.Now

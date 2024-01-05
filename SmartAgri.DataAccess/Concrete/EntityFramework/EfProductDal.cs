@@ -24,7 +24,7 @@ namespace SmartAgri.DataAccess.Concrete.EntityFramework
             {
                 var result = context.AdvertSells
                     .Where(x => x.ProductId == id && x.StatusId == (int)AdvertStatusEnum.Active)
-                    .OrderByDescending(x => x.UnitPrice)
+                    .OrderBy(x => x.UnitPrice)
                     .FirstOrDefault();
                 return result == null ? -1 : result.UnitPrice;
             }

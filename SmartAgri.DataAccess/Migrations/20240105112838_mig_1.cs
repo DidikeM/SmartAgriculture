@@ -240,7 +240,7 @@ namespace SmartAgri.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "ImagePath", "Name" },
-                values: new object[] { 1, "wheat.png", "Buğday" });
+                values: new object[] { 9, "wheat.png", "Buğday" });
 
             migrationBuilder.InsertData(
                 table: "Roles",
@@ -254,15 +254,18 @@ namespace SmartAgri.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Email", "Name", "Password", "RoleId", "Surname" },
-                values: new object[] { 1, "admin", "admin", "admin", 1, "admin" });
+                values: new object[] { 1, "admin@admin.com", "admin", "admin123", 1, "admin" });
 
             migrationBuilder.InsertData(
                 table: "AdvertBuys",
                 columns: new[] { "Id", "CreatedAt", "ProductId", "Quantity", "StatusId", "UnitPrice", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 12, 20, 23, 12, 29, 538, DateTimeKind.Local).AddTicks(2826), 1, 100, 1, 10m, 1 },
-                    { 2, new DateTime(2023, 12, 20, 23, 12, 29, 538, DateTimeKind.Local).AddTicks(2837), 1, 200, 1, 20m, 1 }
+                    { 6, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5099), 9, 300, 1, 220m, 1 },
+                    { 7, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5111), 9, 200, 1, 210m, 1 },
+                    { 8, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5113), 9, 180, 1, 200m, 1 },
+                    { 9, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5114), 9, 150, 1, 190m, 1 },
+                    { 10, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5114), 9, 200, 1, 180m, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -270,8 +273,11 @@ namespace SmartAgri.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedAt", "ProductId", "Quantity", "StatusId", "UnitPrice", "UserId" },
                 values: new object[,]
                 {
-                    { 3, new DateTime(2023, 12, 20, 23, 12, 29, 538, DateTimeKind.Local).AddTicks(2843), 1, 300, 1, 30m, 1 },
-                    { 4, new DateTime(2023, 12, 20, 23, 12, 29, 538, DateTimeKind.Local).AddTicks(2844), 1, 400, 1, 40m, 1 }
+                    { 1, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5125), 9, 100, 1, 295m, 1 },
+                    { 2, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5126), 9, 200, 1, 285m, 1 },
+                    { 3, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5127), 9, 250, 1, 280m, 1 },
+                    { 4, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5128), 9, 125, 1, 240m, 1 },
+                    { 5, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5129), 9, 175, 1, 230m, 1 }
                 });
 
             migrationBuilder.CreateIndex(
