@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.WebUtilities;
 using MimeKit;
 using SmartAgri.Business.Abstract;
 using SmartAgri.Entities.Concrete;
+using SmartAgri.Entities.Enums;
+using SmartAgri.ServiceAPI.Abstract;
 using SmartAgri.WebUI.DTOs;
 using SmartAgri.WebUI.JwtFeatures;
 using SmartAgri.WebUI.Mailing;
@@ -18,11 +20,14 @@ namespace SmartAgri.WebUI.Controllers
         private readonly JwtHandler _jwtHandler;
         private readonly IUserService _userService;
         private readonly IEmailSender _emailSender;
-        public AuthController(JwtHandler jwtHandler, IUserService userService, IEmailSender emailSender)
+        private readonly IAgriCoinApi _agricoinApi;
+
+        public AuthController(JwtHandler jwtHandler, IUserService userService, IEmailSender emailSender, IAgriCoinApi agricoinApi)
         {
             _jwtHandler = jwtHandler;
             _userService = userService;
             _emailSender = emailSender;
+            _agricoinApi = agricoinApi;
         }
 
         [HttpPost]
@@ -54,7 +59,12 @@ namespace SmartAgri.WebUI.Controllers
                 Surname = userForRegistration.Surname,
                 Email = userForRegistration.Email,
                 Password = userForRegistration.Password,
+                RoleId = (int)UserRoleEnum.User,
+                CoinAccountId = Guid.NewGuid(),
+                LockedBalance = 0,
             };
+
+            user.CoinAddress = _agricoinApi.CreateAccount(user.CoinAccountId);
 
             if (_userService.CreateUser(user))
             {

@@ -94,13 +94,13 @@ public class SmartAgriContext : DbContext
         modelBuilder.Entity<Role>().HasData(
             new Role
             {
-                Id = 1,
-                Name = "Admin"
+                Id = (int)UserRoleEnum.Admin,
+                Name = UserRoleEnum.Admin.ToString()
             },
             new Role
             {
-                Id = 2,
-                Name = "User"
+                Id = (int)UserRoleEnum.User,
+                Name = UserRoleEnum.User.ToString()
             });
 
         modelBuilder.Entity<User>().HasData(
@@ -110,7 +110,7 @@ public class SmartAgriContext : DbContext
                 Name = "admin",
                 Surname = "admin",
                 Email = "admin@admin.com",
-                RoleId = 1,
+                RoleId = (int)UserRoleEnum.Admin,
                 Password = "admin123",
                 CoinAccountId = Guid.Empty,
                 CoinAddress = "",
