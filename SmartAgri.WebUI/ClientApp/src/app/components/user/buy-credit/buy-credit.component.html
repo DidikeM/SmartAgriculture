@@ -1,0 +1,23 @@
+<div class="col-lg-4 col-md-3 m-auto">
+    <div class="card-container p-4 bg-white shadow rounded">
+        <h3 class="fs-4 mb-3">Buy Credit</h3>
+        <hr>
+        <form class="product-form" [formGroup]="buycreditForm" (ngSubmit)="onSubmit()">
+            <div class="form-container mb-2" style="color: var(--black);"> 
+                Your Balance: <span>{{balance}}</span>
+            </div>
+            <div class="form-container">
+                <label>Amount:</label>
+                <input 
+                    type="number"
+                    name="amount"
+                    required
+                    formControlName="amount"
+                >
+            </div>
+            <div class="form-container">
+                <button class="btn btn-submit w-100 mt-2" type="submit" [disabled]="!buycreditForm.valid">Sumbit</button>
+            </div>
+        </form>
+    </div>
+</div>

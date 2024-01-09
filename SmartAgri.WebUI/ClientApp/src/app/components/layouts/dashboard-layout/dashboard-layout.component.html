@@ -1,10 +1,12 @@
 <div class="dashboardcontainer">
     <div class="navigation" [ngClass]="{'active': isNavigationActive}">
         <ul>
-            <li>
-                <a>
-                    <img *ngIf="!isNavigationActive" src="/assets/images/agri-logo-dashboard.png" alt="agricoin">
-                </a>
+            <li class="logo-item">
+                <div class="logo-container no-hover-effect">
+                    <a routerLink="/">
+                        <img *ngIf="!isNavigationActive" src="/assets/images/agri-logo-dashboard.png" alt="agricoin">
+                    </a>
+                </div>
             </li>
             <li>
                 <a>
@@ -12,40 +14,28 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a>
                     <span class="icon"><fa-icon [icon]="faUsers"></fa-icon></span>
                     <span class="title">Customers</span>
                 </a>
-            </li>
+            </li> -->
             <li>
-                <a>
-                    <span class="icon"><fa-icon [icon]="faChartSimple"></fa-icon></span>
-                    <span class="title">Analytics</span>
+                <a routerLink="/user/buycredit">
+                    <span class="icon"><fa-icon [icon]="faCartShopping"></fa-icon></span>
+                    <span class="title">Buy Credit</span>
                 </a>
             </li>
             <li>
-                <a>
-                    <span class="icon"><fa-icon [icon]="faReceipt"></fa-icon></span>
-                    <span class="title">Orders</span>
+                <a routerLink="/user/sellcredit">
+                    <span class="icon"><fa-icon [icon]="faMoneyBill"></fa-icon></span>
+                    <span class="title">Sell Credit</span>
                 </a>
             </li>
             <li>
-                <a>
-                    <span class="icon"><fa-icon [icon]="faGear"></fa-icon></span>
-                    <span class="title">Settings</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span class="icon"><fa-icon [icon]="faPlus"></fa-icon></span>
-                    <span class="title">Add Product</span>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <span class="icon"><fa-icon [icon]="faMessage"></fa-icon></span>
-                    <span class="title">Messages</span>
+                <a routerLink="/user/withdrawcredit">
+                    <span class="icon"><fa-icon [icon]="faMoneyBillTransfer"></fa-icon></span>
+                    <span class="title">Withdraw Credit</span>
                 </a>
             </li>
             <li>
@@ -62,6 +52,9 @@
             <div class="toggle" (click)="toggleNavigation()">
                 <fa-icon [icon]="faBars"></fa-icon>
             </div>
+        </div>
+        <div class="container">  
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

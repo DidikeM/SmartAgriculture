@@ -1,0 +1,30 @@
+.form-container {
+    display: block;
+}
+
+.form-container input {
+    width: 100%;
+    margin-bottom: 0.9rem;
+    font-weight: 500;
+    border: 1px solid #a1a1a1;
+    border-radius: 15px;
+    padding: 8px;
+}
+
+.card-container {
+    border-left: 3px solid !important;
+    color: var(--primary);
+}
+
+.btn-submit {
+    background-color: var(--primary);
+    padding: 8px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: var(--white);
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}

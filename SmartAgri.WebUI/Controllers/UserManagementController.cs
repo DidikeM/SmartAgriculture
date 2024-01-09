@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SmartAgri.Business.Abstract;
+using SmartAgri.WebUI.DTOs;
 
 namespace SmartAgri.WebUI.Controllers
 {
+    [Authorize]
     public class UserManagementController : Controller
     {
         private readonly IUserManagementService _userManagementService;
@@ -11,12 +14,14 @@ namespace SmartAgri.WebUI.Controllers
             _userManagementService = userManagementService;
         }
 
+        [HttpGet]
         public IActionResult GetBalanceForUser()
         {
           return Json(_userManagementService.GetUserBalanceById(GetClaim.GetUserId(User)));
         }
 
-        public IActionResult BuyCredit(decimal amount)
+        [HttpPost]
+        public IActionResult BuyCredit([FromBody] decimal amount)
         {
             try
             {
@@ -30,7 +35,8 @@ namespace SmartAgri.WebUI.Controllers
             return Ok();
         }
 
-        public IActionResult SellCredit(decimal amount)
+        [HttpPost]
+        public IActionResult SellCredit([FromBody] decimal amount)
         {
             try
             {
@@ -44,20 +50,21 @@ namespace SmartAgri.WebUI.Controllers
             return Ok();
         }
 
-        public IActionResult WithdrawCredit(string address,decimal amount)
+        [HttpPost]
+        public IActionResult WithdrawCredit([FromBody] WithdrawDto withdrawDto)
         {
             string result;
 
             try
             {
-                result = _userManagementService.WithdrawCreditFromUser(GetClaim.GetUserId(User), address, amount);
+                result = _userManagementService.WithdrawCreditFromUser(GetClaim.GetUserId(User), withdrawDto.address, withdrawDto.amount);
             }
             catch (Exception)
             {
                 return BadRequest();
             }
 
-            return Ok(result);
+            return Ok(Json(result));
         }
     }
 }

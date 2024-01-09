@@ -33,6 +33,7 @@
     list-style: none;
     border-top-left-radius:30px ;
     border-bottom-left-radius:30px ;
+    cursor: pointer;
 }
 
 
@@ -52,6 +53,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.navigation ul li .logo-container {
+    pointer-events: none;
+}
+
+.navigation ul li .logo-container a {
+    pointer-events: auto;
+}
+.navigation ul li.logo-item:hover,
+.navigation ul li.logo-item.hovered {
+    background: transparent;
+}
+
+
+.navigation ul li.logo-item:hover a::after,
+.navigation ul li.logo-item.hovered a::after,
+.navigation ul li.logo-item:hover a::before,
+.navigation ul li.logo-item.hovered a::before {
+    box-shadow: none;
 }
 
 .navigation ul li a {

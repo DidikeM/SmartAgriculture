@@ -9,7 +9,7 @@ import { AdvertDto } from '../dtos/advertdto';
 })
 
 export class BazaarService {
-    private apiUrl = 'http://localhost:5172/bazaar'; 
+    private apiUrl = 'https://localhost:7119/bazaar'; 
 
     constructor(private http: HttpClient){}
 

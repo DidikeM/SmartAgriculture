@@ -17,7 +17,7 @@ export class AuthenticationService {
     private authChangeSub = new BehaviorSubject<boolean>(this.checkAuth());
     public authChanged = this.authChangeSub.asObservable();
     
-    private apiUrl = 'http://localhost:5172/auth'; 
+    private apiUrl = 'https://localhost:7119/auth'; 
 
     constructor(private http: HttpClient){}
 

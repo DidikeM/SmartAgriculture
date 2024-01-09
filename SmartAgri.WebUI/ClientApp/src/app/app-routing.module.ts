@@ -62,6 +62,19 @@ const routes : Routes = [
         ]
     },
 
+     // User Routes
+     {
+        path: '',
+        component: DashboardLayoutComponent,
+        children: [
+            {
+                path: 'user',
+                loadChildren: () => import('./components/user/user.module').then(m => m.UserModule)
+            }
+        ]
+    },
+
+
     //NotFound
     {
         path: 'not-found',

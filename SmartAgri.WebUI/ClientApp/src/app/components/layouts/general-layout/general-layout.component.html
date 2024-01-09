@@ -7,6 +7,7 @@
             <li><a routerLink="/bazaar">Bazaar</a></li>
             <li><a routerLink="/forum/topics">Forum</a></li>
             <li><a routerLink="/contact">Contact Us</a></li>
+            <li><a *ngIf='isUserAuthenticated' routerLink="/user/buycredit">Dashboard</a></li>
         </ul>
         <a *ngIf='!isUserAuthenticated' class="btn_primary" routerLink="/auth/login">Sign In</a>
         <a *ngIf='isUserAuthenticated' class="btn_primary" (click)="logout()">Logout</a>
@@ -21,6 +22,7 @@
             <li><a routerLink="/bazaar">Bazaar</a></li>
             <li><a routerLink="/forum/topics">Forum</a></li>
             <li><a routerLink="/contact">Contact Us</a></li>
+            <li><a *ngIf='isUserAuthenticated' routerLink="/user/buycredit">Dashboard</a></li>
             <li><a *ngIf='!isUserAuthenticated' class="btn_primary">Sign in</a></li>
             <li><a *ngIf='isUserAuthenticated' class="btn_primary" (click)="logout()">Logout</a></li>
         </ul>
