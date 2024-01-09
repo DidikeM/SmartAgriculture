@@ -2,6 +2,7 @@
 using SmartAgri.Business.Abstract;
 using SmartAgri.Business.Concrete;
 using SmartAgri.Entities.Concrete;
+using SmartAgri.Entities.Enums;
 using SmartAgri.WebUI.DTOs;
 
 namespace SmartAgri.WebUI.Controllers
@@ -38,7 +39,7 @@ namespace SmartAgri.WebUI.Controllers
                 {
                     CurrentPrice = _bazaarService.GetProductCurrentPrice(id),
                     ExpectedPrice = _bazaarService.GetProductExpectedPrice(id),
-                 }
+                }
             };
 
             return Json(response.Product);
@@ -62,15 +63,60 @@ namespace SmartAgri.WebUI.Controllers
             return Json(response.SellAdverts);
         }
 
-        public IActionResult AddBuyAdvert()
+        public void AddBuyAdvert(AddBuyAdvertDto addBuyAdvertDto)
         {
-            return View();
+            AdvertBuy advert = new()
+            {
+                ProductId = addBuyAdvertDto.ProductId,
+                UserId = GetClaim.GetUserId(User),
+                UnitPrice = addBuyAdvertDto.UnitPrice,
+                Quantity = addBuyAdvertDto.Quantity,
+                CreatedAt = DateTime.Now,
+                StatusId = (int)AdvertStatusEnum.Active
+            };
+            _bazaarService.AddBuyAdvert(advert);
         }
 
-        public IActionResult AddSellAdvert()
+        public void AddSellAdvert(AddSellAdvertDto addSellAdvertDto)
         {
-            return View();
+            AdvertSell advert = new()
+            {
+                ProductId = addSellAdvertDto.ProductId,
+                UserId = GetClaim.GetUserId(User),
+                UnitPrice = addSellAdvertDto.UnitPrice,
+                Quantity = addSellAdvertDto.Quantity,
+                CreatedAt = DateTime.Now,
+                StatusId = (int)AdvertStatusEnum.Active
+            };
+            _bazaarService.AddSellAdvert(advert);
         }
 
+        public IActionResult BuySellAdvert(int userId, int sellAdvertId)
+        {
+            try
+            {
+                _bazaarService.BuySellAdvert(userId, sellAdvertId);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+            return Ok();
+        }
+
+        public IActionResult SellBuyAdvert(int userId, int buyAdvertId)
+        {
+            try
+            {
+                _bazaarService.SellBuyAdvert(userId, buyAdvertId);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+            return Ok();
+        }
     }
 }

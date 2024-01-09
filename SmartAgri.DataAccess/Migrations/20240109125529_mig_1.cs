@@ -67,7 +67,11 @@ namespace SmartAgri.DataAccess.Migrations
                     Surname = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false),
-                    RoleId = table.Column<int>(type: "integer", nullable: false)
+                    RoleId = table.Column<int>(type: "integer", nullable: false),
+                    CoinAccountId = table.Column<Guid>(type: "uuid", nullable: false),
+                    CoinAddress = table.Column<string>(type: "text", nullable: false),
+                    ExternalCoinAddress = table.Column<string>(type: "text", nullable: true),
+                    LockedBalance = table.Column<decimal>(type: "numeric", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -253,19 +257,19 @@ namespace SmartAgri.DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Email", "Name", "Password", "RoleId", "Surname" },
-                values: new object[] { 1, "admin@admin.com", "admin", "admin123", 1, "admin" });
+                columns: new[] { "Id", "CoinAccountId", "CoinAddress", "Email", "ExternalCoinAddress", "LockedBalance", "Name", "Password", "RoleId", "Surname" },
+                values: new object[] { 1, new Guid("00000000-0000-0000-0000-000000000000"), "", "admin@admin.com", null, 0m, "admin", "admin123", 1, "admin" });
 
             migrationBuilder.InsertData(
                 table: "AdvertBuys",
                 columns: new[] { "Id", "CreatedAt", "ProductId", "Quantity", "StatusId", "UnitPrice", "UserId" },
                 values: new object[,]
                 {
-                    { 6, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5099), 9, 300, 1, 220m, 1 },
-                    { 7, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5111), 9, 200, 1, 210m, 1 },
-                    { 8, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5113), 9, 180, 1, 200m, 1 },
-                    { 9, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5114), 9, 150, 1, 190m, 1 },
-                    { 10, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5114), 9, 200, 1, 180m, 1 }
+                    { 6, new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2372), 9, 300, 1, 220m, 1 },
+                    { 7, new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2383), 9, 200, 1, 210m, 1 },
+                    { 8, new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2384), 9, 180, 1, 200m, 1 },
+                    { 9, new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2385), 9, 150, 1, 190m, 1 },
+                    { 10, new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2386), 9, 200, 1, 180m, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -273,11 +277,11 @@ namespace SmartAgri.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedAt", "ProductId", "Quantity", "StatusId", "UnitPrice", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5125), 9, 100, 1, 295m, 1 },
-                    { 2, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5126), 9, 200, 1, 285m, 1 },
-                    { 3, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5127), 9, 250, 1, 280m, 1 },
-                    { 4, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5128), 9, 125, 1, 240m, 1 },
-                    { 5, new DateTime(2024, 1, 5, 14, 28, 38, 60, DateTimeKind.Local).AddTicks(5129), 9, 175, 1, 230m, 1 }
+                    { 1, new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2399), 9, 100, 1, 295m, 1 },
+                    { 2, new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2400), 9, 200, 1, 285m, 1 },
+                    { 3, new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2401), 9, 250, 1, 280m, 1 },
+                    { 4, new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2401), 9, 125, 1, 240m, 1 },
+                    { 5, new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2402), 9, 175, 1, 230m, 1 }
                 });
 
             migrationBuilder.CreateIndex(

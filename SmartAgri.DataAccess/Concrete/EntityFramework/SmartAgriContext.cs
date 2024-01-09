@@ -112,6 +112,8 @@ public class SmartAgriContext : DbContext
                 Email = "admin@admin.com",
                 RoleId = 1,
                 Password = "admin123",
+                CoinAccountId = Guid.Empty,
+                CoinAddress = "",
             });
 
         modelBuilder.Entity<Product>().HasData(

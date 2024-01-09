@@ -1,6 +1,7 @@
 ﻿using SmartAgri.Business.Abstract;
 using SmartAgri.DataAccess.Abstract;
 using SmartAgri.Entities.Concrete;
+using SmartAgri.ServiceAPI.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,11 @@ namespace SmartAgri.Business.Concrete
     public class UserService : IUserService
     {
         private readonly IUserDal _userDal;
-        public UserService(IUserDal userDal)
+        private readonly IAgriCoinApi _agriCoinApi;
+        public UserService(IUserDal userDal, IAgriCoinApi agriCoinApi)
         {
             _userDal = userDal;
+            _agriCoinApi = agriCoinApi;
         }
         public bool CheckPassword(User user, string? password)
         {
@@ -25,6 +28,8 @@ namespace SmartAgri.Business.Concrete
         {
             if (_userDal.Any(u => u.Email == user.Email))
                 return false;
+            user.CoinAccountId = Guid.NewGuid();
+            user.CoinAddress = _agriCoinApi.CreateAccount(user.CoinAccountId);
             _userDal.Add(user);
             return true;
         }

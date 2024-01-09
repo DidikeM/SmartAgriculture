@@ -1,6 +1,9 @@
+using BitcoinLib.Services.Coins.Base;
+using BitcoinLib.Services.Coins.Cryptocoin;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using SmartAgri.Business.Abstract;
 using SmartAgri.Business.Concrete;
@@ -8,6 +11,7 @@ using SmartAgri.DataAccess.Abstract;
 using SmartAgri.DataAccess.Concrete.EntityFramework;
 using SmartAgri.Entities.Enums;
 using SmartAgri.ServiceAPI.Abstract;
+using SmartAgri.ServiceAPI.Concrete;
 using SmartAgri.ServiceAPI.Concrete.PricePredictionService;
 using SmartAgri.WebUI.JwtFeatures;
 using SmartAgri.WebUI.Mailing;
@@ -41,12 +45,28 @@ builder.Services.AddSingleton<IUserDal, EfUserDal>();
 builder.Services.AddSingleton<IProductDal, EfProductDal>();
 builder.Services.AddSingleton<IAdvertBuyDal, EfAdvertBuyDal>();
 builder.Services.AddSingleton<IAdvertSellDal, EfAdvertSellDal>();
+builder.Services.AddSingleton<ITransactionDal, EfTransactionDal>();
+
 
 builder.Services.AddSingleton<IFormService, FormService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.AddSingleton<IBazaarService, BazaarSevice>();
 
 builder.Services.AddSingleton<IPredictPrice, PredictPrice>();
+builder.Services.AddSingleton<IAgriCoinApi, AgriCoinApi>();
+
+
+var AgriCoinSettings = builder.Configuration.GetSection("AgriCoinSettings");
+
+builder.Services.AddSingleton<ICoinService>(x =>
+{
+    return new CryptocoinService(
+        AgriCoinSettings["daemonUrl"], 
+        AgriCoinSettings["rpcUsername"], 
+        AgriCoinSettings["rpcPassword"], 
+        AgriCoinSettings["walletPassword"],
+        15);
+});
 
 builder.Services.AddScoped<JwtHandler>();
 
