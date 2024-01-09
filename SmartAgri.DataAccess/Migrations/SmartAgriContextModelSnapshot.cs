@@ -301,6 +301,18 @@ namespace SmartAgri.DataAccess.Migrations
                             Password = "admin123",
                             RoleId = 1,
                             Surname = "admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CoinAccountId = new Guid("1fbef5d8-950a-47df-b03d-755b9cb90aae"),
+                            CoinAddress = "RRZ6bNDpVSywsMZvNmwtD1AYFtnupWaEH4",
+                            Email = "hms45267@gmail.com",
+                            LockedBalance = 0m,
+                            Name = "Habil Mevlut",
+                            Password = "admin123",
+                            RoleId = 2,
+                            Surname = "Sayar"
                         });
                 });
 
@@ -314,52 +326,52 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2372),
+                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7771),
                             ProductId = 9,
                             Quantity = 300,
                             StatusId = 1,
                             UnitPrice = 220m,
-                            UserId = 1
+                            UserId = 2
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2383),
+                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7785),
                             ProductId = 9,
                             Quantity = 200,
                             StatusId = 1,
                             UnitPrice = 210m,
-                            UserId = 1
+                            UserId = 2
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2384),
+                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7787),
                             ProductId = 9,
                             Quantity = 180,
                             StatusId = 1,
                             UnitPrice = 200m,
-                            UserId = 1
+                            UserId = 2
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2385),
+                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7789),
                             ProductId = 9,
                             Quantity = 150,
                             StatusId = 1,
                             UnitPrice = 190m,
-                            UserId = 1
+                            UserId = 2
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2386),
+                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7790),
                             ProductId = 9,
                             Quantity = 200,
                             StatusId = 1,
                             UnitPrice = 180m,
-                            UserId = 1
+                            UserId = 2
                         });
                 });
 
@@ -373,52 +385,52 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2399),
+                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7804),
                             ProductId = 9,
                             Quantity = 100,
                             StatusId = 1,
                             UnitPrice = 295m,
-                            UserId = 1
+                            UserId = 2
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2400),
+                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7805),
                             ProductId = 9,
                             Quantity = 200,
                             StatusId = 1,
                             UnitPrice = 285m,
-                            UserId = 1
+                            UserId = 2
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2401),
+                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7807),
                             ProductId = 9,
                             Quantity = 250,
                             StatusId = 1,
                             UnitPrice = 280m,
-                            UserId = 1
+                            UserId = 2
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2401),
+                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7808),
                             ProductId = 9,
                             Quantity = 125,
                             StatusId = 1,
                             UnitPrice = 240m,
-                            UserId = 1
+                            UserId = 2
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 1, 9, 15, 55, 29, 443, DateTimeKind.Local).AddTicks(2402),
+                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7810),
                             ProductId = 9,
                             Quantity = 175,
                             StatusId = 1,
                             UnitPrice = 230m,
-                            UserId = 1
+                            UserId = 2
                         });
                 });
 

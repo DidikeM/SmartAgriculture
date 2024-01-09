@@ -116,6 +116,19 @@ public class SmartAgriContext : DbContext
                 CoinAddress = "",
             });
 
+        modelBuilder.Entity<User>().HasData(
+           new User
+           {
+               Id = 2,
+               Name = "Habil Mevlut",
+               Surname = "Sayar",
+               Email = "hms45267@gmail.com",
+               RoleId = (int)UserRoleEnum.User,
+               Password = "admin123",
+               CoinAccountId = Guid.Parse("1fbef5d8-950a-47df-b03d-755b9cb90aae"),
+               CoinAddress = "RRZ6bNDpVSywsMZvNmwtD1AYFtnupWaEH4",
+           });
+
         modelBuilder.Entity<Product>().HasData(
             new Product
             {
@@ -148,7 +161,7 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 220,
                 Quantity = 300,
-                UserId = 1,
+                UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             },
@@ -158,7 +171,7 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 210,
                 Quantity = 200,
-                UserId = 1,
+                UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             },
@@ -168,7 +181,7 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 200,
                 Quantity = 180,
-                UserId = 1,
+                UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             },
@@ -178,7 +191,7 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 190,
                 Quantity = 150,
-                UserId = 1,
+                UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             },
@@ -188,7 +201,7 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 180,
                 Quantity = 200,
-                UserId = 1,
+                UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             });
@@ -200,7 +213,7 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 295,
                 Quantity = 100,
-                UserId = 1,
+                UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             },
@@ -210,7 +223,7 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 285,
                 Quantity = 200,
-                UserId = 1,
+                UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             },
@@ -220,7 +233,7 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 280,
                 Quantity = 250,
-                UserId = 1,
+                UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             },
@@ -230,7 +243,7 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 240,
                 Quantity = 125,
-                UserId = 1,
+                UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             },
@@ -240,7 +253,7 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 230,
                 Quantity = 175,
-                UserId = 1,
+                UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
             });

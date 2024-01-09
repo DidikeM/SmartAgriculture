@@ -47,10 +47,10 @@ builder.Services.AddSingleton<IAdvertBuyDal, EfAdvertBuyDal>();
 builder.Services.AddSingleton<IAdvertSellDal, EfAdvertSellDal>();
 builder.Services.AddSingleton<ITransactionDal, EfTransactionDal>();
 
-
 builder.Services.AddSingleton<IFormService, FormService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.AddSingleton<IBazaarService, BazaarSevice>();
+builder.Services.AddSingleton<IUserManagementService, UserManagementService>();
 
 builder.Services.AddSingleton<IPredictPrice, PredictPrice>();
 builder.Services.AddSingleton<IAgriCoinApi, AgriCoinApi>();
