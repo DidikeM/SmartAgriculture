@@ -49,7 +49,7 @@ namespace SmartAgri.WebUI.Controllers
         {
             GetBuyAdvertsResponseDto response = new()
             {
-                BuyAdverts = _bazaarService.GetBuyAdvertsByProductId(id).Select(b => new AdvertDto(b)).ToList()
+                BuyAdverts = _bazaarService.GetActiveBuyAdvertsByProductId(id).Select(b => new AdvertDto(b)).ToList()
             };
             return Json(response.BuyAdverts);
         }
@@ -58,12 +58,12 @@ namespace SmartAgri.WebUI.Controllers
         {
             GetSellAdvertsResponseDto response = new()
             {
-                SellAdverts = _bazaarService.GetSellAdvertsByProductId(id).Select(s => new AdvertDto(s)).ToList()
+                SellAdverts = _bazaarService.GetActiveSellAdvertsByProductId(id).Select(s => new AdvertDto(s)).ToList()
             };
             return Json(response.SellAdverts);
         }
 
-        public void AddBuyAdvert(AddBuyAdvertDto addBuyAdvertDto)
+        public void AddBuyAdvert([FromBody] AddBuyAdvertDto addBuyAdvertDto)
         {
             AdvertBuy advert = new()
             {
@@ -77,7 +77,7 @@ namespace SmartAgri.WebUI.Controllers
             _bazaarService.AddBuyAdvert(advert);
         }
 
-        public void AddSellAdvert(AddSellAdvertDto addSellAdvertDto)
+        public void AddSellAdvert([FromBody] AddSellAdvertDto addSellAdvertDto)
         {
             AdvertSell advert = new()
             {
@@ -91,25 +91,25 @@ namespace SmartAgri.WebUI.Controllers
             _bazaarService.AddSellAdvert(advert);
         }
 
-        public IActionResult BuySellAdvert(int userId, int sellAdvertId)
+        [HttpPost]
+        public IActionResult BuySellAdvert([FromBody] int sellAdvertId)
         {
             try
             {
-                _bazaarService.BuySellAdvert(userId, sellAdvertId);
+                _bazaarService.BuySellAdvert(GetClaim.GetUserId(User), sellAdvertId);
             }
             catch (Exception e)
             {
-
                 return BadRequest(e.Message);
             }
             return Ok();
         }
 
-        public IActionResult SellBuyAdvert(int userId, int buyAdvertId)
+        public IActionResult SellBuyAdvert([FromBody] int buyAdvertId)
         {
             try
             {
-                _bazaarService.SellBuyAdvert(userId, buyAdvertId);
+                _bazaarService.SellBuyAdvert(GetClaim.GetUserId(User), buyAdvertId);
             }
             catch (Exception e)
             {

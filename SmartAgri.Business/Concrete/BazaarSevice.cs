@@ -42,7 +42,7 @@ namespace SmartAgri.Business.Concrete
         public void AddBuyAdvert(AdvertBuy advert)
         {
             var user = _userDal.Get(u => u.Id == advert.UserId);
-            user.LockedBalance -= advert.UnitPrice * advert.Quantity;
+            user.LockedBalance += advert.UnitPrice * advert.Quantity;
             _userDal.Update(user);
             _advertBuyDal.Add(advert);
         }
@@ -136,7 +136,7 @@ namespace SmartAgri.Business.Concrete
             return _productdal.GetAll();
         }
 
-        public List<AdvertBuy> GetBuyAdvertsByProductId(int id)
+        public List<AdvertBuy> GetActiveBuyAdvertsByProductId(int id)
         {
             return _advertBuyDal.GetAll(a => a.ProductId == id && a.StatusId == (int)AdvertStatusEnum.Active);
         }
@@ -161,7 +161,7 @@ namespace SmartAgri.Business.Concrete
             return _productdal.GetProductOldPrices(id);
         }
 
-        public List<AdvertSell> GetSellAdvertsByProductId(int id)
+        public List<AdvertSell> GetActiveSellAdvertsByProductId(int id)
         {
             return _advertSellDal.GetAll(a => a.ProductId == id && a.StatusId == (int)AdvertStatusEnum.Active);
         }

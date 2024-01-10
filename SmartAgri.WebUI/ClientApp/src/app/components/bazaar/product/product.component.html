@@ -37,13 +37,13 @@
                               </tr>
                             </thead>
                             <tbody style="text-align: center;">
-                              <tr *ngFor="let buyAdvert of buyAdverts; let i = index;">
+                              <tr *ngFor="let sellAdvert of sellAdverts; let i = index;">
                                 <th scope="row">{{ i + 1 }}</th>
-                                <td>{{ buyAdvert.unitPrice }}</td>
-                                <td>{{ buyAdvert.quantity }}</td>
-                                <td>{{ (buyAdvert.unitPrice && buyAdvert.quantity) ? (buyAdvert.unitPrice * buyAdvert.quantity) : 'N/A' }}</td>
-                                <td>{{ buyAdvert.createdAt | date:'MM/dd/yyyy' }}</td>
-                                <td><button class="btn_primary">Buy</button></td>
+                                <td>{{ sellAdvert.unitPrice }}</td>
+                                <td>{{ sellAdvert.quantity }}</td>
+                                <td>{{ (sellAdvert.unitPrice && sellAdvert.quantity) ? (sellAdvert.unitPrice * sellAdvert.quantity) : 'N/A' }}</td>
+                                <td>{{ sellAdvert.createdAt | date:'MM/dd/yyyy' }}</td>
+                                <td><button class="btn_primary" type="submit" (click)="onBuySell(sellAdvert.id!)">Buy</button></td>
                               </tr>
                             </tbody>
                         </table>
@@ -62,13 +62,13 @@
                               </tr>
                             </thead>
                             <tbody style="text-align: center;">
-                              <tr *ngFor="let sellAdvert of sellAdverts; let i = index">
+                              <tr *ngFor="let buyAdvert of buyAdverts; let i = index">
                                 <th scope="row">{{ i + 1 }}</th>
-                                <td>{{ sellAdvert.unitPrice }}</td>
-                                <td>{{ sellAdvert.quantity }}</td>
-                                <td>{{ (sellAdvert.unitPrice && sellAdvert.quantity) ? (sellAdvert.unitPrice * sellAdvert.quantity) : 'N/A' }}</td>
-                                <td>{{ sellAdvert.createdAt | date:'MM/dd/yyyy' }}</td>
-                                <td><button class="btn_primary" style="color: var(--red);">Sell</button></td>
+                                <td>{{ buyAdvert.unitPrice }}</td>
+                                <td>{{ buyAdvert.quantity }}</td>
+                                <td>{{ (buyAdvert.unitPrice && buyAdvert.quantity) ? (buyAdvert.unitPrice * buyAdvert.quantity) : 'N/A' }}</td>
+                                <td>{{ buyAdvert.createdAt | date:'MM/dd/yyyy' }}</td>
+                                <td><button class="btn_primary" style="color: var(--red);" type="submit" (click)="onSellBuy(buyAdvert.id!)">Sell</button></td>
                               </tr>
                             </tbody>
                         </table>              
@@ -85,13 +85,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
               </div>
               <div class="modal-body">
-                <form [formGroup]="advertForm">
-                  <div class="input-field">
+                <form [formGroup]="advertForm" (ngSubmit)="onSubmit()">
+                  <!-- <div class="input-field">
                     <select required>
                         <option value="" disabled selected>Select an product</option>
-                        <option value="" >Select</option>
+                        <option *ngFor="let product of productList" [value]="product.id">{{ product.name }}</option>
                     </select> 
-                  </div>
+                  </div> -->
                   <div class="input-field">
                     <input
                         type="text"
@@ -121,7 +121,7 @@
                         (focus)="onFocused('totalPrice', this.fnCalculateOther)"
                     />
                   </div>
-                  <button class="btn_primary" type="submit" [disabled]="!advertForm.valid" >Submit</button>
+                  <button class="btn_primary" type="submit" [disabled]="!advertForm.valid">Submit</button>
                 </form>
               </div>
             </div>

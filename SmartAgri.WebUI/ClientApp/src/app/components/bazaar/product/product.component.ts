@@ -30,6 +30,7 @@ export class ProductComponent {
   product: ProductDto = {};
   buyAdverts: AdvertDto[] = [];
   sellAdverts: AdvertDto[] = [];
+  // productList: ProductDto[] = [];
 
   tabChange(tabIndex: number){
     this.activatedTabIndex = tabIndex;
@@ -94,6 +95,12 @@ export class ProductComponent {
           this.sellAdverts = sellAdverts;
         }
       );
+
+      // this.bazaarService.getProducts().subscribe(
+      //   (products) => {
+      //     this.productList = products;
+      //   }
+      // );
     });
   }
   
@@ -142,6 +149,7 @@ export class ProductComponent {
       this.advertForm.get(valueChange)?.setValue(0);
     }
   }
+
   openModal()
   {
     if (this.modalElement)
@@ -161,4 +169,44 @@ export class ProductComponent {
   getColorForTab(): string {
     return this.activatedTabIndex === 0 ? 'Buy' : 'Sell';
   }
+
+  onBuySell(selladvertId: number){
+    console.log("component",selladvertId)
+    this.bazaarService.buySellAdvert(selladvertId);
+  }
+
+  onSellBuy(selladvertId: number){
+    this.bazaarService.sellBuyAdvert(selladvertId);
+  }
+  
+  onSubmit() {
+    if (this.activatedTabIndex === 0) {
+      this.createSellAdvert();
+    } else if (this.activatedTabIndex === 1) {
+      this.createBuyAdvert();
+    }
+
+    this.closeModal();
+  }
+
+  createBuyAdvert() {
+    const buyAdvertData = {
+      productId: this.product.id,
+      unitPrice: this.advertForm.get('unitPrice')?.value,
+      quantity: this.advertForm.get('quantity')?.value,
+    };
+
+    this.bazaarService.addBuyAdvert(buyAdvertData);
+  }
+
+  createSellAdvert() {
+    const sellAdvertData = {
+      productId: this.product.id,
+      unitPrice: this.advertForm.get('unitPrice')?.value,
+      quantity: this.advertForm.get('quantity')?.value,
+    };
+
+    this.bazaarService.addSellAdvert(sellAdvertData);
+  }
+
 }

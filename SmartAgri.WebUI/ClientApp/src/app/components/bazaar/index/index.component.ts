@@ -13,7 +13,8 @@ import { ProductDto } from 'src/app/dtos/productdto';
 
 export class IndexComponent implements AfterViewInit, OnDestroy {
   products: ProductDto[] = []; 
-  
+  isFetching = false;
+
   @ViewChildren('lineChartCanvas') lineChartCanvas!: QueryList<ElementRef<HTMLCanvasElement>>;
   @ViewChildren('gaugeChartCanvas') gaugeChartCanvas!: QueryList<ElementRef<HTMLCanvasElement>>;
   lineCharts: Chart[] = [];
@@ -22,8 +23,10 @@ export class IndexComponent implements AfterViewInit, OnDestroy {
   constructor(private router: Router, private bazaarService: BazaarService) {}
 
   ngOnInit() {
+    this.isFetching = true;
     this.bazaarService.getProducts().subscribe(
       (responseData) => {
+        this.isFetching = false;
         console.log("response",responseData)
         this.products = responseData;
         console.log("oldprices",this.products)

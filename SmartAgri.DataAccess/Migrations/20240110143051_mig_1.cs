@@ -14,9 +14,6 @@ namespace SmartAgri.DataAccess.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateSequence(
-                name: "AdvertSequence");
-
             migrationBuilder.CreateTable(
                 name: "AdvertStatuses",
                 columns: table => new
@@ -85,10 +82,11 @@ namespace SmartAgri.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AdvertBuys",
+                name: "Adverts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false, defaultValueSql: "nextval('\"AdvertSequence\"')"),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ProductId = table.Column<int>(type: "integer", nullable: false),
                     UnitPrice = table.Column<decimal>(type: "numeric", nullable: false),
                     Quantity = table.Column<int>(type: "integer", nullable: false),
@@ -98,56 +96,21 @@ namespace SmartAgri.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AdvertBuys", x => x.Id);
+                    table.PrimaryKey("PK_Adverts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AdvertBuys_AdvertStatuses_StatusId",
+                        name: "FK_Adverts_AdvertStatuses_StatusId",
                         column: x => x.StatusId,
                         principalTable: "AdvertStatuses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AdvertBuys_Products_ProductId",
+                        name: "FK_Adverts_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AdvertBuys_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AdvertSells",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false, defaultValueSql: "nextval('\"AdvertSequence\"')"),
-                    ProductId = table.Column<int>(type: "integer", nullable: false),
-                    UnitPrice = table.Column<decimal>(type: "numeric", nullable: false),
-                    Quantity = table.Column<int>(type: "integer", nullable: false),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    StatusId = table.Column<int>(type: "integer", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AdvertSells", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AdvertSells_AdvertStatuses_StatusId",
-                        column: x => x.StatusId,
-                        principalTable: "AdvertStatuses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AdvertSells_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AdvertSells_Users_UserId",
+                        name: "FK_Adverts_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -177,28 +140,35 @@ namespace SmartAgri.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Transactions",
+                name: "AdvertBuys",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    BuyAdvertId = table.Column<int>(type: "integer", nullable: false),
-                    SellAdvertId = table.Column<int>(type: "integer", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Transactions", x => x.Id);
+                    table.PrimaryKey("PK_AdvertBuys", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Transactions_AdvertBuys_BuyAdvertId",
-                        column: x => x.BuyAdvertId,
-                        principalTable: "AdvertBuys",
+                        name: "FK_AdvertBuys_Adverts_Id",
+                        column: x => x.Id,
+                        principalTable: "Adverts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AdvertSells",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdvertSells", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Transactions_AdvertSells_SellAdvertId",
-                        column: x => x.SellAdvertId,
-                        principalTable: "AdvertSells",
+                        name: "FK_AdvertSells_Adverts_Id",
+                        column: x => x.Id,
+                        principalTable: "Adverts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -227,6 +197,33 @@ namespace SmartAgri.DataAccess.Migrations
                         name: "FK_Replies_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Transactions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    BuyAdvertId = table.Column<int>(type: "integer", nullable: false),
+                    SellAdvertId = table.Column<int>(type: "integer", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Transactions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Transactions_AdvertBuys_BuyAdvertId",
+                        column: x => x.BuyAdvertId,
+                        principalTable: "AdvertBuys",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Transactions_AdvertSells_SellAdvertId",
+                        column: x => x.SellAdvertId,
+                        principalTable: "AdvertSells",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -265,57 +262,59 @@ namespace SmartAgri.DataAccess.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "AdvertBuys",
+                table: "Adverts",
                 columns: new[] { "Id", "CreatedAt", "ProductId", "Quantity", "StatusId", "UnitPrice", "UserId" },
                 values: new object[,]
                 {
-                    { 6, new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7771), 9, 300, 1, 220m, 2 },
-                    { 7, new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7785), 9, 200, 1, 210m, 2 },
-                    { 8, new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7787), 9, 180, 1, 200m, 2 },
-                    { 9, new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7789), 9, 150, 1, 190m, 2 },
-                    { 10, new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7790), 9, 200, 1, 180m, 2 }
+                    { 1, new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5474), 9, 100, 1, 295m, 2 },
+                    { 2, new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5481), 9, 200, 1, 285m, 2 },
+                    { 3, new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5482), 9, 250, 1, 280m, 2 },
+                    { 4, new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5482), 9, 125, 1, 240m, 2 },
+                    { 5, new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5483), 9, 175, 1, 230m, 2 },
+                    { 6, new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5493), 9, 300, 1, 220m, 2 },
+                    { 7, new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5493), 9, 200, 1, 210m, 2 },
+                    { 8, new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5494), 9, 180, 1, 200m, 2 },
+                    { 9, new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5495), 9, 150, 1, 190m, 2 },
+                    { 10, new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5496), 9, 200, 1, 180m, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AdvertBuys",
+                column: "Id",
+                values: new object[]
+                {
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
                 });
 
             migrationBuilder.InsertData(
                 table: "AdvertSells",
-                columns: new[] { "Id", "CreatedAt", "ProductId", "Quantity", "StatusId", "UnitPrice", "UserId" },
-                values: new object[,]
+                column: "Id",
+                values: new object[]
                 {
-                    { 1, new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7804), 9, 100, 1, 295m, 2 },
-                    { 2, new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7805), 9, 200, 1, 285m, 2 },
-                    { 3, new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7807), 9, 250, 1, 280m, 2 },
-                    { 4, new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7808), 9, 125, 1, 240m, 2 },
-                    { 5, new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7810), 9, 175, 1, 230m, 2 }
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AdvertBuys_ProductId",
-                table: "AdvertBuys",
+                name: "IX_Adverts_ProductId",
+                table: "Adverts",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AdvertBuys_StatusId",
-                table: "AdvertBuys",
+                name: "IX_Adverts_StatusId",
+                table: "Adverts",
                 column: "StatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AdvertBuys_UserId",
-                table: "AdvertBuys",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AdvertSells_ProductId",
-                table: "AdvertSells",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AdvertSells_StatusId",
-                table: "AdvertSells",
-                column: "StatusId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AdvertSells_UserId",
-                table: "AdvertSells",
+                name: "IX_Adverts_UserId",
+                table: "Adverts",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -369,6 +368,9 @@ namespace SmartAgri.DataAccess.Migrations
                 name: "AdvertSells");
 
             migrationBuilder.DropTable(
+                name: "Adverts");
+
+            migrationBuilder.DropTable(
                 name: "AdvertStatuses");
 
             migrationBuilder.DropTable(
@@ -379,9 +381,6 @@ namespace SmartAgri.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Roles");
-
-            migrationBuilder.DropSequence(
-                name: "AdvertSequence");
         }
     }
 }

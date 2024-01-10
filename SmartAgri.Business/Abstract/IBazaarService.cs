@@ -13,12 +13,12 @@ namespace SmartAgri.Business.Abstract
         void AddSellAdvert(AdvertSell advert);
         void BuySellAdvert(int userId, int sellAdvertId);
         List<Product> GetAllProducts();
-        List<AdvertBuy> GetBuyAdvertsByProductId(int id);
+        List<AdvertBuy> GetActiveBuyAdvertsByProductId(int id);
         Product GetProductById(int id);
         decimal GetProductCurrentPrice(int id);
         decimal GetProductExpectedPrice(int id);
         List<decimal> GetProductOldPrices(int id);
-        List<AdvertSell> GetSellAdvertsByProductId(int id);
+        List<AdvertSell> GetActiveSellAdvertsByProductId(int id);
         void SellBuyAdvert(int userId, int buyAdvertId);
     }
 }

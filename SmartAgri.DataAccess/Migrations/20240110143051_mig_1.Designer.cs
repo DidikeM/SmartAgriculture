@@ -12,7 +12,7 @@ using SmartAgri.DataAccess.Concrete.EntityFramework;
 namespace SmartAgri.DataAccess.Migrations
 {
     [DbContext(typeof(SmartAgriContext))]
-    [Migration("20240109190235_mig_1")]
+    [Migration("20240110143051_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -25,16 +25,13 @@ namespace SmartAgri.DataAccess.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.HasSequence("AdvertSequence");
-
             modelBuilder.Entity("SmartAgri.Entities.Concrete.Advert", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasDefaultValueSql("nextval('\"AdvertSequence\"')");
+                        .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseSequence(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
@@ -62,9 +59,9 @@ namespace SmartAgri.DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable((string)null);
+                    b.ToTable("Adverts");
 
-                    b.UseTpcMappingStrategy();
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("SmartAgri.Entities.Concrete.AdvertStatus", b =>
@@ -329,7 +326,7 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7771),
+                            CreatedAt = new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5493),
                             ProductId = 9,
                             Quantity = 300,
                             StatusId = 1,
@@ -339,7 +336,7 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7785),
+                            CreatedAt = new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5493),
                             ProductId = 9,
                             Quantity = 200,
                             StatusId = 1,
@@ -349,7 +346,7 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7787),
+                            CreatedAt = new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5494),
                             ProductId = 9,
                             Quantity = 180,
                             StatusId = 1,
@@ -359,7 +356,7 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7789),
+                            CreatedAt = new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5495),
                             ProductId = 9,
                             Quantity = 150,
                             StatusId = 1,
@@ -369,7 +366,7 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7790),
+                            CreatedAt = new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5496),
                             ProductId = 9,
                             Quantity = 200,
                             StatusId = 1,
@@ -388,7 +385,7 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7804),
+                            CreatedAt = new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5474),
                             ProductId = 9,
                             Quantity = 100,
                             StatusId = 1,
@@ -398,7 +395,7 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7805),
+                            CreatedAt = new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5481),
                             ProductId = 9,
                             Quantity = 200,
                             StatusId = 1,
@@ -408,7 +405,7 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7807),
+                            CreatedAt = new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5482),
                             ProductId = 9,
                             Quantity = 250,
                             StatusId = 1,
@@ -418,7 +415,7 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7808),
+                            CreatedAt = new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5482),
                             ProductId = 9,
                             Quantity = 125,
                             StatusId = 1,
@@ -428,7 +425,7 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 1, 9, 22, 2, 35, 624, DateTimeKind.Local).AddTicks(7810),
+                            CreatedAt = new DateTime(2024, 1, 10, 17, 30, 51, 307, DateTimeKind.Local).AddTicks(5483),
                             ProductId = 9,
                             Quantity = 175,
                             StatusId = 1,
@@ -522,6 +519,24 @@ namespace SmartAgri.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("SmartAgri.Entities.Concrete.AdvertBuy", b =>
+                {
+                    b.HasOne("SmartAgri.Entities.Concrete.Advert", null)
+                        .WithOne()
+                        .HasForeignKey("SmartAgri.Entities.Concrete.AdvertBuy", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SmartAgri.Entities.Concrete.AdvertSell", b =>
+                {
+                    b.HasOne("SmartAgri.Entities.Concrete.Advert", null)
+                        .WithOne()
+                        .HasForeignKey("SmartAgri.Entities.Concrete.AdvertSell", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SmartAgri.Entities.Concrete.AdvertStatus", b =>

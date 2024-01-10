@@ -34,7 +34,7 @@ public class SmartAgriContext : DbContext
         modelBuilder.Entity<Advert>(entity =>
         {
             entity.HasKey(e => e.Id);
-            entity.UseTpcMappingStrategy();
+            entity.UseTptMappingStrategy();
             entity.HasOne(e => e.Status).WithMany(e => e.Adverts).HasForeignKey(e => e.StatusId);
             entity.HasOne(e => e.Product).WithMany(e => e.Adverts).HasForeignKey(e => e.ProductId);
             entity.HasOne(e => e.User).WithMany(e => e.Adverts).HasForeignKey(e => e.UserId);
@@ -154,58 +154,6 @@ public class SmartAgriContext : DbContext
                 Name = AdvertStatusEnum.complated.ToString()
             });
 
-        modelBuilder.Entity<AdvertBuy>().HasData(
-            new AdvertBuy
-            {
-                Id = 6,
-                ProductId = 9,
-                UnitPrice = 220,
-                Quantity = 300,
-                UserId = 2,
-                StatusId = 1,
-                CreatedAt = DateTime.Now
-            },
-            new AdvertBuy
-            {
-                Id = 7,
-                ProductId = 9,
-                UnitPrice = 210,
-                Quantity = 200,
-                UserId = 2,
-                StatusId = 1,
-                CreatedAt = DateTime.Now
-            },
-            new AdvertBuy
-            {
-                Id = 8,
-                ProductId = 9,
-                UnitPrice = 200,
-                Quantity = 180,
-                UserId = 2,
-                StatusId = 1,
-                CreatedAt = DateTime.Now
-            },
-            new AdvertBuy
-            {
-                Id = 9,
-                ProductId = 9,
-                UnitPrice = 190,
-                Quantity = 150,
-                UserId = 2,
-                StatusId = 1,
-                CreatedAt = DateTime.Now
-            },
-            new AdvertBuy
-            {
-                Id = 10,
-                ProductId = 9,
-                UnitPrice = 180,
-                Quantity = 200,
-                UserId = 2,
-                StatusId = 1,
-                CreatedAt = DateTime.Now
-            });
-
         modelBuilder.Entity<AdvertSell>().HasData(
             new AdvertSell
             {
@@ -253,6 +201,58 @@ public class SmartAgriContext : DbContext
                 ProductId = 9,
                 UnitPrice = 230,
                 Quantity = 175,
+                UserId = 2,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            });
+
+        modelBuilder.Entity<AdvertBuy>().HasData(
+            new AdvertBuy
+            {
+                Id = 6,
+                ProductId = 9,
+                UnitPrice = 220,
+                Quantity = 300,
+                UserId = 2,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            },
+            new AdvertBuy
+            {
+                Id = 7,
+                ProductId = 9,
+                UnitPrice = 210,
+                Quantity = 200,
+                UserId = 2,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            },
+            new AdvertBuy
+            {
+                Id = 8,
+                ProductId = 9,
+                UnitPrice = 200,
+                Quantity = 180,
+                UserId = 2,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            },
+            new AdvertBuy
+            {
+                Id = 9,
+                ProductId = 9,
+                UnitPrice = 190,
+                Quantity = 150,
+                UserId = 2,
+                StatusId = 1,
+                CreatedAt = DateTime.Now
+            },
+            new AdvertBuy
+            {
+                Id = 10,
+                ProductId = 9,
+                UnitPrice = 180,
+                Quantity = 200,
                 UserId = 2,
                 StatusId = 1,
                 CreatedAt = DateTime.Now
