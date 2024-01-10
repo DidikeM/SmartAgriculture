@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SmartAgri.Business.Abstract;
+using SmartAgri.Entities.Enums;
 using SmartAgri.WebUI.DTOs;
 
 namespace SmartAgri.WebUI.Controllers
@@ -65,6 +66,65 @@ namespace SmartAgri.WebUI.Controllers
             }
 
             return Ok(Json(result));
+        }
+
+        [HttpGet]
+        public IActionResult GetActiveSellAdvertsForUser()
+        {
+            var advertList = _userManagementService.GetActiveSellAdvertByUserId(GetClaim.GetUserId(User)).Select(p => new UserManagementAdvertDto
+            {
+                Name = p.Product.Name,
+                UnitPrice = p.UnitPrice,
+                Quantity = p.Quantity,
+                Date = p.CreatedAt,
+            });
+
+            return Json(advertList);
+        }
+
+
+        [HttpGet]
+        public IActionResult GetActiveBuyAdvertsForUser()
+        {
+            var advertList = _userManagementService.GetActiveBuyAdvertByUserId(GetClaim.GetUserId(User)).Select(p => new UserManagementAdvertDto
+            {
+                Name = p.Product.Name,
+                UnitPrice = p.UnitPrice,
+                Quantity = p.Quantity,
+                Date = p.CreatedAt,
+            });
+
+            return Json(advertList);
+        }
+
+
+        [HttpGet]
+        public IActionResult GetPastSellAdvertsForUser()
+        {
+            var advertList = _userManagementService.GetPastSellAdvertByUserId(GetClaim.GetUserId(User)).Select(p => new UserManagementAdvertDto
+            {
+                Name = p.Product.Name,
+                UnitPrice = p.UnitPrice,
+                Quantity = p.Quantity,
+                Date = p.CreatedAt,
+            });
+
+            return Json(advertList);
+        }
+
+
+        [HttpGet]
+        public IActionResult GetPastBuyAdvertsForUser()
+        {
+            var advertList = _userManagementService.GetPastBuyAdvertByUserId(GetClaim.GetUserId(User)).Select(p => new UserManagementAdvertDto
+            {
+                Name = p.Product.Name,
+                UnitPrice = p.UnitPrice,
+                Quantity = p.Quantity,
+                Date = p.CreatedAt,
+            });
+
+            return Json(advertList);
         }
     }
 }

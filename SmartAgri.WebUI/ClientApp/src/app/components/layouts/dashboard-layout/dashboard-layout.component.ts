@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { faBars, faRightFromBracket, faUsers, faGauge, faMoneyBillTransfer, faCartShopping, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faRightFromBracket, faUsers, faGauge, faMoneyBillTransfer, faCartShopping, faMoneyBill, faClockRotateLeft, faChartLine, faGear} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -16,6 +16,9 @@ export class DashboardLayoutComponent {
   faMoneyBillTransfer = faMoneyBillTransfer;
   faCartShopping = faCartShopping;
   faMoneyBill = faMoneyBill;
+  faClockRotateLeft = faClockRotateLeft;
+  faChartLine = faChartLine;
+  faGear = faGear;
   
   public isNavigationActive = false;
 

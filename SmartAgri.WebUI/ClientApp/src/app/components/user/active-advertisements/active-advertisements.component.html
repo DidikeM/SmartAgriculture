@@ -1,0 +1,57 @@
+<h3 class="fs-4 mb-2">Active Advertisements</h3>
+
+<div class=" m-auto">
+  <div class="card-container p-4 bg-white shadow rounded">
+    <p *ngIf="activeBuyAdverts.length < 1">No advert available!</p>
+      <table class="table" aria-describedby="buy" *ngIf="activeBuyAdverts.length > 1">
+          <thead style="text-align: center;">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody style="text-align: center;">
+            <tr *ngFor="let buyAdvert of activeBuyAdverts; let i = index;">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ buyAdvert.name }}</td>
+              <td>{{ buyAdvert.unitPrice }}</td>
+              <td>{{ buyAdvert.quantity }}</td>
+              <td>{{ (buyAdvert?.unitPrice ?? 0) * (buyAdvert?.quantity ?? 0) }}</td>
+              <td>{{ buyAdvert.date | date:'shortDate'}}</td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>
+
+<div class="m-auto mt-2">
+  <div class="card-container p-4 bg-white shadow rounded">
+    <p *ngIf="activeSellAdverts.length < 1">No advert available!</p>
+      <table class="table" aria-describedby="buy" *ngIf="activeSellAdverts.length > 1">
+          <thead style="text-align: center;">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody style="text-align: center;">
+            <tr *ngFor="let sellAdvert of activeSellAdverts; let i = index;">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{ sellAdvert.name }}</td>
+              <td>{{ sellAdvert.unitPrice }}</td>
+              <td>{{ sellAdvert.quantity }}</td>
+              <td>{{ (sellAdvert?.unitPrice ?? 0) * (sellAdvert?.quantity ?? 0) }}</td>
+              <td>{{ sellAdvert.date | date:'shortDate' }}</td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>

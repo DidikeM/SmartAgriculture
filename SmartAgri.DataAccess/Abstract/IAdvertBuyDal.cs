@@ -11,5 +11,6 @@ namespace SmartAgri.DataAccess.Abstract
     public interface IAdvertBuyDal : IEntityRepository<AdvertBuy>
     {
         AdvertBuy GetWithUser(Expression<Func<AdvertBuy, bool>>? filter);
+        List<AdvertBuy> GetAllWithProduct(Expression<Func<AdvertBuy, bool>>? filter);
     }
 }

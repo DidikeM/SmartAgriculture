@@ -1,0 +1,73 @@
+<div class="col-lg-5 col-md-4 m-auto">
+    <div class="card-container p-4 bg-white shadow rounded">
+        <h3 class="fs-4 mb-3">Settings</h3>
+        <hr>
+            <div class="form-container">
+                <label>Name:</label>
+                <input
+                    type="text"
+                    name="name"
+                    required
+                >
+            </div>
+            <div class="form-container">
+                <label>Surname:</label>
+                <input
+                    type="text"
+                    name="surname"
+                    required
+                >
+            </div>
+            <form class="product-form" [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+                <div class="form-container">
+                    <label>Password:</label>
+                    <input
+                        type="text"
+                        name="password"
+                        required
+                        formControlName="password"
+                    >
+                </div>
+                <div *ngIf="getControl('password')?.errors && getControl('password')?.touched">
+                    <small class="text-danger" *ngIf="getControl('password')?.errors?.['required']">{{ validationService.getErrorMessageForControl('Password', getControl('password')!) }}</small>
+                    <small class="text-danger" *ngIf="getControl('password')?.errors?.['maxlength'] || getControl('password')?.errors?.['minlength']">{{ validationService.getErrorMessageForControl('Password', getControl('password')!) }}</small>
+                </div>
+                <div class="form-container">
+                    <label>Confirm Password:</label>
+                    <input
+                        type="text"
+                        name="confirmPassword"
+                        required
+                        formControlName="confirmPassword"
+                    >
+                </div>
+                <div *ngIf="getControl('confirmPassword')?.errors && getControl('confirmPassword')?.touched">
+                    <small class="text-danger" *ngIf="getControl('confirmPassword')?.errors?.['required']">Confirm Password is required</small>
+                </div>
+                <div *ngIf="settingsForm.errors?.['passswordMismatchError'] && getControl('confirmPassword')?.touched">
+                    <small class="text-danger">Password mismatch</small>  
+                </div>
+            </form>
+            <div class="form-container">
+                <label>Coin Address Password:</label>
+                <input
+                    type="text"
+                    name="coinaddress"
+                    required
+                    formControlName="coinaddress"
+                >
+            </div>
+            <div class="form-container">
+                <label>External Coin Address:</label>
+                <input
+                    type="text"
+                    name="ecoinaddress"
+                    required
+                    formControlName="econaddress"
+                >
+            </div>
+            <div class="form-container">
+                <button class="btn btn-submit w-100 mt-2" type="submit" [disabled]="!settingsForm.valid">Submit</button>
+            </div>
+    </div>
+</div>

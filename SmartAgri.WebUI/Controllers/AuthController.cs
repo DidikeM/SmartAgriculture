@@ -43,7 +43,6 @@ namespace SmartAgri.WebUI.Controllers
             return Ok(new AuthResponseDto { IsAuthSuccessful = true, Token = token });
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public IActionResult Register([FromBody] UserForRegistrationDto userForRegistration)
         {
@@ -74,7 +73,6 @@ namespace SmartAgri.WebUI.Controllers
             return BadRequest(new RegistrationResponseDto { IsSuccessfulRegistration = false });
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public IActionResult ForgotPassword([FromBody] ForgotPasswordDto forgotPasswordDto)
         {

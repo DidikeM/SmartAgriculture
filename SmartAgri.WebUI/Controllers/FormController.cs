@@ -14,10 +14,9 @@ namespace SmartAgri.WebUI.Controllers
             _formService = formService;
         }
 
-        [HttpGet, Authorize]
+        [HttpGet]
         public IActionResult GetTopics()
         {
-            var asd = User.Claims;
             List<Topic> topics = _formService.GetTopicsWithUsers();
             foreach (var topic in topics)
             {
@@ -38,9 +37,10 @@ namespace SmartAgri.WebUI.Controllers
             return Json(topic);
         }
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult CreateTopic([FromBody] Topic topic)
         {
+            topic.UserId = GetClaim.GetUserId(User);
             topic.Date = DateTime.Now;
             _formService.AddTopic(topic);
             return Ok();
@@ -59,9 +59,10 @@ namespace SmartAgri.WebUI.Controllers
             return Json(replies);
         }
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult CreateReply([FromBody] Reply reply)
         {
+            reply.UserId = GetClaim.GetUserId(User);
             reply.Date = DateTime.Now;
             _formService.AddReply(reply);
             return Ok();

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SmartAgri.Business.Abstract;
 using SmartAgri.Business.Concrete;
 using SmartAgri.Entities.Concrete;
@@ -14,6 +15,8 @@ namespace SmartAgri.WebUI.Controllers
         {
             _bazaarService = bazaarService;
         }
+
+        [HttpGet]
         public IActionResult GetProducts()
         {
             GetProductsResponseDto response = new();
@@ -31,6 +34,7 @@ namespace SmartAgri.WebUI.Controllers
             return Json(response.Products);
         }
 
+        [HttpGet]
         public IActionResult GetProduct(int id)
         {
             GetProductResponseDto response = new()
@@ -45,6 +49,7 @@ namespace SmartAgri.WebUI.Controllers
             return Json(response.Product);
         }
 
+        [HttpGet]
         public IActionResult GetBuyAdvertsByProduct(int id)
         {
             GetBuyAdvertsResponseDto response = new()
@@ -54,6 +59,7 @@ namespace SmartAgri.WebUI.Controllers
             return Json(response.BuyAdverts);
         }
 
+        [HttpGet]
         public IActionResult GetSellAdvertsByProduct(int id)
         {
             GetSellAdvertsResponseDto response = new()
@@ -63,6 +69,7 @@ namespace SmartAgri.WebUI.Controllers
             return Json(response.SellAdverts);
         }
 
+        [HttpPost, Authorize]
         public void AddBuyAdvert([FromBody] AddBuyAdvertDto addBuyAdvertDto)
         {
             AdvertBuy advert = new()
@@ -77,6 +84,7 @@ namespace SmartAgri.WebUI.Controllers
             _bazaarService.AddBuyAdvert(advert);
         }
 
+        [HttpPost, Authorize]
         public void AddSellAdvert([FromBody] AddSellAdvertDto addSellAdvertDto)
         {
             AdvertSell advert = new()
@@ -91,7 +99,7 @@ namespace SmartAgri.WebUI.Controllers
             _bazaarService.AddSellAdvert(advert);
         }
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult BuySellAdvert([FromBody] int sellAdvertId)
         {
             try
@@ -105,6 +113,7 @@ namespace SmartAgri.WebUI.Controllers
             return Ok();
         }
 
+        [HttpPost, Authorize]
         public IActionResult SellBuyAdvert([FromBody] int buyAdvertId)
         {
             try

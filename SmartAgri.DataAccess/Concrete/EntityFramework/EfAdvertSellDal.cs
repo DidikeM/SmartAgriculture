@@ -23,5 +23,11 @@ namespace SmartAgri.DataAccess.Concrete.EntityFramework
             using var context = _contextFactory.CreateDbContext();
             return filter == null ? context.AdvertSells.Include(a => a.User).FirstOrDefault()! : context.AdvertSells.Include(a => a.User).FirstOrDefault(filter)!;
         }
+
+        public List<AdvertSell> GetAllWithProduct(Expression<Func<AdvertSell, bool>>? filter)
+        {
+            using var context = _contextFactory.CreateDbContext();
+            return filter == null ? context.AdvertSells.Include(a => a.Product).ToList()! : context.AdvertSells.Include(a => a.Product).Where(filter).ToList()!;
+        }
     }
 }

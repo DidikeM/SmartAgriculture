@@ -1,5 +1,7 @@
 ﻿using SmartAgri.Business.Abstract;
 using SmartAgri.DataAccess.Abstract;
+using SmartAgri.Entities.Concrete;
+using SmartAgri.Entities.Enums;
 using SmartAgri.ServiceAPI.Abstract;
 using System;
 using System.Collections.Generic;
@@ -13,11 +15,35 @@ namespace SmartAgri.Business.Concrete
     {
         private readonly IAgriCoinApi _agriCoinApi;
         private readonly IUserDal _userDal;
+        private readonly IAdvertBuyDal _advertBuyDal;
+        private readonly IAdvertSellDal _advertSellDal;
 
-        public UserManagementService(IAgriCoinApi agriCoinApi, IUserDal userDal)
+        public UserManagementService(IAgriCoinApi agriCoinApi, IUserDal userDal, IAdvertBuyDal advertBuyDal, IAdvertSellDal advertSellDal)
         {
             _agriCoinApi = agriCoinApi;
             _userDal = userDal;
+            _advertBuyDal = advertBuyDal;
+            _advertSellDal = advertSellDal;
+        }
+
+        public List<AdvertBuy> GetActiveBuyAdvertByUserId(int userId)
+        {
+            return _advertBuyDal.GetAllWithProduct(a => a.UserId == userId && a.StatusId == (int)AdvertStatusEnum.Active);
+        }
+
+        public List<AdvertSell> GetActiveSellAdvertByUserId(int userId)
+        {
+            return _advertSellDal.GetAllWithProduct(a => a.UserId == userId && a.StatusId == (int)AdvertStatusEnum.Active);
+        }
+
+        public List<AdvertBuy> GetPastBuyAdvertByUserId(int userId)
+        {
+            return _advertBuyDal.GetAllWithProduct(a => a.UserId == userId && a.StatusId != (int)AdvertStatusEnum.Active);
+        }
+
+        public List<AdvertSell> GetPastSellAdvertByUserId(int userId)
+        {
+            return _advertSellDal.GetAllWithProduct(a => a.UserId == userId && a.StatusId != (int)AdvertStatusEnum.Active);
         }
 
         public decimal GetUserBalanceById(int userId)

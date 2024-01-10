@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { WithDrawDto } from '../dtos/withdrawdto';
+import { UserManagementAdvertDto } from '../dtos/usermanagementadvertdto';
  
 @Injectable({
     providedIn: 'root',
@@ -23,10 +24,23 @@ export class UserManagementService {
         return this.http.post(`${this.apiUrl}/sellcredit`, amount).subscribe();
     }
 
-    withDrawCredit(body: WithDrawDto){
-
-        console.log(body);
-        
+    withDrawCredit(body: WithDrawDto){        
         return this.http.post(`${this.apiUrl}/withdrawcredit`, body).subscribe();
+    }
+
+    getActiveSellAdvertsForUser() {
+        return this.http.get<UserManagementAdvertDto[]>(`${this.apiUrl}/getactiveselladvertsforuser`);
+    }
+
+    getActiveBuyAdvertsForUser() {
+        return this.http.get<UserManagementAdvertDto[]>(`${this.apiUrl}/getactivebuyadvertsforuser`);
+    }
+
+    getPastSellAdvertsForUser() {
+        return this.http.get<UserManagementAdvertDto[]>(`${this.apiUrl}/getpastbuyadvertsforuser`);
+    }
+
+    getPastBuyAdvertsForUser() {
+        return this.http.get<UserManagementAdvertDto[]>(`${this.apiUrl}/getpastbuyadvertsforuser`);
     }
 }

@@ -6,6 +6,11 @@ h3{
     display: block;
 }
 
+.form-container label{
+    color: var(--black);
+}
+
+
 .form-container input {
     width: 100%;
     margin-bottom: 0.9rem;
