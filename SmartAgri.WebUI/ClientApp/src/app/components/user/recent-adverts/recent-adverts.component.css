@@ -1,0 +1,19 @@
+.card-container {
+    border-left: 3px solid var(--primary)!important;
+}
+
+h4 {
+    position: relative;
+    font-size: 27px;
+}
+
+h4::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: var(--primary-dark);
+    border-radius: 25px;
+}

@@ -159,5 +159,68 @@ namespace SmartAgri.WebUI.Controllers
 
             return Ok();
         }
+
+        [HttpGet, Authorize]
+        public IActionResult GetRecentBuyAdvertForAdmin()
+        {
+            List<AdvertBuy> adverts = _userManagementService.GetRecentBuyAdverts();
+
+            List<UserManagementAdminAdvert> advertsDto = adverts.Select(a => new UserManagementAdminAdvert
+            {
+                Date = a.CreatedAt,
+                Email = a.User.Email,
+                ProductName = a.Product.Name,
+                Quantity = a.Quantity,
+                UnitPrice = a.UnitPrice,
+            }).ToList();
+
+            return Json(advertsDto);
+        }
+
+        [HttpGet, Authorize]
+        public IActionResult GetRecentSellAdvertForAdmin()
+        {
+            List<AdvertSell> adverts = _userManagementService.GetRecentSellAdverts();
+
+            List<UserManagementAdminAdvert> advertsDto = adverts.Select(a => new UserManagementAdminAdvert
+            {
+                Date = a.CreatedAt,
+                Email = a.User.Email,
+                ProductName = a.Product.Name,
+                Quantity = a.Quantity,
+                UnitPrice = a.UnitPrice,
+            }).ToList();
+
+            return Json(advertsDto);
+        }
+
+        [HttpGet, Authorize]
+        public IActionResult GetAdminStatistics()
+        {
+            UserManagementStaticticsDto statistics = new UserManagementStaticticsDto
+            {
+                AmountWallet = _userManagementService.GetSystemBalance(),
+                ActiveAdvertBuy = _userManagementService.GetActiveAdvertBuyCount(),
+                ActiveAdvertSale = _userManagementService.GetActiveAdvertSellCount(),
+                PurchasesCompleted = _userManagementService.GetTransactionsCount(),
+            };
+
+            return Json(statistics);
+        }
+
+        [HttpGet, Authorize]
+        public IActionResult GetCustomers()
+        {
+            List<UserManagementCustormersDto> customers = _userManagementService.GetAllUser().Select(u => new UserManagementCustormersDto
+            {
+                Name = u.Name,
+                Surname = u.Surname,
+                Email = u.Email,
+                CoinAccountId = u.CoinAccountId.ToString(),
+                Balance = _userManagementService.GetUserBalanceById(u.Id)
+            }).ToList();
+
+            return Json(customers);
+        }
     }
 }

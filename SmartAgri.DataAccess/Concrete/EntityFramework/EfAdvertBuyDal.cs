@@ -30,5 +30,19 @@ namespace SmartAgri.DataAccess.Concrete.EntityFramework
             using var context = _contextFactory.CreateDbContext();
             return filter == null ? context.AdvertBuys.Include(a => a.Product).ToList()! : context.AdvertBuys.Include(a => a.Product).Where(filter).ToList()!;
         }
+
+        public List<AdvertBuy> GetAllRecent(int count, Expression<Func<AdvertBuy, bool>>? filter = null)
+        {
+            using var context = _contextFactory.CreateDbContext();
+            var adverts = context.AdvertBuys.Include(a => a.Product).Include(a => a.User).AsQueryable();
+
+            if (filter != null)
+            {
+                adverts = adverts.Where(filter);
+            }
+
+            return adverts.OrderBy(a => a.CreatedAt).Take(count).ToList();
+        }
+
     }
 }

@@ -6,12 +6,18 @@ import { WithdrawCreditComponent } from './withdraw-credit/withdraw-credit.compo
 import { PastAdvertisementsComponent } from './past-advertisements/past-advertisements.component';
 import { ActiveAdvertisementsComponent } from './active-advertisements/active-advertisements.component';
 import { SettingsComponent } from './settings/settings.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CustomersComponent } from './customers/customers.component';
+import { RecentAdvertsComponent } from './recent-adverts/recent-adverts.component';
 
 
 const routes: Routes = [
   {
    path: '',
    children:[
+    { path:'dashboard', component: DashboardComponent },
+    { path:'customers', component: CustomersComponent },
+    { path:'recentadverts', component: RecentAdvertsComponent },
     { path:'buycredit', component: BuyCreditComponent },
     { path:'sellcredit', component: SellCreditComponent },
     { path:'withdrawcredit', component: WithdrawCreditComponent },

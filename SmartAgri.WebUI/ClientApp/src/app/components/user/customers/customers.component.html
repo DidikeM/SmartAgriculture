@@ -1,0 +1,31 @@
+<div class="container-fluid px-4">
+  <div class="d-flex justify-content-center mt-3" *ngIf="isFetching">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div class="card-container p-4 bg-white shadow rounded" *ngIf="!isFetching">
+        <table class="table" aria-describedby="buy">
+            <thead style="text-align: center;">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Email</th>
+                <th scope="col">Coin Account Id</th>
+                <th scope="col">Balance</th>
+              </tr>
+            </thead>
+            <tbody style="text-align: center;">
+              <tr *ngFor="let customer of customers; let i = index;">
+                <td>{{ i + 1 }}</td>
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.surname }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.coinAccountId }}</td>
+                <td>{{ customer.balance }}</td>
+              </tr>
+            </tbody>
+        </table>
+  </div>
+</div>

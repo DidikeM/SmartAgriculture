@@ -2,20 +2,3 @@
     border-left: 3px solid !important;
     color: var(--primary);
 }
-
-h3 {
-    position: relative;
-    font-size: 27px;
-    margin-bottom: 0;
-}
-
-h3::before {
-    content: " ";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    background-color: var(--primary-dark);
-    border-radius: 25px;
-}

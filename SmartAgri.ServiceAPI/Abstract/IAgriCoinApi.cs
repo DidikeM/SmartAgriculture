@@ -19,5 +19,6 @@ namespace SmartAgri.ServiceAPI.Abstract
         string Withdraw(Guid accountName, string address, decimal amount);
 
         decimal GetBalance(Guid accountName);
+        decimal GetSystemBalance();
     }
 }

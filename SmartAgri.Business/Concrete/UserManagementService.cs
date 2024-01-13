@@ -17,13 +17,24 @@ namespace SmartAgri.Business.Concrete
         private readonly IUserDal _userDal;
         private readonly IAdvertBuyDal _advertBuyDal;
         private readonly IAdvertSellDal _advertSellDal;
-
-        public UserManagementService(IAgriCoinApi agriCoinApi, IUserDal userDal, IAdvertBuyDal advertBuyDal, IAdvertSellDal advertSellDal)
+        private readonly ITransactionDal _transactionDal;
+        public UserManagementService(IAgriCoinApi agriCoinApi, IUserDal userDal, IAdvertBuyDal advertBuyDal, IAdvertSellDal advertSellDal, ITransactionDal transactionDal)
         {
             _agriCoinApi = agriCoinApi;
             _userDal = userDal;
             _advertBuyDal = advertBuyDal;
             _advertSellDal = advertSellDal;
+            _transactionDal = transactionDal;
+        }
+
+        public int GetActiveAdvertBuyCount()
+        {
+            return _advertBuyDal.GetCount(a => a.StatusId == (int)AdvertStatusEnum.Active);
+        }
+
+        public int GetActiveAdvertSellCount()
+        {
+            return _advertSellDal.GetCount(a => a.StatusId == (int)AdvertStatusEnum.Active);
         }
 
         public List<AdvertBuy> GetActiveBuyAdvertByUserId(int userId)
@@ -36,6 +47,11 @@ namespace SmartAgri.Business.Concrete
             return _advertSellDal.GetAllWithProduct(a => a.UserId == userId && a.StatusId == (int)AdvertStatusEnum.Active);
         }
 
+        public List<User> GetAllUser()
+        {
+            return _userDal.GetAll(u => u.RoleId == (int)UserRoleEnum.User);
+        }
+
         public List<AdvertBuy> GetPastBuyAdvertByUserId(int userId)
         {
             return _advertBuyDal.GetAllWithProduct(a => a.UserId == userId && a.StatusId != (int)AdvertStatusEnum.Active);
@@ -44,6 +60,26 @@ namespace SmartAgri.Business.Concrete
         public List<AdvertSell> GetPastSellAdvertByUserId(int userId)
         {
             return _advertSellDal.GetAllWithProduct(a => a.UserId == userId && a.StatusId != (int)AdvertStatusEnum.Active);
+        }
+
+        public List<AdvertBuy> GetRecentBuyAdverts()
+        {
+            return _advertBuyDal.GetAllRecent(10);
+        }
+
+        public List<AdvertSell> GetRecentSellAdverts()
+        {
+            return _advertSellDal.GetAllRecent(10);
+        }
+
+        public decimal GetSystemBalance()
+        {
+            return _agriCoinApi.GetSystemBalance();
+        }
+
+        public int GetTransactionsCount()
+        {
+            return _transactionDal.GetCount();
         }
 
         public User GetUser(int userId)

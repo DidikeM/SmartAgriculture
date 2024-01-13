@@ -14,8 +14,14 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-            <li *ngIf="roleId === 1">
-                <a>
+            <li routerLinkActive="active" *ngIf="roleId === 1">
+                <a routerLink="/user/recentadverts">
+                    <span class="icon"><fa-icon [icon]="faRectangleAd"></fa-icon></span>
+                    <span class="title">Recent Adverts</span>
+                </a>
+            </li>
+            <li routerLinkActive="active" *ngIf="roleId === 1">
+                <a routerLink="/user/customers">
                     <span class="icon"><fa-icon [icon]="faUsers"></fa-icon></span>
                     <span class="title">Customers</span>
                 </a>
@@ -57,7 +63,7 @@
                 </a>
             </li>
             <li>
-                <a>
+                <a (click)="logout()">
                     <span class="icon"><span class="icon"><fa-icon [icon]="faRightFromBracket"></fa-icon></span></span>
                     <span class="title">Log Out</span>
                 </a>

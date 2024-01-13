@@ -1,0 +1,7 @@
+fa-icon{
+    color: var(--primary);
+}
+
+.card-container {
+    border-left: 3px solid var(--primary)!important;
+}

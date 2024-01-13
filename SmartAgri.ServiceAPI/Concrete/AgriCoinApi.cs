@@ -46,5 +46,10 @@ namespace SmartAgri.ServiceAPI.Concrete
         {
             return _coinService.GetBalance(accountName.ToString());
         }
+
+        public decimal GetSystemBalance()
+        {
+            return _coinService.GetBalance("");
+        }
     }
 }

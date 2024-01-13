@@ -19,5 +19,12 @@ namespace SmartAgri.Business.Abstract
         string WithdrawCreditFromUser(int userId, string address, decimal amount);
         User GetUser(int userId);
         void UpdateUser(User user);
+        List<AdvertBuy> GetRecentBuyAdverts();
+        List<AdvertSell> GetRecentSellAdverts();
+        decimal GetSystemBalance();
+        int GetActiveAdvertBuyCount();
+        int GetActiveAdvertSellCount();
+        int GetTransactionsCount();
+        List<User> GetAllUser();
     }
 }

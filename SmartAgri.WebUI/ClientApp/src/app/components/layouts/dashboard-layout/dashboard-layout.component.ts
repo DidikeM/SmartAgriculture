@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { faBars, faRightFromBracket, faUsers, faGauge, faMoneyBillTransfer, faCartShopping, faMoneyBill, faClockRotateLeft, faChartLine, faGear} from '@fortawesome/free-solid-svg-icons';
+import { faBars, faRightFromBracket, faUsers, faGauge, faMoneyBillTransfer, faCartShopping, faMoneyBill, faClockRotateLeft, faChartLine, faGear, faRectangleAd} from '@fortawesome/free-solid-svg-icons';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -19,10 +21,12 @@ export class DashboardLayoutComponent {
   faClockRotateLeft = faClockRotateLeft;
   faChartLine = faChartLine;
   faGear = faGear;
+  faRectangleAd = faRectangleAd;
   
   roleId!: number;
-
   public isNavigationActive = false;
+
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
   public toggleNavigation(): void {
     this.isNavigationActive = !this.isNavigationActive;
@@ -30,5 +34,10 @@ export class DashboardLayoutComponent {
 
   ngOnInit() {
     this.roleId = Number(localStorage.getItem("roleId"));
+  }
+
+  public logout = () => {
+    this.authService.logout();
+    this.router.navigate(["/"]);
   }
 }

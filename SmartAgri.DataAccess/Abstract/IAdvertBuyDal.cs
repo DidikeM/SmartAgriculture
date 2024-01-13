@@ -12,5 +12,6 @@ namespace SmartAgri.DataAccess.Abstract
     {
         AdvertBuy GetWithUser(Expression<Func<AdvertBuy, bool>>? filter);
         List<AdvertBuy> GetAllWithProduct(Expression<Func<AdvertBuy, bool>>? filter);
+        List<AdvertBuy> GetAllRecent(int count, Expression<Func<AdvertBuy, bool>>? filter = null!);
     }
 }
