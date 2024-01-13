@@ -97,7 +97,7 @@ builder.Services.AddAuthentication(opt =>
     };
 });
 
-builder.Services.AddAuthorization(x => x.AddPolicy("AdminClaimPolicy", policy =>
+builder.Services.AddAuthorization(x => x.AddPolicy("AdminPolicy", policy =>
 {
     //policy.RequireClaim(UserClaimEnum.role_id.ToString(), ((int)RoleEnum.Admin).ToString());
     policy.RequireClaim(UserClaimEnum.role_id.ToString(), "1");

@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit{
       next: (res: AuthResponseDto) => {
         // console.log(res.token);
         localStorage.setItem("token", res.token);
+        localStorage.setItem("roleId", res.roleId.toString());
         this.authService.sendAuthStateChangeNotification();
         this.router.navigate([this.returnUrl]);
       }

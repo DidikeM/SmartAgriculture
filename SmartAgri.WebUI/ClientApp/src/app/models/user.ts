@@ -4,4 +4,6 @@ export class User {
     surname!: string
     password!: string;
     email!: string;
+    coinAddress!: string;
+    externalCoinAddress? : string;
 }

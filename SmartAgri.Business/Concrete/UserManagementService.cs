@@ -46,6 +46,11 @@ namespace SmartAgri.Business.Concrete
             return _advertSellDal.GetAllWithProduct(a => a.UserId == userId && a.StatusId != (int)AdvertStatusEnum.Active);
         }
 
+        public User GetUser(int userId)
+        {
+            return _userDal.Get(u => u.Id == userId);
+        }
+
         public decimal GetUserBalanceById(int userId)
         {
             return _agriCoinApi.GetBalance(_userDal.Get(u => u.Id == userId).CoinAccountId);
@@ -65,6 +70,11 @@ namespace SmartAgri.Business.Concrete
             {
                 throw new Exception("Transfer işlemi sırasında bir hata ile karşılaşıldı.");
             }
+        }
+
+        public void UpdateUser(User user)
+        {
+            _userDal.Update(user);
         }
 
         public string WithdrawCreditFromUser(int userId, string address, decimal amount)

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+import { User } from '../models/user';
 import { WithDrawDto } from '../dtos/withdrawdto';
 import { UserManagementAdvertDto } from '../dtos/usermanagementadvertdto';
  
@@ -42,5 +44,13 @@ export class UserManagementService {
 
     getPastBuyAdvertsForUser() {
         return this.http.get<UserManagementAdvertDto[]>(`${this.apiUrl}/getpastbuyadvertsforuser`);
+    }
+
+    getUserInfo(){
+        return this.http.get<User>(`${this.apiUrl}/getUserInfo`);
+    }
+
+    postUserInfo(body: User){
+        return this.http.post<User>(`${this.apiUrl}/postUserInfo`, body).subscribe();
     }
 }

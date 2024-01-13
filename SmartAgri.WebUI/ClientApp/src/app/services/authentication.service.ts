@@ -53,10 +53,4 @@ export class AuthenticationService {
         console.log(body);
         return this.http.post(`${this.apiUrl}/resetpassword`, body);
     }
-
-    // public resetPassword(body: ResetPasswordDto) {
-    //     console.log("service");
-    //     console.log(body);
-    //     return this.http.post(`${this.apiUrl}/resetpassword`, body);
-    // }
 }

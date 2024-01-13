@@ -17,5 +17,7 @@ namespace SmartAgri.Business.Abstract
         void MoveCreditFromUser(int userId, decimal amount);
         void MoveCreditToUser(int userId, decimal amount);
         string WithdrawCreditFromUser(int userId, string address, decimal amount);
+        User GetUser(int userId);
+        void UpdateUser(User user);
     }
 }

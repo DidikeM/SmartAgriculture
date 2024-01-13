@@ -20,9 +20,15 @@ export class DashboardLayoutComponent {
   faChartLine = faChartLine;
   faGear = faGear;
   
+  roleId!: number;
+
   public isNavigationActive = false;
 
   public toggleNavigation(): void {
     this.isNavigationActive = !this.isNavigationActive;
+  }
+
+  ngOnInit() {
+    this.roleId = Number(localStorage.getItem("roleId"));
   }
 }
