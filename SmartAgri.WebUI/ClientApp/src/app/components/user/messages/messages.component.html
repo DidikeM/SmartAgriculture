@@ -1,29 +1,88 @@
 <div class="container-fluid px-4">
-    <!-- <div class="d-flex justify-content-center mt-3" *ngIf="isFetching">
-      <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
-      </div>
-    </div> -->
-    <!-- <div class="card-container p-4 bg-white shadow rounded" *ngIf="!isFetching"> -->
-        <div class="card-container p-4 bg-white shadow rounded" >
-          <table class="table" aria-describedby="buy">
-              <thead style="text-align: center;">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Message</th>
-                </tr>
-              </thead>
-              <tbody style="text-align: center;">
-                <!-- <tr *ngFor="let customer of customers; let i = index;"> -->
-                <tr>
-                  <td>1</td>
-                  <td>name</td>
-                  <td>email</td>
-                  <td>Mesaj</td>
-                </tr>
-              </tbody>
-          </table>
+  <div class="d-flex justify-content-center mt-3" *ngIf="isFetching">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
     </div>
   </div>
+
+  <div class="card-container p-4 bg-white shadow rounded" *ngIf="!isFetching">
+    <table class="table" aria-describedby="buy">
+      <thead style="text-align: center;">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Message</th>
+        </tr>
+      </thead>
+      <tbody style="text-align: center;">
+        <tr *ngFor="let message of messages; let i = index;" (click)="openModal(message)">
+          <td>{{ i + 1 }}</td>
+          <td>{{ message.name }}</td>
+          <td>{{ message.email }}</td>
+          <td>{{ message.message ? (message.message | truncate:50) : ''}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal" data-backdrop="static" data-keyboard="false" #myModal >
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form class="product-form" [formGroup]="messageReplyForm" (ngSubmit)="onSubmit()">
+          <div class="form-container">
+              <label>Name:</label>
+              <input
+                  type="text"
+                  required
+                  disabled
+                  [value]="selectedMessage?.name"
+              >
+          </div>
+          <div class="form-container">
+            <label>Email:</label>
+            <input
+                type="text"
+                required
+                disabled
+                [value]="selectedMessage?.email"
+            >
+          </div>
+          <div class="form-container">
+            <label>Message:</label>
+            <textarea 
+              cols="30" 
+              rows="5" 
+              [value]="selectedMessage?.message" 
+              disabled
+            ></textarea>
+          </div>
+          <div class="form-container">
+            <label>Title:</label>
+            <input
+                type="text"
+                required
+                formControlName="title"
+            >
+        </div>
+          <div class="form-container">
+            <label>Reply:</label>
+            <textarea 
+              cols="30" 
+              rows="5"
+              formControlName="reply"
+            ></textarea>
+          </div>
+          <div class="form-container">
+              <button class="btn btn-submit w-100 mt-2" type="submit"  [disabled]="!messageReplyForm.valid">Submit</button>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>

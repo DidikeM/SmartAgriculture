@@ -8,6 +8,8 @@ import { UserManagementAdminAdvertDto } from '../dtos/usermanagementadminadvertd
 import { UserManagementStaticticsDto } from '../dtos/usermanagementstaticticsdto';
 import { UserManagementCustomersDto } from '../dtos/usermanagementcustomersdto';
 import { ProductDto } from '../dtos/productdto';
+import { GuestMessage } from '../models/guestmessage';
+import { ReplyGuestMessageDto } from '../dtos/replyguestmessagedto';
 
 @Injectable({
     providedIn: 'root',
@@ -80,5 +82,18 @@ export class UserManagementService {
 
     getCompletedAdvertStatusCount() {
         return this.http.get<any[]>(`${this.apiUrl}/getcompletedadvertstatuscount`);
+    }
+
+    addMessage(body: GuestMessage) {
+        console.log("service ",body);
+        return this.http.post<GuestMessage>(`${this.apiUrl}/addmessage`, body).subscribe();
+    }
+
+    getGuestMessages() {
+        return this.http.get<GuestMessage[]>(`${this.apiUrl}/getguestmessages`);
+    }
+
+    replyGuestMessage(body: ReplyGuestMessageDto){
+        return this.http.post<ReplyGuestMessageDto>(`${this.apiUrl}/replyguestmessage`, body);
     }
 }

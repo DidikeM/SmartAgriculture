@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotFoundComponent } from './notfound.component';
+import { MessageReplyComponent } from './message-reply.component';
 
-describe('NotfoundComponent', () => {
-  let component: NotFoundComponent;
-  let fixture: ComponentFixture<NotFoundComponent>;
+describe('MessageReplyComponent', () => {
+  let component: MessageReplyComponent;
+  let fixture: ComponentFixture<MessageReplyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NotFoundComponent ]
+      declarations: [ MessageReplyComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NotFoundComponent);
+    fixture = TestBed.createComponent(MessageReplyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -32,7 +32,6 @@ namespace SmartAgri.Business.Concrete
             _guestMessageDal = guestMessageDal;
 
         }
-
         public int GetActiveAdvertBuyCount()
         {
             return _advertBuyDal.GetCount(a => a.StatusId == (int)AdvertStatusEnum.Active);
@@ -158,16 +157,13 @@ namespace SmartAgri.Business.Concrete
             return _guestMessageDal.GetAll();
         }
 
-        public void SetGuestMessagesIsReaded(int guestMessageId)
+        public GuestMessage GetGuestMessageById(int guestMessageId)
         {
             var guestMessage = _guestMessageDal.Get(m => m.Id == guestMessageId);
             guestMessage.IsReaded = true;
             _guestMessageDal.Update(guestMessage);
-        }
 
-        public GuestMessage GetGuestMessageById(int guestMessageId)
-        {
-            return _guestMessageDal.Get(m => m.Id == guestMessageId);
+            return guestMessage;
         }
     }
 }

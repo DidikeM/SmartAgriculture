@@ -32,7 +32,6 @@ namespace SmartAgri.Business.Abstract
         List<Tuple<Product, int>> GetAllCompletedAdvertCountAndProduct();
         void AddGuestMessage(GuestMessage message);
         List<GuestMessage> GetGuestMessages();
-        void SetGuestMessagesIsReaded(int guestMessageId);
         GuestMessage GetGuestMessageById(int guestMessageId);
     }
 }

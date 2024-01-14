@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { GuestMessage } from 'src/app/models/guestmessage';
+import { UserManagementService } from 'src/app/services/usermanagement.service';
 
 import { ValidationService } from 'src/app/services/validation.service';
 @Component({
@@ -11,7 +14,7 @@ import { ValidationService } from 'src/app/services/validation.service';
 export class ContactComponent {
   contactForm!: FormGroup;
 
-  constructor(public validationService: ValidationService) {}
+  constructor(private usermanagement: UserManagementService, public validationService: ValidationService, private router: Router) {}
 
   ngOnInit() {
     this.contactForm = new FormGroup({ 
@@ -30,6 +33,13 @@ export class ContactComponent {
     const email = this.contactForm.get('email')?.value;
     const message = this.contactForm.get('message')?.value;
 
-    console.log(name, email, message);
+    const contact: GuestMessage = {
+      name: name,
+      email: email,
+      message: message
+    }
+
+    this.usermanagement.addMessage(contact);
+    this.router.navigate(['/']); 
   }
 }

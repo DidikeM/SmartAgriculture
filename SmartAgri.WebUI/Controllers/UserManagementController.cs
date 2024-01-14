@@ -246,14 +246,7 @@ namespace SmartAgri.WebUI.Controllers
         }
 
         [HttpPost, Authorize(Policy = "AdminPolicy")]
-        public IActionResult SetGuestMessagesIsReaded(int guestMessageId)
-        {
-            _userManagementService.SetGuestMessagesIsReaded(guestMessageId);
-            return Ok();
-        }
-
-        [HttpPost, Authorize(Policy = "AdminPolicy")]
-        public IActionResult ReplyGuestMessage(ReplyGuestMessageDto replyGuestMessageDto)
+        public IActionResult ReplyGuestMessage([FromBody] ReplyGuestMessageDto replyGuestMessageDto)
         {
             var guestMessage = _userManagementService.GetGuestMessageById(replyGuestMessageDto.GuestMessageId);
             _emailSender.SendEmail(new GuestMessageReplyMessage(guestMessage.Name, new List<string> { guestMessage.Email }, replyGuestMessageDto.Message, replyGuestMessageDto.Title));

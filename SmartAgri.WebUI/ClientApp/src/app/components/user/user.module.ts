@@ -14,6 +14,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomersComponent } from './customers/customers.component';
 import { RecentAdvertsComponent } from './recent-adverts/recent-adverts.component';
 import { MessagesComponent } from './messages/messages.component';
+import { TruncatePipe } from './messages/truncate.pipe';
+import { MessageReplyComponent } from './messages/message-reply/message-reply.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { MessagesComponent } from './messages/messages.component';
     DashboardComponent,
     CustomersComponent,
     RecentAdvertsComponent,
-    MessagesComponent
+    MessagesComponent,
+    TruncatePipe,
+    MessageReplyComponent
   ],
   imports: [
     CommonModule,
