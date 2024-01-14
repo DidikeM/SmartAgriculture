@@ -28,6 +28,8 @@ public class SmartAgriContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<Transaction> Transactions { get; set; }
     public DbSet<Role> Roles { get; set; }
+    public DbSet<GuestMessage> GuestMessages { get; set; }
+
 
     override protected void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -87,6 +89,11 @@ public class SmartAgriContext : DbContext
         });
 
         modelBuilder.Entity<Role>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+        });
+
+        modelBuilder.Entity<GuestMessage>(entity =>
         {
             entity.HasKey(e => e.Id);
         });

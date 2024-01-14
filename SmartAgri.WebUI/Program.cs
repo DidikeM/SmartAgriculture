@@ -46,6 +46,7 @@ builder.Services.AddSingleton<IProductDal, EfProductDal>();
 builder.Services.AddSingleton<IAdvertBuyDal, EfAdvertBuyDal>();
 builder.Services.AddSingleton<IAdvertSellDal, EfAdvertSellDal>();
 builder.Services.AddSingleton<ITransactionDal, EfTransactionDal>();
+builder.Services.AddSingleton<IGuestMessageDal, EfGuestMessageDal>();
 
 builder.Services.AddSingleton<IFormService, FormService>();
 builder.Services.AddSingleton<IUserService, UserService>();

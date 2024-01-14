@@ -26,6 +26,12 @@
                     <span class="title">Customers</span>
                 </a>
             </li>
+            <li routerLinkActive="active" *ngIf=" roleId === 1">
+                <a routerLink="/user/messages">
+                    <span class="icon"><fa-icon [icon]="faMessage"></fa-icon></span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
             <li routerLinkActive="active" *ngIf=" roleId === 2">
                 <a routerLink="/user/buycredit">
                     <span class="icon"><fa-icon [icon]="faCartShopping"></fa-icon></span>

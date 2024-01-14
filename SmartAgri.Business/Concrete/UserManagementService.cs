@@ -19,8 +19,9 @@ namespace SmartAgri.Business.Concrete
         private readonly IAdvertSellDal _advertSellDal;
         private readonly ITransactionDal _transactionDal;
         private readonly IProductDal _productDal;
+        private readonly IGuestMessageDal _guestMessageDal;
 
-        public UserManagementService(IAgriCoinApi agriCoinApi, IUserDal userDal, IAdvertBuyDal advertBuyDal, IAdvertSellDal advertSellDal, ITransactionDal transactionDal, IProductDal productDal)
+        public UserManagementService(IAgriCoinApi agriCoinApi, IUserDal userDal, IAdvertBuyDal advertBuyDal, IAdvertSellDal advertSellDal, ITransactionDal transactionDal, IProductDal productDal, IGuestMessageDal guestMessageDal)
         {
             _agriCoinApi = agriCoinApi;
             _userDal = userDal;
@@ -28,6 +29,8 @@ namespace SmartAgri.Business.Concrete
             _advertSellDal = advertSellDal;
             _transactionDal = transactionDal;
             _productDal = productDal;
+            _guestMessageDal = guestMessageDal;
+
         }
 
         public int GetActiveAdvertBuyCount()
@@ -143,6 +146,23 @@ namespace SmartAgri.Business.Concrete
                  p,
                 _transactionDal.GetCount(t => t.BuyAdvert.ProductId == p.Id || t.SellAdvert.ProductId == p.Id)
             )).ToList(); ;
+        }
+
+        public void AddGuestMessage(GuestMessage message)
+        {
+            _guestMessageDal.Add(message);
+        }
+
+        public List<GuestMessage> GetGuestMessages()
+        {
+            return _guestMessageDal.GetAll();
+        }
+
+        public void SetGuestMessagesIsReaded(int guestMessageId)
+        {
+            var guestMessage = _guestMessageDal.Get(m => m.Id == guestMessageId);
+            guestMessage.IsReaded = true;
+            _guestMessageDal.Update(guestMessage);
         }
     }
 }

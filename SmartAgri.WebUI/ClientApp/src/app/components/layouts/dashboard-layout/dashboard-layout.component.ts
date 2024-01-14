@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { faBars, faRightFromBracket, faUsers, faGauge, faMoneyBillTransfer, faCartShopping, faMoneyBill, faClockRotateLeft, faChartLine, faGear, faRectangleAd} from '@fortawesome/free-solid-svg-icons';
+import { faBars, faRightFromBracket, faUsers, faGauge, faMoneyBillTransfer, faCartShopping, faMoneyBill, faClockRotateLeft, faChartLine, faGear, faRectangleAd, faMessage} from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -22,6 +22,7 @@ export class DashboardLayoutComponent {
   faChartLine = faChartLine;
   faGear = faGear;
   faRectangleAd = faRectangleAd;
+  faMessage = faMessage;
   
   roleId!: number;
   public isNavigationActive = false;

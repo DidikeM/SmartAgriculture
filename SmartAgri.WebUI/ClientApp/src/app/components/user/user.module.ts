@@ -13,6 +13,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomersComponent } from './customers/customers.component';
 import { RecentAdvertsComponent } from './recent-adverts/recent-adverts.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { RecentAdvertsComponent } from './recent-adverts/recent-adverts.componen
     SettingsComponent,
     DashboardComponent,
     CustomersComponent,
-    RecentAdvertsComponent
+    RecentAdvertsComponent,
+    MessagesComponent
   ],
   imports: [
     CommonModule,

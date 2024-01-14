@@ -9,6 +9,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomersComponent } from './customers/customers.component';
 import { RecentAdvertsComponent } from './recent-adverts/recent-adverts.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
    children:[
     { path:'dashboard', component: DashboardComponent },
     { path:'customers', component: CustomersComponent },
+    { path:'messages', component: MessagesComponent },
     { path:'recentadverts', component: RecentAdvertsComponent },
     { path:'buycredit', component: BuyCreditComponent },
     { path:'sellcredit', component: SellCreditComponent },

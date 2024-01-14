@@ -5,8 +5,6 @@ import { UserManagementService } from 'src/app/services/usermanagement.service';
 import { UserManagementStaticticsDto } from 'src/app/dtos/usermanagementstaticticsdto';
 
 import Chart from 'chart.js/auto';
-import { ProductDto } from 'src/app/dtos/productdto';
-
 
 @Component({
   selector: 'app-dashboard',
@@ -56,12 +54,10 @@ export class DashboardComponent implements AfterViewInit, OnDestroy{
   }
 
   ngOnDestroy(): void {
-    this.polarChart.destroy();
   }
 
   createChart(canvas: ElementRef<HTMLCanvasElement>, products: any[])
   {
-    
     let labels: any[] = [];
     let datasetValues: number[] = [];
   

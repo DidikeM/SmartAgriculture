@@ -27,9 +27,7 @@ export class IndexComponent implements AfterViewInit, OnDestroy {
     this.bazaarService.getProducts().subscribe(
       (responseData) => {
         this.isFetching = false;
-        console.log("response",responseData)
         this.products = responseData;
-        console.log("oldprices",this.products)
       }
     );
   }
@@ -69,12 +67,7 @@ export class IndexComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.lineCharts.forEach(lChart => {
-      lChart.destroy();
-    });
-    this.gaugeCharts.forEach(gChart => {
-      gChart.destroy();
-    });
+    
   }
   
   createLineChart(canvas: ElementRef<HTMLCanvasElement>, product: ProductDto) {
