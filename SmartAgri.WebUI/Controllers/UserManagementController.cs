@@ -4,15 +4,19 @@ using SmartAgri.Business.Abstract;
 using SmartAgri.Entities.Concrete;
 using SmartAgri.Entities.Enums;
 using SmartAgri.WebUI.DTOs;
+using SmartAgri.WebUI.Mailing;
+using SmartAgri.WebUI.Mailing.Messages;
 
 namespace SmartAgri.WebUI.Controllers
 {
     public class UserManagementController : Controller
     {
         private readonly IUserManagementService _userManagementService;
-        public UserManagementController(IUserManagementService userManagementService)
+        private readonly IEmailSender _emailSender;
+        public UserManagementController(IUserManagementService userManagementService, IEmailSender emailSender)
         {
             _userManagementService = userManagementService;
+            _emailSender = emailSender;
         }
 
         [HttpGet, Authorize]
@@ -251,7 +255,8 @@ namespace SmartAgri.WebUI.Controllers
         [HttpPost, Authorize(Policy = "AdminPolicy")]
         public IActionResult ReplyGuestMessage(ReplyGuestMessageDto replyGuestMessageDto)
         {
-
+            var guestMessage = _userManagementService.GetGuestMessageById(replyGuestMessageDto.GuestMessageId);
+            _emailSender.SendEmail(new GuestMessageReplyMessage(guestMessage.Name, new List<string> { guestMessage.Email }, replyGuestMessageDto.Message, replyGuestMessageDto.Title));
             return Ok();
         }
     }

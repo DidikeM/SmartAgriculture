@@ -33,5 +33,6 @@ namespace SmartAgri.Business.Abstract
         void AddGuestMessage(GuestMessage message);
         List<GuestMessage> GetGuestMessages();
         void SetGuestMessagesIsReaded(int guestMessageId);
+        GuestMessage GetGuestMessageById(int guestMessageId);
     }
 }

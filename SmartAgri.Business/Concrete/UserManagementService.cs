@@ -164,5 +164,10 @@ namespace SmartAgri.Business.Concrete
             guestMessage.IsReaded = true;
             _guestMessageDal.Update(guestMessage);
         }
+
+        public GuestMessage GetGuestMessageById(int guestMessageId)
+        {
+            return _guestMessageDal.Get(m => m.Id == guestMessageId);
+        }
     }
 }
