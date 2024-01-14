@@ -7,7 +7,8 @@ import { UserManagementAdvertDto } from '../dtos/usermanagementadvertdto';
 import { UserManagementAdminAdvertDto } from '../dtos/usermanagementadminadvertdto';
 import { UserManagementStaticticsDto } from '../dtos/usermanagementstaticticsdto';
 import { UserManagementCustomersDto } from '../dtos/usermanagementcustomersdto';
- 
+import { ProductDto } from '../dtos/productdto';
+
 @Injectable({
     providedIn: 'root',
 })
@@ -68,8 +69,16 @@ export class UserManagementService {
     getAdminStatistics() {
         return this.http.get<UserManagementStaticticsDto>(`${this.apiUrl}/getadminstatistics`);
     }
+    
+    getUserSpecializedStatistics() {
+        return this.http.get<UserManagementStaticticsDto>(`${this.apiUrl}/getuserspecializedsatistics`);
+    }
 
     getCustomers() {
         return this.http.get<UserManagementCustomersDto[]>(`${this.apiUrl}/getcustomers`);
+    }
+
+    getCompletedAdvertStatusCount() {
+        return this.http.get<any[]>(`${this.apiUrl}/getcompletedadvertstatuscount`);
     }
 }

@@ -209,6 +209,19 @@ namespace SmartAgri.WebUI.Controllers
         }
 
         [HttpGet, Authorize]
+        public IActionResult GetUserSpecializedStatistics()
+        {
+            UserManagementStaticticsDto statistics = new UserManagementStaticticsDto
+            {
+                AmountWallet = _userManagementService.GetUserBalanceById(GetClaim.GetUserId(User)),
+                ActiveAdvertBuy = _userManagementService.GetUserActiveAdvertBuyCountById(GetClaim.GetUserId(User)),
+                ActiveAdvertSale = _userManagementService.GetUserActiveAdvertSellCountById(GetClaim.GetUserId(User)),
+                PurchasesCompleted = _userManagementService.GetUserTransactionsCountById(GetClaim.GetUserId(User)),
+            };
+            return Json(statistics);
+        }
+
+        [HttpGet, Authorize]
         public IActionResult GetCustomers()
         {
             List<UserManagementCustormersDto> customers = _userManagementService.GetAllUser().Select(u => new UserManagementCustormersDto
@@ -221,6 +234,13 @@ namespace SmartAgri.WebUI.Controllers
             }).ToList();
 
             return Json(customers);
+        }
+
+        [HttpGet, Authorize]
+        public IActionResult GetCompletedAdvertStatusCount()
+        {
+            var response = Json(_userManagementService.GetAllCompletedAdvertCountAndProduct());
+            return response;
         }
     }
 }

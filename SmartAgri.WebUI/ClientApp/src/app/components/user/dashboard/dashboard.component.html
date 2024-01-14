@@ -3,7 +3,7 @@
         <div class=" col-md-3">
             <div class="card-container p-4 bg-white shadow d-flex justify-content-around align-items-center h-100 rounded">
                 <div>
-                    <h3 class="fs-2">{{ adminStatistics.purchasesCompleted }}</h3>
+                    <h3 class="fs-2">{{ satistics.purchasesCompleted }}</h3>
                     <p class="fs-5">Purchases Completed</p>
                 </div>
                 <span class="fs-1 primary-text rounded-full secondary-bg p-3"><fa-icon [icon]="faCheck"></fa-icon></span>
@@ -13,7 +13,7 @@
         <div class="col-md-3">
             <div class="card-container p-4 bg-white shadow d-flex justify-content-around align-items-center h-100 rounded">
                 <div>
-                    <h3 class="fs-2">{{ adminStatistics.activeAdvertSale }}</h3>
+                    <h3 class="fs-2">{{ satistics.activeAdvertSale }}</h3>
                     <p class="fs-5">Active Adverts for Sale</p>
                 </div>
                 <span class="fs-1 primary-text rounded-full secondary-bg p-3"><fa-icon [icon]="faBox"></fa-icon></span>
@@ -23,7 +23,7 @@
         <div class="col-md-3">
             <div class="card-container p-4 bg-white shadow d-flex justify-content-around align-items-center h-100 rounded">
                 <div>
-                    <h3 class="fs-2">{{ adminStatistics.activeAdvertBuy}}</h3>
+                    <h3 class="fs-2">{{ satistics.activeAdvertBuy}}</h3>
                     <p class="fs-5">Active Adverts for Buy</p>
                 </div>
                 <span class="fs-1 primary-text rounded-full secondary-bg p-3"><fa-icon [icon]="faCoins"></fa-icon></span>
@@ -32,11 +32,15 @@
         <div class="col-md-3">
             <div class="card-container p-4 bg-white shadow d-flex justify-content-around align-items-center h-100 rounded">
                 <div>
-                    <h3 class="fs-2">{{ adminStatistics.amountWallet ?? 0}}</h3>
+                    <h3 class="fs-2">{{ satistics.amountWallet ?? 0}}</h3>
                     <p class="fs-5">Amount of Wallet</p>
                 </div>
                 <span class="fs-1 primary-text rounded-full secondary-bg p-3"><fa-icon [icon]="faWallet"></fa-icon></span>
             </div>
         </div>
+    </div>
+    
+    <div class="mt-5 d-flex justify-content-center align-items-center">
+        <canvas #polarChartCanvas style="max-width: 500px!important; max-height: 500px!important;"></canvas>
     </div>
 </div>

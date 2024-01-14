@@ -18,13 +18,16 @@ namespace SmartAgri.Business.Concrete
         private readonly IAdvertBuyDal _advertBuyDal;
         private readonly IAdvertSellDal _advertSellDal;
         private readonly ITransactionDal _transactionDal;
-        public UserManagementService(IAgriCoinApi agriCoinApi, IUserDal userDal, IAdvertBuyDal advertBuyDal, IAdvertSellDal advertSellDal, ITransactionDal transactionDal)
+        private readonly IProductDal _productDal;
+
+        public UserManagementService(IAgriCoinApi agriCoinApi, IUserDal userDal, IAdvertBuyDal advertBuyDal, IAdvertSellDal advertSellDal, ITransactionDal transactionDal, IProductDal productDal)
         {
             _agriCoinApi = agriCoinApi;
             _userDal = userDal;
             _advertBuyDal = advertBuyDal;
             _advertSellDal = advertSellDal;
             _transactionDal = transactionDal;
+            _productDal = productDal;
         }
 
         public int GetActiveAdvertBuyCount()
@@ -35,6 +38,26 @@ namespace SmartAgri.Business.Concrete
         public int GetActiveAdvertSellCount()
         {
             return _advertSellDal.GetCount(a => a.StatusId == (int)AdvertStatusEnum.Active);
+        }
+
+        public int GetTransactionsCount()
+        {
+            return _transactionDal.GetCount();
+        }
+
+        public int GetUserActiveAdvertBuyCountById(int userId)
+        {
+            return _advertBuyDal.GetCount(a => a.StatusId == (int)AdvertStatusEnum.Active && a.UserId == userId);
+        }
+
+        public int GetUserActiveAdvertSellCountById(int userId)
+        {
+            return _advertSellDal.GetCount(a => a.StatusId == (int)AdvertStatusEnum.Active && a.UserId == userId);
+        }
+
+        public int GetUserTransactionsCountById(int userId)
+        {
+            return _transactionDal.GetCount(t => t.BuyAdvert.UserId == userId || t.SellAdvert.UserId == userId);
         }
 
         public List<AdvertBuy> GetActiveBuyAdvertByUserId(int userId)
@@ -77,19 +100,14 @@ namespace SmartAgri.Business.Concrete
             return _agriCoinApi.GetSystemBalance();
         }
 
-        public int GetTransactionsCount()
+        public decimal GetUserBalanceById(int userId)
         {
-            return _transactionDal.GetCount();
+            return _agriCoinApi.GetBalance(_userDal.Get(u => u.Id == userId).CoinAccountId);
         }
 
         public User GetUser(int userId)
         {
             return _userDal.Get(u => u.Id == userId);
-        }
-
-        public decimal GetUserBalanceById(int userId)
-        {
-            return _agriCoinApi.GetBalance(_userDal.Get(u => u.Id == userId).CoinAccountId);
         }
 
         public void MoveCreditFromUser(int userId, decimal amount)
@@ -116,6 +134,15 @@ namespace SmartAgri.Business.Concrete
         public string WithdrawCreditFromUser(int userId, string address, decimal amount)
         {
             return _agriCoinApi.Withdraw(_userDal.Get(u => u.Id == userId).CoinAccountId, address, amount);
+        }
+
+        public List<Tuple<Product, int>> GetAllCompletedAdvertCountAndProduct()
+        {
+            return _productDal.GetAll().Select(p => new Tuple<Product, int>
+            (
+                 p,
+                _transactionDal.GetCount(t => t.BuyAdvert.ProductId == p.Id || t.SellAdvert.ProductId == p.Id)
+            )).ToList(); ;
         }
     }
 }

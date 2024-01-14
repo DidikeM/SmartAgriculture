@@ -25,6 +25,10 @@ namespace SmartAgri.Business.Abstract
         int GetActiveAdvertBuyCount();
         int GetActiveAdvertSellCount();
         int GetTransactionsCount();
+        int GetUserActiveAdvertBuyCountById(int userId);
+        int GetUserActiveAdvertSellCountById(int userId);
+        int GetUserTransactionsCountById(int userId);
         List<User> GetAllUser();
+        List<Tuple<Product, int>> GetAllCompletedAdvertCountAndProduct();
     }
 }

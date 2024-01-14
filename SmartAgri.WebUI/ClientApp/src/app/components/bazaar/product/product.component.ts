@@ -30,7 +30,6 @@ export class ProductComponent {
   product: ProductDto = {};
   buyAdverts: AdvertDto[] = [];
   sellAdverts: AdvertDto[] = [];
-  // productList: ProductDto[] = [];
 
   tabChange(tabIndex: number){
     this.activatedTabIndex = tabIndex;
@@ -95,12 +94,6 @@ export class ProductComponent {
           this.sellAdverts = sellAdverts;
         }
       );
-
-      // this.bazaarService.getProducts().subscribe(
-      //   (products) => {
-      //     this.productList = products;
-      //   }
-      // );
     });
   }
   
@@ -208,5 +201,4 @@ export class ProductComponent {
 
     this.bazaarService.addSellAdvert(sellAdvertData);
   }
-
 }
