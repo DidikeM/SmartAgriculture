@@ -35,7 +35,7 @@ namespace SmartAgri.DataAccess.Concrete.EntityFramework
             using (var context = _contextFactory.CreateDbContext())
             {
                 var result = context.AdvertSells
-                    .Where(x => x.ProductId == id && x.StatusId == (int)AdvertStatusEnum.Active)
+                    .Where(x => x.ProductId == id && x.StatusId != (int)AdvertStatusEnum.Active)
                     .OrderByDescending(x => x.CreatedAt)
                     .Take(5) 
                     .Select(x => x.UnitPrice);

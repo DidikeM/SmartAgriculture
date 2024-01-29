@@ -45,7 +45,7 @@ export class UserManagementService {
     }
 
     getPastSellAdvertsForUser() {
-        return this.http.get<UserManagementAdvertDto[]>(`${this.apiUrl}/getpastbuyadvertsforuser`);
+        return this.http.get<UserManagementAdvertDto[]>(`${this.apiUrl}/getpastselladvertsforuser`);
     }
 
     getPastBuyAdvertsForUser() {

@@ -118,19 +118,33 @@ export class IndexComponent implements AfterViewInit, OnDestroy {
           minPrice = Math.min(minPrice, price);
           maxPrice = Math.max(maxPrice, price);
         });
+        let min = 0;
+        let max = 0;
+        let diff = 0;
+
+        diff = maxPrice - minPrice;
+        min = product.expectedPrice! - diff;
+        max = product.expectedPrice! + diff;
         // const score = Number(((1 - ((product.expectedPrice! - minPrice) / (maxPrice - minPrice))) * 100).toFixed(2).split(".")[0])/100;
-        const score = (1 - ((product.expectedPrice! - minPrice) / (maxPrice - minPrice)));
+        let score = (1 - ((product.currentPrice! - min) / (max - min)));
+        if (score < 0)
+          score = 0;
+        else if (score > 1)
+          score = 1;
+
         const angleInRadians: number = score * Math.PI;
         let rating;
-  
-        if (score < 0.25)
+
+        if (score < 0.2)
+          rating = 'Extreme Fear';
+        else if (score < 0.4)
           rating = 'Fear';
-        else if (score < 0.5)
+        else if (score < 0.6)
           rating = 'Normal';
-        else if (score < 0.75)
+        else if (score < 0.8)
           rating = 'Greedy';
         else
-          rating = 'Extreme Greed'
+          rating = 'Extreme Greed';
         
         ctx.translate(xCenter, yCenter);
         

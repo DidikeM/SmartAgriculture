@@ -15,6 +15,11 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SmartAgri.PricePredictionSe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartAgri.ServiceAPI", "SmartAgri.ServiceAPI\SmartAgri.ServiceAPI.csproj", "{B3B36EDF-4034-4495-8630-648713920DC9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{94E28E17-357B-4848-8DB2-C55723AFC56A}"
+	ProjectSection(SolutionItems) = preProject
+		AgriCoinTez.pdf = AgriCoinTez.pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

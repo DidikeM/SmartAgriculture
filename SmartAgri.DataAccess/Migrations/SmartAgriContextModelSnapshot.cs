@@ -146,9 +146,57 @@ namespace SmartAgri.DataAccess.Migrations
                     b.HasData(
                         new
                         {
+                            Id = 1,
+                            ImagePath = "banana.png",
+                            Name = "Banana"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ImagePath = "barley.png",
+                            Name = "Barley"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ImagePath = "cocoa.png",
+                            Name = "Cocoa"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ImagePath = "corn.png",
+                            Name = "Corn"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ImagePath = "cotton.png",
+                            Name = "Cotton"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ImagePath = "soybean.png",
+                            Name = "Soybean"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ImagePath = "sugar.png",
+                            Name = "Sugar"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ImagePath = "sunfloweroil.png",
+                            Name = "SunflowerOil"
+                        },
+                        new
+                        {
                             Id = 9,
                             ImagePath = "wheat.png",
-                            Name = "Buğday"
+                            Name = "Wheat"
                         });
                 });
 
@@ -266,6 +314,323 @@ namespace SmartAgri.DataAccess.Migrations
                         .IsUnique();
 
                     b.ToTable("Transactions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BuyAdvertId = 2,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3003),
+                            SellAdvertId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BuyAdvertId = 4,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3006),
+                            SellAdvertId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BuyAdvertId = 6,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3008),
+                            SellAdvertId = 5
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BuyAdvertId = 8,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3010),
+                            SellAdvertId = 7
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BuyAdvertId = 10,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3013),
+                            SellAdvertId = 9
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BuyAdvertId = 12,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3016),
+                            SellAdvertId = 11
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BuyAdvertId = 14,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3017),
+                            SellAdvertId = 13
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BuyAdvertId = 16,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3019),
+                            SellAdvertId = 15
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BuyAdvertId = 18,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3022),
+                            SellAdvertId = 17
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BuyAdvertId = 20,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3025),
+                            SellAdvertId = 19
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BuyAdvertId = 22,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3027),
+                            SellAdvertId = 21
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BuyAdvertId = 24,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3029),
+                            SellAdvertId = 23
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BuyAdvertId = 26,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3030),
+                            SellAdvertId = 25
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BuyAdvertId = 28,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3032),
+                            SellAdvertId = 27
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BuyAdvertId = 30,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3033),
+                            SellAdvertId = 29
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BuyAdvertId = 32,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3035),
+                            SellAdvertId = 31
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BuyAdvertId = 34,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3038),
+                            SellAdvertId = 33
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BuyAdvertId = 36,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3041),
+                            SellAdvertId = 35
+                        },
+                        new
+                        {
+                            Id = 19,
+                            BuyAdvertId = 38,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3042),
+                            SellAdvertId = 37
+                        },
+                        new
+                        {
+                            Id = 20,
+                            BuyAdvertId = 40,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3044),
+                            SellAdvertId = 39
+                        },
+                        new
+                        {
+                            Id = 21,
+                            BuyAdvertId = 42,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3074),
+                            SellAdvertId = 41
+                        },
+                        new
+                        {
+                            Id = 22,
+                            BuyAdvertId = 44,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3076),
+                            SellAdvertId = 43
+                        },
+                        new
+                        {
+                            Id = 23,
+                            BuyAdvertId = 46,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3078),
+                            SellAdvertId = 45
+                        },
+                        new
+                        {
+                            Id = 24,
+                            BuyAdvertId = 48,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3079),
+                            SellAdvertId = 47
+                        },
+                        new
+                        {
+                            Id = 25,
+                            BuyAdvertId = 50,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3081),
+                            SellAdvertId = 49
+                        },
+                        new
+                        {
+                            Id = 26,
+                            BuyAdvertId = 52,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3083),
+                            SellAdvertId = 51
+                        },
+                        new
+                        {
+                            Id = 27,
+                            BuyAdvertId = 54,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3084),
+                            SellAdvertId = 53
+                        },
+                        new
+                        {
+                            Id = 28,
+                            BuyAdvertId = 56,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3086),
+                            SellAdvertId = 55
+                        },
+                        new
+                        {
+                            Id = 29,
+                            BuyAdvertId = 58,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3088),
+                            SellAdvertId = 57
+                        },
+                        new
+                        {
+                            Id = 30,
+                            BuyAdvertId = 60,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3089),
+                            SellAdvertId = 59
+                        },
+                        new
+                        {
+                            Id = 31,
+                            BuyAdvertId = 62,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3091),
+                            SellAdvertId = 61
+                        },
+                        new
+                        {
+                            Id = 32,
+                            BuyAdvertId = 64,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3093),
+                            SellAdvertId = 63
+                        },
+                        new
+                        {
+                            Id = 33,
+                            BuyAdvertId = 66,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3096),
+                            SellAdvertId = 65
+                        },
+                        new
+                        {
+                            Id = 34,
+                            BuyAdvertId = 68,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3099),
+                            SellAdvertId = 67
+                        },
+                        new
+                        {
+                            Id = 35,
+                            BuyAdvertId = 70,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3100),
+                            SellAdvertId = 69
+                        },
+                        new
+                        {
+                            Id = 36,
+                            BuyAdvertId = 72,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3102),
+                            SellAdvertId = 71
+                        },
+                        new
+                        {
+                            Id = 37,
+                            BuyAdvertId = 74,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3104),
+                            SellAdvertId = 73
+                        },
+                        new
+                        {
+                            Id = 38,
+                            BuyAdvertId = 76,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3105),
+                            SellAdvertId = 75
+                        },
+                        new
+                        {
+                            Id = 39,
+                            BuyAdvertId = 78,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3107),
+                            SellAdvertId = 77
+                        },
+                        new
+                        {
+                            Id = 40,
+                            BuyAdvertId = 80,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3109),
+                            SellAdvertId = 79
+                        },
+                        new
+                        {
+                            Id = 41,
+                            BuyAdvertId = 82,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3110),
+                            SellAdvertId = 81
+                        },
+                        new
+                        {
+                            Id = 42,
+                            BuyAdvertId = 84,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3112),
+                            SellAdvertId = 83
+                        },
+                        new
+                        {
+                            Id = 43,
+                            BuyAdvertId = 86,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3114),
+                            SellAdvertId = 85
+                        },
+                        new
+                        {
+                            Id = 44,
+                            BuyAdvertId = 88,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3115),
+                            SellAdvertId = 87
+                        },
+                        new
+                        {
+                            Id = 45,
+                            BuyAdvertId = 90,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3117),
+                            SellAdvertId = 89
+                        });
                 });
 
             modelBuilder.Entity("SmartAgri.Entities.Concrete.User", b =>
@@ -338,6 +703,150 @@ namespace SmartAgri.DataAccess.Migrations
                             Password = "admin123",
                             RoleId = 2,
                             Surname = "Sayar"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CoinAccountId = new Guid("9d503f4f-db9c-49d3-996b-24e0eba679ec"),
+                            CoinAddress = "",
+                            Email = "user3@user.com",
+                            LockedBalance = 0m,
+                            Name = "User3",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CoinAccountId = new Guid("c2535cc2-8314-4e43-8b25-a1bfe5286e73"),
+                            CoinAddress = "",
+                            Email = "user4@user.com",
+                            LockedBalance = 0m,
+                            Name = "User4",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User4"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CoinAccountId = new Guid("1e300305-f613-4433-a42b-dcb3857f390f"),
+                            CoinAddress = "",
+                            Email = "user5@user.com",
+                            LockedBalance = 0m,
+                            Name = "User5",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User5"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CoinAccountId = new Guid("1022c804-71c3-431f-a008-8a9fd48bb0e6"),
+                            CoinAddress = "",
+                            Email = "user6@user.com",
+                            LockedBalance = 0m,
+                            Name = "User6",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User6"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CoinAccountId = new Guid("331301b4-b6a5-439c-9f08-cc7ead4a9b44"),
+                            CoinAddress = "",
+                            Email = "user7@user.com",
+                            LockedBalance = 0m,
+                            Name = "User7",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User7"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CoinAccountId = new Guid("12725ba0-c976-4841-b7e9-40cc8b965775"),
+                            CoinAddress = "",
+                            Email = "user8@user.com",
+                            LockedBalance = 0m,
+                            Name = "User8",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User8"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CoinAccountId = new Guid("54fddf33-ce5f-4aa1-bb49-8849f6aab20b"),
+                            CoinAddress = "",
+                            Email = "user9@user.com",
+                            LockedBalance = 0m,
+                            Name = "User9",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User9"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CoinAccountId = new Guid("75e16c0f-a9ea-4230-a88a-b757c33b2b0a"),
+                            CoinAddress = "",
+                            Email = "user10@user.com",
+                            LockedBalance = 0m,
+                            Name = "User10",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User10"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CoinAccountId = new Guid("537a20fa-1c3b-46c2-a585-6214a616ed18"),
+                            CoinAddress = "",
+                            Email = "user11@user.com",
+                            LockedBalance = 0m,
+                            Name = "User11",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User11"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CoinAccountId = new Guid("90dce2c7-5147-49bc-ad0e-0ec3c477a668"),
+                            CoinAddress = "",
+                            Email = "user12@user.com",
+                            LockedBalance = 0m,
+                            Name = "User12",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User12"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CoinAccountId = new Guid("cf3fc2fb-52f9-4ed3-ab86-5dfd5ef830a6"),
+                            CoinAddress = "",
+                            Email = "user13@user.com",
+                            LockedBalance = 0m,
+                            Name = "User13",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User13"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CoinAccountId = new Guid("380b3bc4-a787-4b98-a890-c7a450b225ce"),
+                            CoinAddress = "",
+                            Email = "user14@user.com",
+                            LockedBalance = 0m,
+                            Name = "User14",
+                            Password = "user123",
+                            RoleId = 2,
+                            Surname = "User14"
                         });
                 });
 
@@ -350,53 +859,903 @@ namespace SmartAgri.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 6,
-                            CreatedAt = new DateTime(2024, 1, 14, 16, 33, 22, 784, DateTimeKind.Local).AddTicks(8861),
-                            ProductId = 9,
-                            Quantity = 300,
-                            StatusId = 1,
-                            UnitPrice = 220m,
-                            UserId = 2
+                            Id = 2,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3001),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1614m,
+                            UserId = 4
                         },
                         new
                         {
-                            Id = 7,
-                            CreatedAt = new DateTime(2024, 1, 14, 16, 33, 22, 784, DateTimeKind.Local).AddTicks(8862),
-                            ProductId = 9,
-                            Quantity = 200,
-                            StatusId = 1,
-                            UnitPrice = 210m,
-                            UserId = 2
+                            Id = 4,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3005),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1595m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3007),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1554m,
+                            UserId = 4
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2024, 1, 14, 16, 33, 22, 784, DateTimeKind.Local).AddTicks(8863),
-                            ProductId = 9,
-                            Quantity = 180,
-                            StatusId = 1,
-                            UnitPrice = 200m,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CreatedAt = new DateTime(2024, 1, 14, 16, 33, 22, 784, DateTimeKind.Local).AddTicks(8864),
-                            ProductId = 9,
-                            Quantity = 150,
-                            StatusId = 1,
-                            UnitPrice = 190m,
-                            UserId = 2
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3009),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1560m,
+                            UserId = 4
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2024, 1, 14, 16, 33, 22, 784, DateTimeKind.Local).AddTicks(8865),
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3012),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1567m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3015),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 180m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3017),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 175m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3019),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 172m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3021),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 159m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3024),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 148m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3026),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 2905m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3028),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 3124m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3030),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 3346m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3031),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 3434m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3033),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 3629m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3035),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 268m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 34,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3037),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 266m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 36,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3040),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 235m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 38,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3042),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 207m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 40,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3044),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 223m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 42,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3074),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 93m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 44,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3076),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 92m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 46,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3077),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 93m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 48,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3079),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 95m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 50,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3081),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 97m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 52,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3082),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 508m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 54,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3084),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 526m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 56,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3086),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 555m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 58,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3087),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 510m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 60,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3089),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 487m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 62,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3090),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 21m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 64,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3092),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 20m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 66,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3095),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 21m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 68,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3098),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 21m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 70,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3100),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 21m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 72,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3102),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1129m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 74,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3103),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1108m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 76,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3105),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1253m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 78,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3106),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1182m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 80,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3108),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1084m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 82,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3110),
                             ProductId = 9,
-                            Quantity = 200,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 299m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 84,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3111),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 282m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 86,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3113),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 278m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 88,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3115),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 241m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 90,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3116),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 229m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 92,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3119),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1530m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 94,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3121),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1520m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 96,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3169),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1510m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 98,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3170),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1500m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 100,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3171),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1490m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 102,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3173),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 150m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 104,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3174),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 145m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 106,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3175),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 140m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 108,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3176),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 135m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 110,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3178),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 130m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 112,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3179),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 3440m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 114,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3180),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 3430m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 116,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3181),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 3420m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 118,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3182),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 3410m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 120,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3183),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 3400m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 122,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3185),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 190m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 124,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3186),
+                            ProductId = 4,
+                            Quantity = 100,
                             StatusId = 1,
                             UnitPrice = 180m,
-                            UserId = 2
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 126,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3187),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 170m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 128,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3188),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 160m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 130,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3191),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 150m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 132,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3193),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 95m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 134,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3194),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 90m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 136,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3195),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 85m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 138,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3197),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 80m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 140,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3198),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 75m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 142,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3199),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 500m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 144,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3200),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 490m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 146,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3201),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 480m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 148,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3202),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 470m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 150,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3203),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 460m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 152,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3205),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 21m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 154,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3206),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 20m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 156,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3207),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 19m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 158,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3208),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 18m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 160,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3236),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 17m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 162,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3237),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1140m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 164,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3239),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1130m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 166,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3240),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1120m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 168,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3241),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1110m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 170,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3242),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1100m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 172,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3243),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 220m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 174,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3244),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 210m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 176,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3245),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 200m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 178,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3247),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 190m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 180,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3248),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 180m,
+                            UserId = 4
                         });
                 });
 
@@ -410,52 +1769,902 @@ namespace SmartAgri.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 1, 14, 16, 33, 22, 784, DateTimeKind.Local).AddTicks(8840),
-                            ProductId = 9,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(2991),
+                            ProductId = 1,
                             Quantity = 100,
-                            StatusId = 1,
-                            UnitPrice = 295m,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(2024, 1, 14, 16, 33, 22, 784, DateTimeKind.Local).AddTicks(8850),
-                            ProductId = 9,
-                            Quantity = 200,
-                            StatusId = 1,
-                            UnitPrice = 285m,
-                            UserId = 2
+                            StatusId = 3,
+                            UnitPrice = 1614m,
+                            UserId = 3
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 1, 14, 16, 33, 22, 784, DateTimeKind.Local).AddTicks(8851),
-                            ProductId = 9,
-                            Quantity = 250,
-                            StatusId = 1,
-                            UnitPrice = 280m,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedAt = new DateTime(2024, 1, 14, 16, 33, 22, 784, DateTimeKind.Local).AddTicks(8852),
-                            ProductId = 9,
-                            Quantity = 125,
-                            StatusId = 1,
-                            UnitPrice = 240m,
-                            UserId = 2
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3004),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1595m,
+                            UserId = 3
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2024, 1, 14, 16, 33, 22, 784, DateTimeKind.Local).AddTicks(8853),
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3007),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1554m,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3009),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1560m,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3010),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1567m,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3014),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 180m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3016),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 175m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3018),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 172m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3020),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 159m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3024),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 148m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3026),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 2905m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3027),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 3124m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3029),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 3346m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3031),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 3434m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3032),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 3629m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3034),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 268m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3036),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 266m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 35,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3040),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 235m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 37,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3041),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 207m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 39,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3043),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 223m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 41,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3045),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 93m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 43,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3075),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 92m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 45,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3077),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 93m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 47,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3078),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 95m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 49,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3080),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 97m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 51,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3082),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 508m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 53,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3083),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 526m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 55,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3085),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 555m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 57,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3087),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 510m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 59,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3088),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 487m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 61,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3090),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 21m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 63,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3092),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 20m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 65,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3093),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 21m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 67,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3098),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 21m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 69,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3099),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 21m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 71,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3101),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1129m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 73,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3103),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1108m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 75,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3104),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1253m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 77,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3106),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1182m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 79,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3107),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 1084m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 81,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3109),
                             ProductId = 9,
-                            Quantity = 175,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 299m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 83,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3111),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 282m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 85,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3112),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 278m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 87,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3114),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 241m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 89,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3116),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 3,
+                            UnitPrice = 229m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 91,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3118),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1540m,
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 93,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3120),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1550m,
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 95,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3121),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1560m,
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 97,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3170),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1570m,
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 99,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3171),
+                            ProductId = 1,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1580m,
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 101,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3172),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 155m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 103,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3174),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 156m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 105,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3175),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 157m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 107,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3176),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 158m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 109,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3177),
+                            ProductId = 2,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 159m,
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 111,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3178),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 3450m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 113,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3179),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 3460m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 115,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3180),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 3470m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 117,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3182),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 3480m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 119,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3183),
+                            ProductId = 3,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 3490m,
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 121,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3184),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 200m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 123,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3185),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 210m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 125,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3186),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 220m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 127,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3188),
+                            ProductId = 4,
+                            Quantity = 100,
                             StatusId = 1,
                             UnitPrice = 230m,
-                            UserId = 2
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 129,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3189),
+                            ProductId = 4,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 240m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 131,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3192),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 100m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 133,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3194),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 110m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 135,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3195),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 120m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 137,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3196),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 130m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 139,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3197),
+                            ProductId = 5,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 140m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 141,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3198),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 510m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 143,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3200),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 520m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 145,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3201),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 530m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 147,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3202),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 540m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 149,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3203),
+                            ProductId = 6,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 550m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 151,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3204),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 22m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 153,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3205),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 23m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 155,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3206),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 24m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 157,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3208),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 25m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 159,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3235),
+                            ProductId = 7,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 26m,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 161,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3237),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1150m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 163,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3238),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1160m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 165,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3239),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1270m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 167,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3240),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1180m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 169,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3241),
+                            ProductId = 8,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 1090m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 171,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3242),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 230m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 173,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3244),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 240m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 175,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3245),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 250m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 177,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3246),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 260m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 179,
+                            CreatedAt = new DateTime(2024, 1, 19, 0, 27, 31, 88, DateTimeKind.Local).AddTicks(3247),
+                            ProductId = 9,
+                            Quantity = 100,
+                            StatusId = 1,
+                            UnitPrice = 270m,
+                            UserId = 5
                         });
                 });
 
